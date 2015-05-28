@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Lua," />
 
 
 
@@ -46,14 +46,12 @@
 
 
 
-  <title> 陈旸的博客 </title>
+  <title> Lua学习笔记（4） // 陈旸的博客 </title>
 </head>
 
 <body>
 <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -115,9 +113,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
+
   <div id="posts" class="posts-expand">
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -128,9 +126,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/05/28/Lua学习笔记（4）/">
-                Lua学习笔记（4）
-              </a>
+              Lua学习笔记（4）
             
           
         </h1>
@@ -166,8 +162,7 @@
       
 
       
-        
-          <h2 id="元表与元方法">元表与元方法</h2><h3 id="元表">元表</h3><p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
+        <h2 id="元表与元方法">元表与元方法</h2><h3 id="元表">元表</h3><p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = &#123;&#125;</span><br><span class="line">t1 = &#123;&#125;</span><br><span class="line">setmetatable(t, t1)</span><br><span class="line">assert(getmetatable(t) ==  t1)</span><br></pre></td></tr></table></figure>
 <p>任何table都可以作为任何值的元表，而一组相关的table也可以共享一个通用的元表，此元表描述了它们共同的行为。</p>
 <blockquote>
@@ -208,7 +203,6 @@
 <p>下面通过__index元方法实现一个具有默认值的table</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function setDefault (t, d)</span><br><span class="line">	local mt = &#123;__index = function () <span class="keyword">return</span> d <span class="keyword">end</span>&#125;</span><br><span class="line">	setmetatable(t, mt)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tab = &#123;x=<span class="number">10</span>, y=<span class="number">20</span>&#125;</span><br><span class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="keyword">nil</span>(因为没有设置元表，所以tab.z返回了<span class="keyword">nil</span>)</span><br><span class="line">setDefault(tab, <span class="number">0</span>)</span><br><span class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-        
       
     </div>
 
@@ -222,440 +216,33 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-              <a class="post-title-link" href="/2015/05/28/Lua学习笔记（3）/">
-                Lua学习笔记（3）
-              </a>
+          </div>
+
+          <div class="post-nav-next post-nav-item">
             
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-28
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
+              <a href="/2015/05/28/Lua学习笔记（3）/">Lua学习笔记（3）</a>
             
-              <a href="/categories/笔记/">笔记</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="协同程序">协同程序</h2><p>Lua将所有关于协同程序的函数放置在一个名为”coroutine”的table中。函数create用于创建新的协同程序，它只有一个参数，就是一个函数，函数代码就是所需执行的内容。create会返回一个thread类型的值，用以表示新的协同程序。通常create的参数是一个匿名函数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function () print(<span class="string">"hi"</span>) <span class="keyword">end</span>)</span><br><span class="line">print(co)  --&gt;<span class="symbol">thread:</span> <span class="number">0x7fa97b404f60</span></span><br></pre></td></tr></table></figure>
-<p>一个协同程序可以处于4种不同的状态：</p>
-<ul>
-<li>挂起(suspended)</li>
-<li>运行(running)</li>
-<li>死亡(dead)</li>
-<li>正常(normal)</li>
-</ul>
-<p>当创建一个协同程序时，它处于挂起状态。也就是说，协同程序不会在创建它时自动执行其内容。可以通过函数status来检查协同程序的状态：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(coroutine.status(co)) --&gt; suspended</span><br></pre></td></tr></table></figure>
-<p>函数<strong>coroutine.resume</strong>用于启动或再次启动一个协同程序的执行，并将其状态由挂起改为运行：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coroutine.resume(co) --&gt; hi</span><br></pre></td></tr></table></figure>
-<p>协同程序的内容只是简单地打印了”hi”后便终结了，然后它就处于死亡状态，也就再也无法返回了：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(coroutine.status(co)) --&gt; dead</span><br></pre></td></tr></table></figure>
-<p>其实协同程序的真正强大之处在于函数yield的使用上，该函数可以让一个运行中的协同程序挂起，而之后可以再回复它的运行。<br>在第一次调用resume时，并没有对应的yield在等待它，因此所有传递给resume的额外参数都将视为协同程序主函数的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function (a, b, c)</span><br><span class="line">		print(<span class="string">"co"</span>, a, b, c)</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">coroutine.resume(co, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) --&gt; co <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> /<span class="regexp">/1, 2, 3就是额外传入的参数</span></span><br></pre></td></tr></table></figure>
-<p>在resume调用返回的内容中，第一个值为true则表示没有错误，则后面所有的值都是对应yield传入的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function （a, b）</span><br><span class="line">		coroutine.<span class="keyword">yield</span>(a + b, a - b)</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">print(coroutine.resume(co, <span class="number">20</span>, <span class="number">10</span>)) --&gt; <span class="keyword">true</span> <span class="number">30</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p>与此对应的是，yield返回的额外值就是对应resume传入的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function ()</span><br><span class="line">		print(<span class="string">"co"</span>, coroutine.<span class="keyword">yield</span>())</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">coroutine.resume(co)</span><br><span class="line">coroutine.resume(co, <span class="number">4</span>, <span class="number">5</span>) --&gt; co <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>最后，当一个协同程序结束时，它的主函数所返回的值都将作为对应的resume的返回值：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	co = coroutine.create(function()</span><br><span class="line">			<span class="keyword">return</span> <span class="number">6</span>, <span class="number">7</span></span><br><span class="line">		  <span class="keyword">end</span>)</span><br><span class="line">	print(coroutine.resume(co)) --&gt; <span class="keyword">true</span> <span class="number">6</span> <span class="number">7</span></span><br><span class="line"><span class="comment">##数据结构</span></span><br><span class="line">**矩阵**和**多维数组**，使用以下代码创建<span class="constant">N</span>*<span class="constant">M</span>的矩阵：</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`ruby</span><br><span class="line">	mt = &#123;&#125;</span><br><span class="line">	for i=1, N do</span><br><span class="line">	mt[i] = &#123;&#125;</span><br><span class="line">		for j=1, M do</span><br><span class="line">			mt[i][j] = 0</span><br><span class="line">		end</span><br><span class="line">	end</span></span><br></pre></td></tr></table></figure>
-<p><strong>链表</strong>，使用以下代码创建一个链表：</p>
-<pre><code class="ruby">list = nil //先创建头结点
-list = {next = list, value = v}//在表头插入一个元素，元素值为v
-local l = list
-while l do
-    &lt;访问l.value&gt;
-    l = l.next
-end //遍历此列表
-</code></pre>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Lua/"> #Lua </a>
-          
+          </div>
         </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </div>
   </div>
 
 
+
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/28/Lua学习笔记（2）/">
-                Lua学习笔记(2)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-28
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/笔记/">笔记</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
+      <div class="comments" id="comments">
         
       </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="Lua关系操作符">Lua关系操作符</h3><p>Lua提供了一下关系操作符：</p>
-<ul>
-<li>\&lt;</li>
-<li>></li>
-<li>\&lt;=</li>
-<li>>=</li>
-<li>==</li>
-<li>~=</li>
-</ul>
-<p>对于table，userdata和函数，Lua是作引用比较的。 </p>
-<h3 id="Lua逻辑操作符">Lua逻辑操作符</h3><ul>
-<li>and</li>
-<li>or</li>
-<li>not</li>
-</ul>
-<p>所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，如果它的第一个操作数为真，就返回第一个操作数；不然返回第二个操作数。</p>
-<blockquote>
-<p>“x=x or v”等价于 if not x then x = v end</p>
-<p>为了选出数字x和y中的较大者，可以使用以下语句：</p>
-<p>max = （x &gt; y） and x or y</p>
-</blockquote>
-<h3 id="多重赋值">多重赋值</h3><p>a, b, c = 0, 0, 0 </p>
-<p>在多重赋值中，Lua先对等号右边的所有元素求值，然后才执行赋值。因此利用多重赋值可以交换两个变量。</p>
-<p>x, y = y, x（交换x与y）</p>
-<p>多重赋值也可用于收集函数的多个返回值</p>
-<h3 id="泛型">泛型</h3><p>泛型for循环通过一个迭代器函数来遍历所有值。</p>
-<blockquote>
-<p>迭代文件中每行的（io.lines），迭代table元素的（pairs），迭代数组元素的（ipairs），迭代字符串中单词的string.gmatch等。</p>
-</blockquote>
-<h3 id="变长参数">变长参数</h3><p>Lua中的函数可以可以接受不同数量的实参。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function add(...)</span><br><span class="line">local s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i, v <span class="keyword">in</span> ipairs(...) <span class="keyword">do</span></span><br><span class="line">		s = s + v</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"> <span class="keyword">return</span> s</span><br><span class="line"> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>参数表中的三个点(…)表示该函数可接受不同数量的实参。当这个函数被调用时，它的所有参数都会被收集到一起。这部分收集起来的实参称为这个函数的”变长参数”。</p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Lua/"> #Lua </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/26/Lua学习笔记（1）/">
-                Lua学习笔记(1)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-26
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/笔记/">笔记</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="Lua语法规范">Lua语法规范</h2><ul>
-<li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
-<li>Lua是有大小写之分的</li>
-<li>Lua的数组下标是从1开始计算的</li>
-<li>Lua将0和空字符串也视为真</li>
-</ul>
-<h2 id="解释器的几个主要选项参数">解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
-<p>2.”-l” 用来加载库文件</p>
-<p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
-<h2 id="Lua的8种基础类型">Lua的8种基础类型</h2><ul>
-<li>nil</li>
-<li>boolean</li>
-<li>number</li>
-<li>string</li>
-<li>userdata(自定义类型)</li>
-<li>function(函数)</li>
-<li>thread</li>
-<li>table(表)</li>
-</ul>
-<blockquote>
-<p>Lua中的字符串是不可变的值</p>
-<p>函数type可根据一个值返回其类型名称(返回的是一个字符串)</p>
-</blockquote>
-<h2 id="Lua的自动类型转换">Lua的自动类型转换</h2><h4 id="1-">1.</h4><p>Lua提供了运行时的数字雨字符串的自动转换。Lua不仅在算术操作中会施以这种强制转换，还会在其他任何需要数字的地方这么做。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"10"</span> + <span class="number">1</span>） --&gt; <span class="number">11</span></span><br><span class="line">print(<span class="string">"-5.3e-10"</span>*<span class="string">"2"</span>)  --&gt;-<span class="number">1.06</span>e-09</span><br></pre></td></tr></table></figure>
-<h4 id="2-">2.</h4><p>Lua可以讲数字转换成字符串，”..”是字符串连接操作符。当直接在一个数字后面输入它的时候，必须要用一个空格来分隔。不然Lua会将第一个点理解为一个小数点。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">10</span> .. <span class="number">20</span>)  --&gt; <span class="number">1020</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-">3.</h4><p>显式地将一个字符串转换为数字，可以使用tonumber方法</p>
-<p>将一个数字转换成字符串，可以使用tostring方法，或者将该数字与一个空字符串相连接</p>
-<h4 id="4-">4.</h4><p>在Lua 5.1中，可以在字符串前放置操作符”#”来获得该字符串的长度</p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Lua/"> #Lua </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/25/关于郑州的记忆/">
-                关于郑州的记忆
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-25
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/诗歌/">诗歌</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>歌手：李志</p>
-<p>关于郑州的我知道的不多</p>
-<p>为了爱情曾经去过那里</p>
-<p>多少次在火车上路过这城市</p>
-<p>一个人悄悄地想起她</p>
-<p>她说她喜欢郑州冬天的阳光</p>
-<p>巷子里飘满煤炉的味道</p>
-<p>雾气穿过她年轻的脖子</p>
-<p>直到今天都没有散去</p>
-<p>关于郑州我想的全是你</p>
-<p>想来想去都是忏悔和委屈</p>
-<p>关于郑州我爱的全是你</p>
-<p>爱来爱去不明白爱的意义</p>
-<p>关于郑州只是偶尔想起</p>
-<p>现在她的味道都在回忆里</p>
-<p>每次和朋友说起过去的旅行</p>
-<p>我不敢说我曾去过那里</p>
-<p>关于郑州我想的全是你</p>
-<p>想来生活无非是痛苦和美丽</p>
-<p>关于郑州我爱的全是你</p>
-<p>爱到最后我们都无路可去</p>
-<p>似是而非或是世事可畏</p>
-<p>有情有义又是有米无炊</p>
-<p>时间改变了很多又什么都没有</p>
-<p>让我再次拥抱你 郑州</p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/民谣/"> #民谣 </a>
-          
-            <a href="/tags/爱情/"> #爱情 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
   </div>
 
-  
 
         </div>
 
@@ -676,6 +263,15 @@ end //遍历此列表
   <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <div class="site-overview">
@@ -725,6 +321,17 @@ end //遍历此列表
 
       </div>
 
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#元表与元方法"><span class="nav-number">1.</span> <span class="nav-text">元表与元方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元表"><span class="nav-number">1.1.</span> <span class="nav-text">元表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table访问的元方法"><span class="nav-number">1.2.</span> <span class="nav-text">table访问的元方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#__index元方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">__index元方法</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
       
 
     </div>
@@ -786,6 +393,145 @@ end //遍历此列表
 
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
