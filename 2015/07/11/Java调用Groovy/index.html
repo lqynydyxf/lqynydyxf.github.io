@@ -192,7 +192,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">run</span><span class="params">(String scriptName, String argument)</span> <span class="keyword">throws</span> ResourceException, ScriptException </span>&#123;</span><br><span class="line">        Binding binding = <span class="keyword">new</span> Binding();</span><br><span class="line">        binding.setVariable(<span class="string">"arg"</span>, argument);</span><br><span class="line">        Object result = run(scriptName, binding);</span><br><span class="line">        <span class="keyword">return</span> result == <span class="keyword">null</span> ? <span class="string">""</span> : result.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>我们可以看到，如果<strong>run</strong>方法传入第二个参数为<strong>String</strong>类型，那么代码</p>
 <pre><code>binding.setVariable<span class="params">(<span class="string">"arg"</span>, argument)</span>;
-</code></pre><p>中强制规定了Groovy脚本必须有一个<mark>arg</mark>参数。</p>
+</code></pre><p>中强制规定了Groovy脚本必须有一个<strong><em>arg</em></strong>参数。</p>
 <p>当然，如果要传多个参数的话，还是要通过Binding，就好像Android里的ContentValues类或者Bundle类一样。</p>
 <h3 id="GroovyClassLoader">GroovyClassLoader</h3><h4 id="第一种方法">第一种方法</h4><p>通过GroovyClassLoader加载Groovy类并且调用该类的方法</p>
 <p>示例代码：</p>
