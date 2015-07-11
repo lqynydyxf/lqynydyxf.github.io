@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
 
 
-    <meta name="description" content="想和榴莲泡芙一起奔跑的草莓圣代" />
+    <meta name="description" content="想和榴莲泡芙在一起诶" />
 
 
 
@@ -39,7 +39,7 @@
       baidu: '',
       google: ''
     },
-    sidebar: 'post'
+    sidebar: 'hide'
   };
 </script>
 
@@ -141,7 +141,7 @@
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/笔记/">笔记</a>
+              <a href="/categories/Note/">Note</a>
 
               
               
@@ -168,6 +168,7 @@
 <blockquote>
 <p>Lua代码中，只能设置table的元表。若要设置其他类型的值的元表，则必须通过C代码来完成。</p>
 </blockquote>
+<a id="more"></a>
 <p>下面示例用来说明如何使用元表。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">set = &#123;&#125;</span><br><span class="line">local mt = &#123;&#125; </span><br><span class="line">function <span class="constant">Set</span>.new(l)</span><br><span class="line">		local set = &#123;&#125;</span><br><span class="line"> 	setmetatable(set, mt)</span><br><span class="line"> 	<span class="keyword">for</span> <span class="number">_</span>, v <span class="keyword">in</span> ipairs(l) <span class="keyword">do</span> set[v] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">return</span> set</span><br><span class="line"><span class="keyword">and</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function <span class="constant">Set</span>.union(a, b)</span><br><span class="line">		local res = <span class="constant">Set</span>.new&#123;&#125;</span><br><span class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span> res[k] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(b) <span class="keyword">do</span> res[k] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
@@ -219,7 +220,7 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/03/《葡萄成熟时》/">《葡萄成熟时》</a>
+              <a href="/2015/06/03/《葡萄成熟时》/">葡萄成熟时</a>
             
           </div>
 
@@ -281,11 +282,11 @@
           <img class="site-author-image" src="http://pic4.zhimg.com/e1aeaef3716f475f5930e42508190023_l.jpg" alt="陈旸" />
           <p class="site-author-name">陈旸</p>
         </div>
-        <p class="site-description motion-element">想和榴莲泡芙一起奔跑的草莓圣代</p>
+        <p class="site-description motion-element">想和榴莲泡芙在一起诶</p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -299,7 +300,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

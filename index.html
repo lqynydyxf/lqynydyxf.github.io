@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
 
 
-    <meta name="description" content="想和榴莲泡芙一起奔跑的草莓圣代" />
+    <meta name="description" content="想和榴莲泡芙在一起诶" />
 
 
 
@@ -39,7 +39,7 @@
       baidu: '',
       google: ''
     },
-    sidebar: 'post'
+    sidebar: 'hide'
   };
 </script>
 
@@ -128,8 +128,92 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/11/Java调用Groovy/">
+                Java代码嵌入Groovy
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-11
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="Java调用Groovy">Java调用Groovy</h3><p>如果想在Java代码中嵌入Groovy，目前主要有三种方式。</p>
+<h4 id="GroovyShell">GroovyShell</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> groovy.lang.Binding;</span><br><span class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="typename">void</span> main(String[] args)&#123;</span><br><span class="line">        Binding bind =  <span class="keyword">new</span> Binding();</span><br><span class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</span><br><span class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</span><br><span class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</span><br><span class="line">        System.out.println(object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果输出为：</p>
+<pre><code><span class="variable">Hello</span> <span class="variable">Groovy</span><span class="exclamation_mark">!</span>
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/11/Java调用Groovy/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Groovy/"> #Groovy </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/03/《葡萄成熟时》/">
-                《葡萄成熟时》
+                葡萄成熟时
               </a>
             
           
@@ -167,41 +251,19 @@
 
       
         
-          <p>歌手：陈奕迅</p>
+          <p><img src="/img/1.jpg" alt=""></p>
+<p>歌手：陈奕迅</p>
 <p>差不多冬至    一早一晚还是有雨</p>
 <p>当初的坚持    现已令你很怀疑 很怀疑</p>
 <p>你最尾等到    只有这枯枝</p>
 <p>苦恋几多次    悉心栽种全力灌注</p>
 <p>所得竟不如    别个后辈收成时</p>
 <p>这一次    你真的很介意</p>
-<p>但见旁人谈情何引诱    问到何时葡萄先熟透</p>
-<p>你要静候 再静候 就算失败 始终要守</p>
-<p>日后 尽量别教今天的泪白流</p>
-<p>留低 击伤你的石头 从错误中吸收</p>
-<p>也许 丰收 月份尚未到你也得接受</p>
-<p>或者要到你将爱酿成醇酒</p>
-<p>时机先至熟透</p>
-<p>应该怎么去爱 可惜书里没记载</p>
-<p>终于摸出来 但岁月却不回来 不回来</p>
-<p>错过了春天 可会再花开</p>
-<p>一千种恋爱 一些需要情泪灌溉</p>
-<p>枯萎的温柔 在最后会长回来</p>
-<p>错的爱 乃必经的配菜</p>
-<p>但见旁人谈情何引诱 问到何时葡萄先熟透</p>
-<p>你要静候 再静候 就算失败 始终要守</p>
-<p>日后 尽量别教今天的泪白流</p>
-<p>留低 击伤你的石头 从错误中吸收</p>
-<p>也许 丰收 月份尚未到你也得接受</p>
-<p>或者要到你将爱酿成醇酒</p>
-<p>时机先至熟透</p>
-<p>想想天的一边 亦有个某某 在等候</p>
-<p>一心只等葡萄熟透 尝杯酒</p>
-<p>别让 寂寞害你伤得一夜白头</p>
-<p>仍得不需要的自由 和最耀眼伤口</p>
-<p>我知 日后 路上或没有更美的邂逅</p>
-<p>但当你智慧都酝酿成红酒 仍可一醉自救</p>
-<p>谁都心酸过 那个没有</p>
-
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/03/《葡萄成熟时》/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -254,7 +316,7 @@
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/笔记/">笔记</a>
+              <a href="/categories/Note/">Note</a>
 
               
               
@@ -282,41 +344,11 @@
 <blockquote>
 <p>Lua代码中，只能设置table的元表。若要设置其他类型的值的元表，则必须通过C代码来完成。</p>
 </blockquote>
-<p>下面示例用来说明如何使用元表。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">set = &#123;&#125;</span><br><span class="line">local mt = &#123;&#125; </span><br><span class="line">function <span class="constant">Set</span>.new(l)</span><br><span class="line">		local set = &#123;&#125;</span><br><span class="line"> 	setmetatable(set, mt)</span><br><span class="line"> 	<span class="keyword">for</span> <span class="number">_</span>, v <span class="keyword">in</span> ipairs(l) <span class="keyword">do</span> set[v] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">return</span> set</span><br><span class="line"><span class="keyword">and</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function <span class="constant">Set</span>.union(a, b)</span><br><span class="line">		local res = <span class="constant">Set</span>.new&#123;&#125;</span><br><span class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span> res[k] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(b) <span class="keyword">do</span> res[k] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function <span class="constant">Set</span>.intersection(a, b)</span><br><span class="line">	local res = <span class="constant">Set</span>.new&#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span></span><br><span class="line">		res[k] = b[k]</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function <span class="constant">Set</span>.tostring(set)</span><br><span class="line">	local l = &#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> e <span class="keyword">in</span> pairs(set) <span class="keyword">do</span></span><br><span class="line">		l[<span class="comment">#l + 1] = e</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">"&#123;"</span> .. table.concat(l, <span class="string">", "</span>) .. <span class="string">"&#125;"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mt.__le = function(a, b)</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">if</span> <span class="keyword">not</span> b[k] <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">false</span> <span class="keyword">end</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mt.__lt = function(a, b)</span><br><span class="line">	<span class="keyword">return</span> a &lt;= b <span class="keyword">and</span> <span class="keyword">not</span> (b &lt;= a)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mt.__eq = function(a, b)</span><br><span class="line">	<span class="keyword">return</span> a &lt;= b <span class="keyword">and</span> b &lt;= a</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mt.__add = <span class="constant">Set</span>.union</span><br><span class="line">s1 = <span class="constant">Set</span>.new&#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>&#125;</span><br><span class="line">s2 = <span class="constant">Set</span>.new&#123;<span class="number">30</span>, <span class="number">1</span>&#125;</span><br><span class="line">s3 = s1 + s2</span><br><span class="line"><span class="constant">Set</span>.print(s3)  --&gt; (<span class="number">1</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="constant">Set</span>.new&#123;<span class="number">2</span>, <span class="number">4</span>&#125;</span><br><span class="line">s2 = <span class="constant">Set</span>.new&#123;<span class="number">4</span>, <span class="number">10</span>, <span class="number">2</span>&#125;</span><br><span class="line">print(s1 &lt;= s2) --&gt; <span class="keyword">true</span></span><br><span class="line">print(s1 &lt; s2)	--&gt; <span class="keyword">true</span></span><br><span class="line">print(s1 &gt;= s1)  --&gt; <span class="keyword">true</span></span><br><span class="line">print(s1 &gt; s1)  --&gt; <span class="keyword">false</span></span><br><span class="line">print(s1 == s2 * s1)  --&gt; <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-<p>在元表中，每种算术操作符都有对应的字段名。</p>
-<ul>
-<li>__add(+) —&gt; 加法</li>
-<li>__mul(*) —&gt; 乘法</li>
-<li>__sub(减法) —&gt; 减法</li>
-<li>__div(除法) —&gt; 除法</li>
-<li>__unm(相反数)</li>
-<li>__mod(取模)</li>
-<li>__pow(乘幂)</li>
-<li>__concat(描述连接操作符的行为) </li>
-<li>__le(&lt;=) —&gt; 子集</li>
-<li>__lt(&lt;) —&gt; 真子集</li>
-<li>__eq(==) —&gt; 相等</li>
-<li>__len —&gt; 长度</li>
-<li>__index —&gt; 索引查询</li>
-<li>__newindex —&gt; 索引更新</li>
-</ul>
-<h3 id="table访问的元方法">table访问的元方法</h3><h4 id="__index元方法">__index元方法</h4><p>当访问一个table中不存在的字段时，这些访问会促使解释器去寻找一个叫__index的元方法，如果没有这个元方法，那么访问结果为nil。否则，就由这个元方法来提供最终结果。</p>
-<p>下面将介绍一个有关继承的典型示例。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Window</span> = &#123;&#125; -- 创建一个名字空间</span><br><span class="line">-- 使用默认值创建一个原型</span><br><span class="line"><span class="constant">Window</span>.prototype = &#123;x=<span class="number">0</span>, y=<span class="number">0</span>, width=<span class="number">100</span>, height=<span class="number">100</span>&#125;</span><br><span class="line"><span class="constant">Window</span>.mt = &#123;&#125;  -- 创建元表</span><br><span class="line">-- 声明构造函数</span><br><span class="line">function <span class="constant">Window</span>.new(o)</span><br><span class="line">	setmetatable(o, <span class="constant">Window</span>.mt)</span><br><span class="line">	<span class="keyword">return</span> o</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Window</span>.mt.__index = function(table, key)</span><br><span class="line">	<span class="keyword">return</span> <span class="constant">Window</span>.prototype[key]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = <span class="constant">Window</span>.new&#123;x=<span class="number">10</span>, y=<span class="number">20</span>&#125;</span><br><span class="line">print(w.width) --&gt; <span class="number">100</span></span><br></pre></td></tr></table></figure>
-<p>下面通过__index元方法实现一个具有默认值的table</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function setDefault (t, d)</span><br><span class="line">	local mt = &#123;__index = function () <span class="keyword">return</span> d <span class="keyword">end</span>&#125;</span><br><span class="line">	setmetatable(t, mt)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tab = &#123;x=<span class="number">10</span>, y=<span class="number">20</span>&#125;</span><br><span class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="keyword">nil</span>(因为没有设置元表，所以tab.z返回了<span class="keyword">nil</span>)</span><br><span class="line">setDefault(tab, <span class="number">0</span>)</span><br><span class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/28/Lua学习笔记（4）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -369,7 +401,7 @@
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/笔记/">笔记</a>
+              <a href="/categories/Note/">Note</a>
 
               
               
@@ -400,30 +432,11 @@
 <li>死亡(dead)</li>
 <li>正常(normal)</li>
 </ul>
-<p>当创建一个协同程序时，它处于挂起状态。也就是说，协同程序不会在创建它时自动执行其内容。可以通过函数status来检查协同程序的状态：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(coroutine.status(co)) --&gt; suspended</span><br></pre></td></tr></table></figure>
-<p>函数<strong>coroutine.resume</strong>用于启动或再次启动一个协同程序的执行，并将其状态由挂起改为运行：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coroutine.resume(co) --&gt; hi</span><br></pre></td></tr></table></figure>
-<p>协同程序的内容只是简单地打印了”hi”后便终结了，然后它就处于死亡状态，也就再也无法返回了：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(coroutine.status(co)) --&gt; dead</span><br></pre></td></tr></table></figure>
-<p>其实协同程序的真正强大之处在于函数yield的使用上，该函数可以让一个运行中的协同程序挂起，而之后可以再回复它的运行。<br>在第一次调用resume时，并没有对应的yield在等待它，因此所有传递给resume的额外参数都将视为协同程序主函数的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function (a, b, c)</span><br><span class="line">		print(<span class="string">"co"</span>, a, b, c)</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">coroutine.resume(co, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) --&gt; co <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> /<span class="regexp">/1, 2, 3就是额外传入的参数</span></span><br></pre></td></tr></table></figure>
-<p>在resume调用返回的内容中，第一个值为true则表示没有错误，则后面所有的值都是对应yield传入的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function （a, b）</span><br><span class="line">		coroutine.<span class="keyword">yield</span>(a + b, a - b)</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">print(coroutine.resume(co, <span class="number">20</span>, <span class="number">10</span>)) --&gt; <span class="keyword">true</span> <span class="number">30</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p>与此对应的是，yield返回的额外值就是对应resume传入的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function ()</span><br><span class="line">		print(<span class="string">"co"</span>, coroutine.<span class="keyword">yield</span>())</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">coroutine.resume(co)</span><br><span class="line">coroutine.resume(co, <span class="number">4</span>, <span class="number">5</span>) --&gt; co <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>最后，当一个协同程序结束时，它的主函数所返回的值都将作为对应的resume的返回值：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	co = coroutine.create(function()</span><br><span class="line">			<span class="keyword">return</span> <span class="number">6</span>, <span class="number">7</span></span><br><span class="line">		  <span class="keyword">end</span>)</span><br><span class="line">	print(coroutine.resume(co)) --&gt; <span class="keyword">true</span> <span class="number">6</span> <span class="number">7</span></span><br><span class="line"><span class="comment">##数据结构</span></span><br><span class="line">**矩阵**和**多维数组**，使用以下代码创建<span class="constant">N</span>*<span class="constant">M</span>的矩阵：</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`ruby</span><br><span class="line">	mt = &#123;&#125;</span><br><span class="line">	for i=1, N do</span><br><span class="line">	mt[i] = &#123;&#125;</span><br><span class="line">		for j=1, M do</span><br><span class="line">			mt[i][j] = 0</span><br><span class="line">		end</span><br><span class="line">	end</span></span><br></pre></td></tr></table></figure>
-<p><strong>链表</strong>，使用以下代码创建一个链表：</p>
-<pre><code class="ruby">list = nil //先创建头结点
-list = {next = list, value = v}//在表头插入一个元素，元素值为v
-local l = list
-while l do
-    &lt;访问l.value&gt;
-    l = l.next
-end //遍历此列表
-</code></pre>
-
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/28/Lua学习笔记（3）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -476,7 +489,7 @@ end //遍历此列表
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/笔记/">笔记</a>
+              <a href="/categories/Note/">Note</a>
 
               
               
@@ -519,18 +532,11 @@ end //遍历此列表
 <p>为了选出数字x和y中的较大者，可以使用以下语句：</p>
 <p>max = （x &gt; y） and x or y</p>
 </blockquote>
-<h3 id="多重赋值">多重赋值</h3><p>a, b, c = 0, 0, 0 </p>
-<p>在多重赋值中，Lua先对等号右边的所有元素求值，然后才执行赋值。因此利用多重赋值可以交换两个变量。</p>
-<p>x, y = y, x（交换x与y）</p>
-<p>多重赋值也可用于收集函数的多个返回值</p>
-<h3 id="泛型">泛型</h3><p>泛型for循环通过一个迭代器函数来遍历所有值。</p>
-<blockquote>
-<p>迭代文件中每行的（io.lines），迭代table元素的（pairs），迭代数组元素的（ipairs），迭代字符串中单词的string.gmatch等。</p>
-</blockquote>
-<h3 id="变长参数">变长参数</h3><p>Lua中的函数可以可以接受不同数量的实参。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function add(...)</span><br><span class="line">local s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i, v <span class="keyword">in</span> ipairs(...) <span class="keyword">do</span></span><br><span class="line">		s = s + v</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"> <span class="keyword">return</span> s</span><br><span class="line"> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>参数表中的三个点(…)表示该函数可接受不同数量的实参。当这个函数被调用时，它的所有参数都会被收集到一起。这部分收集起来的实参称为这个函数的”变长参数”。</p>
-
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/28/Lua学习笔记（2）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -540,213 +546,6 @@ end //遍历此列表
         <div class="post-tags">
           
             <a href="/tags/Lua/"> #Lua </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/26/Lua学习笔记（1）/">
-                Lua学习笔记(1)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-26
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/笔记/">笔记</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="Lua语法规范">Lua语法规范</h2><ul>
-<li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
-<li>Lua是有大小写之分的</li>
-<li>Lua的数组下标是从1开始计算的</li>
-<li>Lua将0和空字符串也视为真</li>
-</ul>
-<h2 id="解释器的几个主要选项参数">解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
-<p>2.”-l” 用来加载库文件</p>
-<p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
-<h2 id="Lua的8种基础类型">Lua的8种基础类型</h2><ul>
-<li>nil</li>
-<li>boolean</li>
-<li>number</li>
-<li>string</li>
-<li>userdata(自定义类型)</li>
-<li>function(函数)</li>
-<li>thread</li>
-<li>table(表)</li>
-</ul>
-<blockquote>
-<p>Lua中的字符串是不可变的值</p>
-<p>函数type可根据一个值返回其类型名称(返回的是一个字符串)</p>
-</blockquote>
-<h2 id="Lua的自动类型转换">Lua的自动类型转换</h2><h4 id="1-">1.</h4><p>Lua提供了运行时的数字雨字符串的自动转换。Lua不仅在算术操作中会施以这种强制转换，还会在其他任何需要数字的地方这么做。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"10"</span> + <span class="number">1</span>） --&gt; <span class="number">11</span></span><br><span class="line">print(<span class="string">"-5.3e-10"</span>*<span class="string">"2"</span>)  --&gt;-<span class="number">1.06</span>e-09</span><br></pre></td></tr></table></figure>
-<h4 id="2-">2.</h4><p>Lua可以讲数字转换成字符串，”..”是字符串连接操作符。当直接在一个数字后面输入它的时候，必须要用一个空格来分隔。不然Lua会将第一个点理解为一个小数点。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">10</span> .. <span class="number">20</span>)  --&gt; <span class="number">1020</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-">3.</h4><p>显式地将一个字符串转换为数字，可以使用tonumber方法</p>
-<p>将一个数字转换成字符串，可以使用tostring方法，或者将该数字与一个空字符串相连接</p>
-<h4 id="4-">4.</h4><p>在Lua 5.1中，可以在字符串前放置操作符”#”来获得该字符串的长度</p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Lua/"> #Lua </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/25/关于郑州的记忆/">
-                关于郑州的记忆
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-25
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/诗歌/">诗歌</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>歌手：李志</p>
-<p>关于郑州的我知道的不多</p>
-<p>为了爱情曾经去过那里</p>
-<p>多少次在火车上路过这城市</p>
-<p>一个人悄悄地想起她</p>
-<p>她说她喜欢郑州冬天的阳光</p>
-<p>巷子里飘满煤炉的味道</p>
-<p>雾气穿过她年轻的脖子</p>
-<p>直到今天都没有散去</p>
-<p>关于郑州我想的全是你</p>
-<p>想来想去都是忏悔和委屈</p>
-<p>关于郑州我爱的全是你</p>
-<p>爱来爱去不明白爱的意义</p>
-<p>关于郑州只是偶尔想起</p>
-<p>现在她的味道都在回忆里</p>
-<p>每次和朋友说起过去的旅行</p>
-<p>我不敢说我曾去过那里</p>
-<p>关于郑州我想的全是你</p>
-<p>想来生活无非是痛苦和美丽</p>
-<p>关于郑州我爱的全是你</p>
-<p>爱到最后我们都无路可去</p>
-<p>似是而非或是世事可畏</p>
-<p>有情有义又是有米无炊</p>
-<p>时间改变了很多又什么都没有</p>
-<p>让我再次拥抱你 郑州</p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/民谣/"> #民谣 </a>
-          
-            <a href="/tags/爱情/"> #爱情 </a>
           
         </div>
       
@@ -765,6 +564,10 @@ end //遍历此列表
   </div>
 
   
+  <div class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+  </div>
+
 
         </div>
 
@@ -792,11 +595,11 @@ end //遍历此列表
           <img class="site-author-image" src="http://pic4.zhimg.com/e1aeaef3716f475f5930e42508190023_l.jpg" alt="陈旸" />
           <p class="site-author-name">陈旸</p>
         </div>
-        <p class="site-description motion-element">想和榴莲泡芙一起奔跑的草莓圣代</p>
+        <p class="site-description motion-element">想和榴莲泡芙在一起诶</p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -810,7 +613,7 @@ end //遍历此列表
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
