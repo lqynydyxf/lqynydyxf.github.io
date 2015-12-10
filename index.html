@@ -128,6 +128,277 @@
           
           
             
+              <a class="post-title-link" href="/2015/12/10/Groovy基础语法/">
+                Groovy基础语法
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-12-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          本文档只是挑选了Groovy中最常用的语法进行介绍，借鉴了《Groovy入门经典》，内容不免单薄，若想深入学习，推荐阅读《Groovy程序设计》和《Groovy in Action》。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/10/Groovy基础语法/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Goovy/"> #Goovy </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/12/10/Groovy安装/">
+                Groovy安装
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-12-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="Groovy安装">Groovy安装</h2><h3 id="MAC_OS_X">MAC OS X</h3><h4 id="Homebrew">Homebrew</h4><p>安装Homebrew<br>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure>
+<p>等安装完毕，输入<strong>brew —version</strong>命令，输出<strong>Homebrew</strong>的版本，比如我的版本是0.9.5，如果成功输出版本信息，说明安装成功。</p>
+<p>安装Groovy</p>
+<p>这一步非常简单，输入如下命令即可：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install groovy</span><br></pre></td></tr></table></figure>
+<p>等安装完毕，在终端输入<strong>groovy —version</strong>命令，系统会输出Groovy版本，比如我的版本是2.4.3，如果成功输出版本信息，说明安装成功。</p>
+<h4 id="GVM_(the_Groovy_enVironment_Manager)">GVM (the Groovy enVironment Manager)</h4><p>输入以下命令，依次运行：</p>
+<blockquote>
+<p>$ curl -s get.gvmtool.net | bash</p>
+<p>$ source “$HOME/.gvm/bin/gvm-init.sh”</p>
+<p>$ gvm install groovy</p>
+<p>$ groovy -version</p>
+</blockquote>
+<h3 id="Windows">Windows</h3><ol>
+<li>先去<a href="http://www.groovy-lang.org" target="_blank" rel="external">Groovy官网</a>下载最新版的installer，按照步骤安装（前提是已经安装了JDK）。</li>
+<li>安装完毕之后，打开Windows下的Dos窗口，输入命令<strong>groovy -version</strong>，如果成功输出版本信息，说明安装成功。</li>
+</ol>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Groovy/"> #Groovy </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/12/10/Android 6.0 Doze和App Standby调研/">
+                Android 6.0 Doze模式和App Standby调研
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-12-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="简介">简介</h2><p>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
+<h2 id="Doze和APP_Standby模式测试">Doze和APP Standby模式测试</h2><p>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。</p>
+<h3 id="进入Doze模式">进入Doze模式</h3><ol>
+<li>准备一台安装了Android 6.0系统的设备</li>
+<li>在开发机器上连接你的设备，然后安装应用</li>
+<li>运行应用</li>
+<li>关闭设备屏幕</li>
+<li>通过命令行进入Doze模式</li>
+</ol>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell dumpsys battery unplug</span><br><span class="line">$ adb shell dumpsys deviceidle step</span><br></pre></td></tr></table></figure>
+<h3 id="进入App_Standby模式">进入App Standby模式</h3><p>前三步和进入Doze模式的步骤一样，只是不需要关闭屏幕。</p>
+<p>通过命令行进入App Standby模式</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell dumpsys battery unplug</span><br><span class="line">$ adb shell am <span class="keyword">set</span>-inactive &lt;packageName&gt; true</span><br></pre></td></tr></table></figure>
+<p>通过命令唤醒App</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell am <span class="keyword">set</span>-inactive &lt;packageName&gt; false</span><br><span class="line">$ adb shell am get-inactive &lt;packageName&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="App_Standby模式对推送的影响">App Standby模式对推送的影响</h2><p>在Doze模式和Standby模式下，第三方推送将会被废，唯一能用的就是Google的GCM。看起来Google希望通过Doze和App Standby来强推GCM。</p>
+<p>此处重点研究App Standby模式。通过几个Demo测试，得出以下结果：</p>
+<ol>
+<li>通过startService启动PushService无法把应用从Standby模式唤醒。</li>
+<li>先杀死PushService再startService也是不可行的。</li>
+<li>通过启动应用然后再杀死是可行的，但是会对用户进行干扰。如果选择半夜偷偷启动应用再杀死，未免太过猥琐。</li>
+</ol>
+<p>Google在最后关头为开发者提供了一个例外方案：应用可以声明<strong>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</strong>权限，并主动要求用户将其加入至白名单中，从而不受Doze Mode和App Standby的影响。</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/"> #Android </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/11/Java调用Groovy/">
                 Java代码嵌入Groovy
               </a>
@@ -186,93 +457,6 @@
         <div class="post-tags">
           
             <a href="/tags/Groovy/"> #Groovy </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/03/《葡萄成熟时》/">
-                葡萄成熟时
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-03
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/歌词/">歌词</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="/img/1.jpg" alt=""></p>
-<p>歌手：陈奕迅</p>
-<p>差不多冬至    一早一晚还是有雨</p>
-<p>当初的坚持    现已令你很怀疑 很怀疑</p>
-<p>你最尾等到    只有这枯枝</p>
-<p>苦恋几多次    悉心栽种全力灌注</p>
-<p>所得竟不如    别个后辈收成时</p>
-<p>这一次    你真的很介意</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/03/《葡萄成熟时》/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/陈奕迅/"> #陈奕迅 </a>
           
         </div>
       
@@ -373,194 +557,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/28/Lua学习笔记（3）/">
-                Lua学习笔记（3）
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-28
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/Note/">Note</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="协同程序">协同程序</h2><p>Lua将所有关于协同程序的函数放置在一个名为”coroutine”的table中。函数create用于创建新的协同程序，它只有一个参数，就是一个函数，函数代码就是所需执行的内容。create会返回一个thread类型的值，用以表示新的协同程序。通常create的参数是一个匿名函数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function () print(<span class="string">"hi"</span>) <span class="keyword">end</span>)</span><br><span class="line">print(co)  --&gt;<span class="symbol">thread:</span> <span class="number">0x7fa97b404f60</span></span><br></pre></td></tr></table></figure>
-<p>一个协同程序可以处于4种不同的状态：</p>
-<ul>
-<li>挂起(suspended)</li>
-<li>运行(running)</li>
-<li>死亡(dead)</li>
-<li>正常(normal)</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/28/Lua学习笔记（3）/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Lua/"> #Lua </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/28/Lua学习笔记（2）/">
-                Lua学习笔记(2)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-28
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/Note/">Note</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="Lua关系操作符">Lua关系操作符</h3><p>Lua提供了一下关系操作符：</p>
-<ul>
-<li>\&lt;</li>
-<li>></li>
-<li>\&lt;=</li>
-<li>>=</li>
-<li>==</li>
-<li>~=</li>
-</ul>
-<p>对于table，userdata和函数，Lua是作引用比较的。 </p>
-<h3 id="Lua逻辑操作符">Lua逻辑操作符</h3><ul>
-<li>and</li>
-<li>or</li>
-<li>not</li>
-</ul>
-<p>所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，如果它的第一个操作数为真，就返回第一个操作数；不然返回第二个操作数。</p>
-<blockquote>
-<p>“x=x or v”等价于 if not x then x = v end</p>
-<p>为了选出数字x和y中的较大者，可以使用以下语句：</p>
-<p>max = （x &gt; y） and x or y</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/28/Lua学习笔记（2）/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Lua/"> #Lua </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -599,7 +595,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -613,7 +609,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

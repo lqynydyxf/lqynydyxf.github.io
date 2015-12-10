@@ -1,0 +1,706 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+
+
+    <meta name="description" content="和泡芙在一起，会幸福吧" />
+
+
+
+  <meta name="keywords" content="Goovy," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      baidu: '',
+      google: ''
+    },
+    sidebar: 'hide'
+  };
+</script>
+
+
+
+
+  <title> Groovy基础语法 // 陈旸的博客 </title>
+</head>
+
+<body>
+<!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">陈旸的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              Groovy基础语法
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-12-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <p><img src="/img/4.jpg" alt=""></p>
+<h1 id="目录">目录</h1><ul>
+<li><a href="#1">1 字符串</a><ul>
+<li><a href="#1.1">1.1 引号</a></li>
+<li><a href="#1.2">1.2 正则表达式</a></li>
+</ul>
+</li>
+<li><a href="#2">2 列表和映射</a><ul>
+<li><a href="#2.1">2.1 列表</a><ul>
+<li><a href="#2.1.1">2.1.1 索引</a></li>
+<li><a href="#2.1.2">2.1.2 操作符</a></li>
+</ul>
+</li>
+<li><a href="#2.2">2.2 映射</a></li>
+<li><a href="#2.3">2.3 范围</a></li>
+</ul>
+</li>
+<li><a href="#3">3 流程控制</a><ul>
+<li><a href="#3.1">3.1 while语句</a></li>
+<li><a href="#3.2">3.2 for语句</a></li>
+<li><a href="#3.3">3.3 if语句</a></li>
+<li><a href="#3.4">3.4 switch语句</a><ul>
+<li><a href="#3.4.1">3.4.1 Switch和范围</a></li>
+</ul>
+</li>
+<li><a href="#3.5">3.5 break语句</a></li>
+<li><a href="#3.6">3.6 continue语句</a></li>
+</ul>
+</li>
+<li><a href="#4">4 闭包</a><ul>
+<li><a href="#4.1">4.1 闭包的调用</a></li>
+<li><a href="#4.2">4.2 闭包，集合和字符串</a><ul>
+<li><a href="#4.2.1">4.2.1 each方法和闭包</a></li>
+<li><a href="#4.2.2">4.2.2 find方法和闭包</a></li>
+<li><a href="#4.2.3">4.2.3 collect方法和闭包</a></li>
+<li><a href="#4.2.4">4.2.4 inject方法和闭包</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5">5 类</a><ul>
+<li><a href="#5.1">5.1 类的实例</a><ul>
+<li><a href="#5.1.1">5.1.1 无构造器</a></li>
+<li><a href="#5.1.2">5.1.2 自定义构造器</a></li>
+</ul>
+</li>
+<li><a href="#5.2">5.2 类的继承，抽象类和接口类</a></li>
+</ul>
+</li>
+<li><a href="#6">6 总结</a></li>
+</ul>
+<h2 id="1_字符串"><a id="1">1 字符串</a></h2><h3 id="1-1_引号"><a id="1.1">1.1 引号</a></h3><p>Groovy支持单引号（’’），双引号（””）和三引号（” “ “）来封装字符串。其中三引号表示的字符串可以包含多行文本。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> a = <span class="string">"""Spread</span><br><span class="line">           over</span><br><span class="line">           four"""</span></span><br><span class="line">   print(a)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spread</span><br><span class="line">           over</span><br><span class="line">           four</span><br></pre></td></tr></table></figure>
+<p>使用单引号封装的字符串的值就是所列出的字符序列本身，另外两种形式的字符串的值可能会进一步被解释，任何包含在解释型字符串中的${expression}都将被求值，其结果是字符串的一部分。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> age = <span class="number">25</span></span><br><span class="line"><span class="string">'My age is $&#123;age&#125;'</span>	<span class="comment">// My age is $&#123;age&#125;</span></span><br><span class="line"><span class="string">"My age is $&#123;age&#125;"</span>	<span class="comment">// My age is 25</span></span><br><span class="line"><span class="string">"""My age is $&#123;age&#125;"""</span>	<span class="comment">// My age is 25</span></span><br><span class="line"><span class="string">"My age is \$&#123;age&#125;"</span>	<span class="comment">// My age is $&#123;age&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Groovy的通用原则是只在字符串需要被解释的时候使用双引号，其他情况下使用单引号。Groovy中也使用字符反斜线<strong>\</strong>来进行转义。</p>
+<h3 id="1-2_正则表达式"><a id="1.2">1.2 正则表达式</a></h3><p>Groovy支持使用~”regex”来定义正则表达式，通过下面的方法可以创建一个正则表达式：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> regex =~ <span class="string">'cheese'</span></span><br></pre></td></tr></table></figure>
+<p>在if语句或者while语句中，当Groovy操作符”=~”作为一个谓词出现时，左边的操作数String对象将和右边的正则表达式匹配。下面所有的表达式结果均为true：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> regex =~ <span class="string">'cheese'</span></span><br><span class="line"><span class="string">'cheesecake'</span> =~ <span class="string">'cheese'</span></span><br><span class="line"><span class="string">'cheesecake'</span> =~ regex</span><br></pre></td></tr></table></figure>
+<p>“==~”是精确匹配符。</p>
+<p>在正则表达式中，脱字符号（\^）和美元符号（$）分别表示某行的开始和结尾。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> rhyme = <span class="string">'a b c'</span></span><br><span class="line">rhyme =~ <span class="string">'^a'</span>  <span class="comment">// true</span></span><br><span class="line">rhyme =~ <span class="string">'c$'</span>  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>加号（+）表示在表达式中位于它前面的字符出现一次或者多次，星号（*）表示出现零次或者多次。”{“和 “}”用来匹配位于”{“之前指定次数的字符，下列表达式的结果均为true：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'aaaaab'</span> =~ <span class="string">'a * b'</span></span><br><span class="line"><span class="string">'aaaaab'</span> =~ <span class="string">'a&#123;5&#125;b'</span></span><br></pre></td></tr></table></figure>
+<h2 id="2_列表和映射"><a id="2">2 列表和映射</a></h2><h3 id="2-1_列表"><a id="2.1">2.1 列表</a></h3><h4 id="2-1-1_索引"><a id="2.1.1">2.1.1 索引</a></h4><p>列表是一种用来储存数据项集合的数据结构。在Groovy中，列表字面值是一系列包含在方括号中的对象集合，这些对象用逗号分隔。</p>
+<p>Groovy列表使用索引操作符[]来标识元素值。列表的索引从0开始，指向列表的第一个元素。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> numbers = [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>]	<span class="comment">// 列表含有四个元素</span></span><br><span class="line">numbers[<span class="number">0</span>]  <span class="comment">// 第0个元素的值为11</span></span><br><span class="line">numbers[<span class="number">3</span>]  <span class="comment">// 第3个元素的值为14</span></span><br></pre></td></tr></table></figure>
+<p>如果整形索引为负数，则其引用的元素从列表末端开始向前移动。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numbers[-<span class="number">1</span>]  <span class="comment">// 值为14</span></span><br><span class="line">numbers[-<span class="number">2</span>]  <span class="comment">// 值为13</span></span><br></pre></td></tr></table></figure>
+<p>索引段同样可以用于列表。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>][<span class="number">2</span>]  <span class="comment">// 值为13</span></span><br></pre></td></tr></table></figure>
+<p>也可以通过索引范围来操作列表。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numbers[<span class="number">0.</span>.<span class="number">2</span>]  <span class="comment">// 返回列表[11, 12, 13]</span></span><br><span class="line">numbers[<span class="number">1.</span>.&lt;<span class="number">3</span>]  <span class="comment">// 返回列表[12, 13]</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-1-2_操作符"><a id="2.1.2">2.1.2 操作符</a></h4><p>主要使用以下操作符对列表进行操作。</p>
+<ul>
+<li>&lt;&lt;</li>
+<li>+</li>
+<li>-</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> a = [<span class="number">1</span>]</span><br><span class="line">a &lt;&lt; <span class="number">2</span>  <span class="comment">// 返回列表[1, 2]</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2_映射"><a id="2.2">2.2 映射</a></h3><p>映射（也就是大家熟知的组合数组，词典，表格和散列）是一种引用对象的无需集合。映射中的所有元素都可以通过关键字访问，它使用的关键字可以是任意类型的。</p>
+<p>在映射字面值中，如果某个元素的关键字是一个变量名，那么它将被解释成一个String。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> x = <span class="number">1</span></span><br><span class="line"><span class="keyword">def</span> y = <span class="number">2</span></span><br><span class="line"><span class="keyword">def</span> m = [<span class="string">x :</span> y, <span class="string">y :</span> x]</span><br></pre></td></tr></table></figure>
+<p>于是，m就是映射：</p>
+<blockquote>
+<p>m = [‘x’ : 2, ‘y’ : 1]</p>
+</blockquote>
+<h3 id="2-3_范围"><a id="2.3">2.3 范围</a></h3><p>范围是表达特定序列值的一种简略方法。它通过序列中第一个值和最后一个值表示，范围还具有包含和不包含关系。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1900.</span>.<span class="number">1999</span>  <span class="comment">// 包含边界</span></span><br><span class="line"><span class="number">1900.</span>.&lt;<span class="number">2000</span>  <span class="comment">// 不包含边界</span></span><br><span class="line"><span class="string">'A'</span>..<span class="string">'D'</span>  <span class="comment">// A，B，C，和D</span></span><br></pre></td></tr></table></figure>
+<p>包含边界的范围通过<strong>..</strong>表示，而不包含边界的范围通过<strong>..&lt;</strong>。</p>
+<p>Groovy也为范围定义了一些方法。</p>
+<blockquote>
+<ul>
+<li>get</li>
+<li>getFrom (获取当前范围中下标最小的元素值)</li>
+<li>getTo (获取当前范围中下标最大的元素值)</li>
+<li>isReverse</li>
+<li>size</li>
+<li>subList</li>
+</ul>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> twentiethCentury = <span class="number">1900.</span>.<span class="number">1999</span></span><br><span class="line"><span class="keyword">def</span> reversedTen = <span class="number">10.</span>.<span class="number">1</span></span><br><span class="line">twentiethCentury.size  <span class="comment">// 100</span></span><br><span class="line">twentiethCentury.get(<span class="number">0</span>)  <span class="comment">// 1900</span></span><br><span class="line">twentiethCentury.getFrom()  <span class="comment">// 1900</span></span><br><span class="line">twentiethCentury.getTo()  <span class="comment">// 1999</span></span><br><span class="line">twentiethCentury.contains(<span class="number">2000</span>)  <span class="comment">// false</span></span><br><span class="line">twentiethCentury.subList(<span class="number">0</span>, <span class="number">5</span>)  <span class="comment">// 1900..1904</span></span><br><span class="line">reversedTen[<span class="number">2</span>]  <span class="comment">// 8</span></span><br><span class="line">reversedTen.isReverse()  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="3_流程控制"><a id="3">3 流程控制</a></h2><p>Groovy提供了一些用来改变程序逻辑的流程控制语句，可以将它们分为三种流程控制结构：</p>
+<ul>
+<li>顺序</li>
+<li>选择</li>
+<li>迭代</li>
+</ul>
+<h3 id="3-1_while语句"><a id="3.1">3.1 while语句</a></h3><p>最基本的迭代子句是while语句。</p>
+<h3 id="3-2_for语句"><a id="3.2">3.2 for语句</a></h3><p>for语句用于循环处理某个范围内，集合（列表，映射或者数组）或者字符串。</p>
+<h3 id="3-3_if语句"><a id="3.3">3.3 if语句</a></h3><p>if语句大家应该都很熟悉，此处不再赘述。</p>
+<h3 id="3-4_switch语句"><a id="3.4">3.4 switch语句</a></h3><p>一连串频繁出现的if-else语句，可以通过一个switch语句来实现。</p>
+<h4 id="3-4-1_Switch和范围"><a id="3.4.1">3.4.1 Switch和范围</a></h4><p>case表达式即可以表示某个整型值，也可以表示整型值的范围。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> console.*</span><br><span class="line">print <span class="string">'Enter examination score:'</span></span><br><span class="line"><span class="keyword">def</span> score = Console.readInteger()</span><br><span class="line"><span class="keyword">def</span> grade</span><br><span class="line"><span class="keyword">switch</span>(score)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">70.</span>.<span class="number">100</span>:</span><br><span class="line">		grade = <span class="string">'A'</span></span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">case</span> <span class="number">60.</span>.<span class="number">69</span>:</span><br><span class="line">		grade = <span class="string">'B'</span></span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">case</span> <span class="number">50.</span>.<span class="number">59</span>:</span><br><span class="line">		grade = <span class="string">'C'</span></span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">case</span> <span class="number">40.</span>.<span class="number">49</span>:</span><br><span class="line">		grade = <span class="string">'D'</span></span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">case</span> <span class="number">0.</span>.<span class="number">39</span>:</span><br><span class="line">		grade = <span class="string">'E'</span></span><br><span class="line">		<span class="keyword">break</span>	</span><br><span class="line">&#125;</span><br><span class="line">println <span class="string">"Score:$&#123;score&#125;;grade:$&#123;grade&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<pre><code><span class="tag">Enter</span> <span class="tag">examination</span> <span class="rule"><span class="attribute">score</span>:<span class="value"> <span class="number">50</span>
+Score: <span class="number">50</span></span></span>; <span class="rule"><span class="attribute">grade</span>:<span class="value"> C</span></span>
+</code></pre><h4 id="3-5_break语句"><a id="3.5">3.5 break语句</a></h4><p>break语句通常用来改变循环语句和switch语句中的控制流程。在循环结构体内执行break语句时，将立即终止循环体的最内层循环。</p>
+<h4 id="3-6_continue语句"><a id="3.6">3.6 continue语句</a></h4><p>continue语句是break语句的补充，仅限于在while和for循环中使用。</p>
+<p>当执行continue语句时，将结束本次循环，并跳转到离它最近的条件判断语句，以确认是否执行下一个循环。</p>
+<p>在含有continue语句的循环中，程序将跳过循环体内下面所有尚未执行的语句。</p>
+<h2 id="4_闭包"><a id="4">4 闭包</a></h2><h3 id="4-1_闭包的调用"><a id="4.1">4.1 闭包的调用</a></h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> clos = &#123;println <span class="string">'Hello world'</span>&#125;</span><br><span class="line">clos.call()</span><br></pre></td></tr></table></figure>
+<p>这段代码的含义是使用标识符<strong><em>clos</em></strong>引用这个闭包，使用<strong><em>call</em></strong>来执行这个标识符所引用的代码块。</p>
+<p>在闭包声明中引入形参。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> clos = &#123;param -&gt; println <span class="string">"Hello $&#123;param&#125;"</span>&#125;</span><br><span class="line">clos.call(<span class="string">'world'</span>)</span><br><span class="line">clos.call(<span class="string">'again'</span>)</span><br><span class="line">clos(<span class="string">'shortcut'</span>)</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<pre><code><span class="title">Hello</span> world
+Hello again
+Hello shortcut
+</code></pre><p>在第三个语句中我们会可以看到，call是可以省略的。</p>
+<h3 id="4-2_闭包，集合和字符串"><a id="4.2">4.2 闭包，集合和字符串</a></h3><p>许多列表，映射和字符串方法都接受闭包参数。</p>
+<h4 id="4-2-1_each方法和闭包"><a id="4.2.1">4.2.1 each方法和闭包</a></h4><p><strong>each</strong>方法的原型为<strong>void each(Closure closure)</strong>，它常用于列表，映射和字符串，以遍历每个元素，并将闭包应用于每个元素。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].each &#123;println it&#125;</span><br></pre></td></tr></table></figure>
+<p>其输出结果为：</p>
+<pre><code>1
+2
+3
+4
+5
+</code></pre><h4 id="4-2-2_find方法和闭包"><a id="4.2.2">4.2.2 find方法和闭包</a></h4><p>find方法返回集合中符合某个判断标准的第一个值。在闭包中，集合元素使用的判断条件必须是布尔表达式。当存在符合条件的值时，find方法将返回第一个符合条件的值，否则，返回null。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> value = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>].find&#123;element -&gt; element &gt; <span class="number">6</span>&#125;</span><br><span class="line">println <span class="string">"Found:$&#123;value&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<pre><code><span class="label">Found:</span><span class="number">7</span>
+</code></pre><p>findAll方法将遍历所有元素，并返回一个符合条件的列表。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> values = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>].findAll&#123;element -&gt; element &gt; <span class="number">6</span>&#125;</span><br><span class="line">values.each&#123;println it&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<pre><code>7
+9
+</code></pre><h4 id="4-2-3_collect方法和闭包"><a id="4.2.3">4.2.3 collect方法和闭包</a></h4><p>collect将遍历某个集合，并使用闭包里的变换方法，将集合中的每个元素转换为一个新值。</p>
+<p>collect简单示例：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].collect&#123;element -&gt; <span class="keyword">return</span> element * element&#125;</span><br><span class="line">println <span class="string">"list:$&#123;list&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<blockquote>
+<p>list:[1, 4, 9, 16]</p>
+</blockquote>
+<p>collect高级示例：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> doubles = &#123;item -&gt; <span class="number">2</span> * item&#125;</span><br><span class="line"><span class="keyword">def</span> map(clos, list)&#123; </span><br><span class="line">	<span class="keyword">return</span> list.collect(clos)</span><br><span class="line">&#125;</span><br><span class="line">println <span class="string">"Doubling:$&#123;map(doubles, [1, 2, 3, 4])&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<pre><code><span class="label">Doubling:</span>[<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]
+</code></pre><h4 id="4-2-4_inject方法和闭包"><a id="4.2.4">4.2.4 inject方法和闭包</a></h4><p>inject方法可用于遍历集合。</p>
+<p>inject简单示例：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> factorial = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].inject(<span class="number">1</span>)&#123;previous, element -&gt; previous * element&#125;</span><br><span class="line">println <span class="string">"Factorial(5):$&#123;factorial&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<pre><code><span class="function"><span class="title">Factorial</span><span class="params">(<span class="number">5</span>)</span></span>:<span class="number">120</span>
+</code></pre><h2 id="5_类"><a id="5">5 类</a></h2><h3 id="5-1_类的实例"><a id="5.1">5.1 类的实例</a></h3><h4 id="5-1-1_无构造器"><a id="5.1.1">5.1.1 无构造器</a></h4><p>下面简单介绍Groovy中的类，基本上和Java里的类是一样的。</p>
+<p>一个简单的Groovy类</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>&#123;</span></span><br><span class="line">	<span class="keyword">def</span> name</span><br><span class="line">	<span class="keyword">def</span> age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">def</span> p = <span class="keyword">new</span> People(<span class="string">name :</span> <span class="string">'张三'</span>, <span class="string">age :</span> <span class="number">20</span>)</span><br><span class="line">println <span class="string">"People's name is $&#123;p.name&#125; and age is $&#123;p.age&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>这样就定义了一个People类，使用<strong>new</strong>关键字进行实例化（和Java一样）。</p>
+<p>另外说明一点，<code>p.name</code>所示的属性引用方法实际上是通过p.getName()实现的。</p>
+<h4 id="5-1-2_自定义构造器"><a id="5.1.2">5.1.2 自定义构造器</a></h4><p>上面介绍的是没有构造器的情况，所以实例化的时候使用的是默认构造器。现在为People增加一个构造器方法，代码如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>&#123;</span></span><br><span class="line">	<span class="keyword">def</span> name</span><br><span class="line">	<span class="keyword">def</span> age</span><br><span class="line">	<span class="keyword">def</span> People(name, age)&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name</span><br><span class="line">		<span class="keyword">this</span>.age = age</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时若想实例化一个People类，只有使用<code>def p = new People(&#39;张三&#39;, 20)</code>这种方式，如果使用之前的方式来实例化，系统会提示报错，这是因为当类包含一个用户自定义的构造器后，程序并不会自动生成默认的构造器。</p>
+<h3 id="5-2_类的继承，抽象类和接口类"><a id="5.2">5.2 类的继承，抽象类和接口类</a></h3><p>Groovy中类的继承，抽象类和接口类的概念和Java基本一样，此处不再赘述。</p>
+<h2 id="6_总结"><a id="6">6 总结</a></h2><p>Groovy语言的语法是基于Java的，它包含了许多Python，Ruby和Smalltalk的语言特性。Groovy语言编写的应用程序完全可以使用Java API，它与使用Java编写的框架和组件实现无缝连接。</p>
+<p>Groovy2.4开始支持Android开发，但就目前看来，支持的工具非常少，与Scala相比还差得远。因为Groovy是动态语言，在Android上性能可能存在问题。</p>
+<p>在<a href="https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8/preview?hl=en&amp;forcehl=1&amp;sle=true#heading=h.6n0npen56030" target="_blank" rel="external">这篇博客</a>中，作者对Android的备选开发语言里面做了一个调研，这个文档有比较Groovy，Clojure，Sacla和Kotlin的各种优劣势，最终作者倾向于使用kotlin。</p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Goovy/"> #Goovy </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/10/Groovy安装/">Groovy安装</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/img/1.png" alt="陈旸" />
+          <p class="site-author-name">陈旸</p>
+        </div>
+        <p class="site-description motion-element">和泡芙在一起，会幸福吧</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="http://www.zhihu.com/people/lqynydyxf" target="_blank">知乎</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/lqynydyxf" target="_blank">新浪微博</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.jianshu.com/users/710fc06f8ec8/latest_articles" target="_blank">简书</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1_字符串"><span class="nav-number">1.1.</span> <span class="nav-text">1 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1_引号"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2_正则表达式"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 正则表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2_列表和映射"><span class="nav-number">1.2.</span> <span class="nav-text">2 列表和映射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1_列表"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1_索引"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2.1.1 索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2_操作符"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2.1.2 操作符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2_映射"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3_范围"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3_流程控制"><span class="nav-number">1.3.</span> <span class="nav-text">3 流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1_while语句"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 while语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2_for语句"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 for语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3_if语句"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4_switch语句"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 switch语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1_Switch和范围"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">3.4.1 Switch和范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5_break语句"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">3.5 break语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6_continue语句"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">3.6 continue语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4_闭包"><span class="nav-number">1.4.</span> <span class="nav-text">4 闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1_闭包的调用"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 闭包的调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2_闭包，集合和字符串"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 闭包，集合和字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1_each方法和闭包"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">4.2.1 each方法和闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2_find方法和闭包"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">4.2.2 find方法和闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3_collect方法和闭包"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">4.2.3 collect方法和闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4_inject方法和闭包"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">4.2.4 inject方法和闭包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5_类"><span class="nav-number">1.5.</span> <span class="nav-text">5 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1_类的实例"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 类的实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1_无构造器"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">5.1.1 无构造器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2_自定义构造器"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">5.1.2 自定义构造器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2_类的继承，抽象类和接口类"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2 类的继承，抽象类和接口类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6_总结"><span class="nav-number">1.6.</span> <span class="nav-text">6 总结</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">陈旸</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js" id="motion.global"></script>
+
+
+
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+  
+  
+
+</body>
+</html>
