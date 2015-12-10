@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="Lua," />
+  <meta name="keywords" content="民谣,爱情," />
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-  <title> Lua学习笔记（3） // 陈旸的博客 </title>
+  <title> 关于郑州的记忆 // 陈旸的博客 </title>
 </head>
 
 <body>
@@ -126,7 +126,7 @@
           
           
             
-              Lua学习笔记（3）
+              关于郑州的记忆
             
           
         </h1>
@@ -134,14 +134,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-05-28
+          发表于 2015-05-25
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Note/">Note</a>
+              <a href="/categories/诗歌/">诗歌</a>
 
               
               
@@ -162,41 +162,33 @@
       
 
       
-        <h2 id="协同程序">协同程序</h2><p>Lua将所有关于协同程序的函数放置在一个名为”coroutine”的table中。函数create用于创建新的协同程序，它只有一个参数，就是一个函数，函数代码就是所需执行的内容。create会返回一个thread类型的值，用以表示新的协同程序。通常create的参数是一个匿名函数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function () print(<span class="string">"hi"</span>) <span class="keyword">end</span>)</span><br><span class="line">print(co)  --&gt;<span class="symbol">thread:</span> <span class="number">0x7fa97b404f60</span></span><br></pre></td></tr></table></figure>
-<p>一个协同程序可以处于4种不同的状态：</p>
-<ul>
-<li>挂起(suspended)</li>
-<li>运行(running)</li>
-<li>死亡(dead)</li>
-<li>正常(normal)</li>
-</ul>
+        <p><img src="/img/4.jpg"></p>
+<p>歌手：李志</p>
+<p>关于郑州的我知道的不多</p>
+<p>为了爱情曾经去过那里</p>
+<p>多少次在火车上路过这城市</p>
+<p>一个人悄悄地想起她</p>
+<p>她说她喜欢郑州冬天的阳光</p>
+<p>巷子里飘满煤炉的味道</p>
+<p>雾气穿过她年轻的脖子</p>
+<p>直到今天都没有散去</p>
 <a id="more"></a>
-<p>当创建一个协同程序时，它处于挂起状态。也就是说，协同程序不会在创建它时自动执行其内容。可以通过函数status来检查协同程序的状态：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(coroutine.status(co)) --&gt; suspended</span><br></pre></td></tr></table></figure>
-<p>函数<strong>coroutine.resume</strong>用于启动或再次启动一个协同程序的执行，并将其状态由挂起改为运行：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coroutine.resume(co) --&gt; hi</span><br></pre></td></tr></table></figure>
-<p>协同程序的内容只是简单地打印了”hi”后便终结了，然后它就处于死亡状态，也就再也无法返回了：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(coroutine.status(co)) --&gt; dead</span><br></pre></td></tr></table></figure>
-<p>其实协同程序的真正强大之处在于函数yield的使用上，该函数可以让一个运行中的协同程序挂起，而之后可以再回复它的运行。<br>在第一次调用resume时，并没有对应的yield在等待它，因此所有传递给resume的额外参数都将视为协同程序主函数的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function (a, b, c)</span><br><span class="line">		print(<span class="string">"co"</span>, a, b, c)</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">coroutine.resume(co, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) --&gt; co <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> /<span class="regexp">/1, 2, 3就是额外传入的参数</span></span><br></pre></td></tr></table></figure>
-<p>在resume调用返回的内容中，第一个值为true则表示没有错误，则后面所有的值都是对应yield传入的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function （a, b）</span><br><span class="line">		coroutine.<span class="keyword">yield</span>(a + b, a - b)</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">print(coroutine.resume(co, <span class="number">20</span>, <span class="number">10</span>)) --&gt; <span class="keyword">true</span> <span class="number">30</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p>与此对应的是，yield返回的额外值就是对应resume传入的参数：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function ()</span><br><span class="line">		print(<span class="string">"co"</span>, coroutine.<span class="keyword">yield</span>())</span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">coroutine.resume(co)</span><br><span class="line">coroutine.resume(co, <span class="number">4</span>, <span class="number">5</span>) --&gt; co <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>最后，当一个协同程序结束时，它的主函数所返回的值都将作为对应的resume的返回值：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">co = coroutine.create(function()</span><br><span class="line">		<span class="keyword">return</span> <span class="number">6</span>, <span class="number">7</span></span><br><span class="line">	  <span class="keyword">end</span>)</span><br><span class="line">print(coroutine.resume(co)) --&gt; <span class="keyword">true</span> <span class="number">6</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<h2 id="数据结构">数据结构</h2><p><strong>矩阵</strong>和<strong>多维数组</strong>，使用以下代码创建N*M的矩阵：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mt = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>, <span class="constant">N</span> <span class="keyword">do</span></span><br><span class="line">mt[i] = &#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> j=<span class="number">1</span>, <span class="constant">M</span> <span class="keyword">do</span></span><br><span class="line">		mt[i][j] = <span class="number">0</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p><strong>链表</strong>，使用以下代码创建一个链表：</p>
-<pre><code class="ruby">list = nil //先创建头结点
-list = {next = list, value = v}//在表头插入一个元素，元素值为v
-local l = list
-while l do
-    &lt;访问l.value&gt;
-    l = l.next
-end //遍历此列表
-</code></pre>
+<p>关于郑州我想的全是你</p>
+<p>想来想去都是忏悔和委屈</p>
+<p>关于郑州我爱的全是你</p>
+<p>爱来爱去不明白爱的意义</p>
+<p>关于郑州只是偶尔想起</p>
+<p>现在她的味道都在回忆里</p>
+<p>每次和朋友说起过去的旅行</p>
+<p>我不敢说我曾去过那里</p>
+<p>关于郑州我想的全是你</p>
+<p>想来生活无非是痛苦和美丽</p>
+<p>关于郑州我爱的全是你</p>
+<p>爱到最后我们都无路可去</p>
+<p>似是而非或是世事可畏</p>
+<p>有情有义又是有米无炊</p>
+<p>时间改变了很多又什么都没有</p>
+<p>让我再次拥抱你 郑州</p>
 
       
     </div>
@@ -205,7 +197,9 @@ end //遍历此列表
       
         <div class="post-tags">
           
-            <a href="/tags/Lua/"> #Lua </a>
+            <a href="/tags/民谣/"> #民谣 </a>
+          
+            <a href="/tags/爱情/"> #爱情 </a>
           
         </div>
       
@@ -214,13 +208,11 @@ end //遍历此列表
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/28/Lua学习笔记（4）/">Lua学习笔记（4）</a>
+              <a href="/2015/05/26/Lua学习笔记（1）/">Lua学习笔记(1)</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/05/28/Lua学习笔记（2）/">Lua学习笔记(2)</a>
             
           </div>
         </div>
@@ -332,7 +324,7 @@ end //遍历此列表
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#协同程序"><span class="nav-number">1.</span> <span class="nav-text">协同程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
