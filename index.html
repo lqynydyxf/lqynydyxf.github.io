@@ -128,7 +128,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/12/23/Android-Studio下的JNI开发/">
+              <a class="post-title-link" href="/2015/12/23/Android Studio下的JNI开发/">
                 Android Studio下的JNI开发
               </a>
             
@@ -167,13 +167,17 @@
 
       
         
-          Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。
+          <h2 id="前言">前言</h2><p>Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。</p>
+<blockquote>
+<p>开发环境：Android Studio 2.0 Preview 3b</p>
+</blockquote>
+<h3 id="第一步：新建项目">第一步：新建项目</h3><p>新建项目，命名MyJniProject，我选择的是Empty Activity，然后一路Next。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/23/Android-Studio下的JNI开发/">
+            <a class="btn" href="/2015/12/23/Android Studio下的JNI开发/#more">
               阅读全文 &raquo;
             </a>
           </div>
-          
+        
       
     </div>
 
@@ -227,7 +231,7 @@
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Note/">Note</a>
+              <a href="/categories/Document/">Document</a>
 
               
               
@@ -249,13 +253,42 @@
 
       
         
-          本文档只是挑选了Groovy中最常用的语法进行介绍，借鉴了《Groovy入门经典》，内容不免单薄，若想深入学习，推荐阅读《Groovy程序设计》和《Groovy in Action》。
+          <p><img src="/img/4.jpg" alt=""><br>本文档只是挑选了Groovy中最常用的语法进行介绍，借鉴了《Groovy入门经典》，内容不免单薄，若想深入学习，推荐阅读《Groovy程序设计》和《Groovy in Action》。</p>
+<h1 id="目录">目录</h1><ul>
+<li><a href="#1">1 字符串</a><ul>
+<li><a href="#1.1">1.1 引号</a></li>
+<li><a href="#1.2">1.2 正则表达式</a></li>
+</ul>
+</li>
+<li><a href="#2">2 列表和映射</a><ul>
+<li><a href="#2.1">2.1 列表</a><ul>
+<li><a href="#2.1.1">2.1.1 索引</a></li>
+<li><a href="#2.1.2">2.1.2 操作符</a></li>
+</ul>
+</li>
+<li><a href="#2.2">2.2 映射</a></li>
+<li><a href="#2.3">2.3 范围</a></li>
+</ul>
+</li>
+<li><a href="#3">3 流程控制</a><ul>
+<li><a href="#3.1">3.1 while语句</a></li>
+<li><a href="#3.2">3.2 for语句</a></li>
+<li><a href="#3.3">3.3 if语句</a></li>
+<li><a href="#3.4">3.4 switch语句</a><ul>
+<li><a href="#3.4.1">3.4.1 Switch和范围</a></li>
+</ul>
+</li>
+<li><a href="#3.5">3.5 break语句</a></li>
+<li><a href="#3.6">3.6 continue语句</a></li>
+</ul>
+</li>
+</ul>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/10/Groovy基础语法/">
+            <a class="btn" href="/2015/12/10/Groovy基础语法/#more">
               阅读全文 &raquo;
             </a>
           </div>
-          
+        
       
     </div>
 
@@ -329,25 +362,13 @@
 
       
         
-          <h2 id="MAC_OS_X">MAC OS X</h2><h3 id="Homebrew">Homebrew</h3><p>安装Homebrew<br>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
+          <h2 id="MAC_OS_X">MAC OS X</h2><h3 id="Homebrew">Homebrew</h3><p>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure>
-<p>等安装完毕，输入<strong>brew —version</strong>命令，输出<strong>Homebrew</strong>的版本，比如我的版本是0.9.5，如果成功输出版本信息，说明安装成功。</p>
-<p>安装Groovy</p>
-<p>这一步非常简单，输入如下命令即可：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install groovy</span><br></pre></td></tr></table></figure>
-<p>等安装完毕，在终端输入<strong>groovy —version</strong>命令，系统会输出Groovy版本，比如我的版本是2.4.3，如果成功输出版本信息，说明安装成功。</p>
-<h3 id="GVM_(the_Groovy_enVironment_Manager)">GVM (the Groovy enVironment Manager)</h3><p>输入以下命令，依次运行：</p>
-<blockquote>
-<p>$ curl -s get.gvmtool.net | bash</p>
-<p>$ source “$HOME/.gvm/bin/gvm-init.sh”</p>
-<p>$ gvm install groovy</p>
-<p>$ groovy -version</p>
-</blockquote>
-<h2 id="Windows">Windows</h2><ol>
-<li>先去<a href="http://www.groovy-lang.org" target="_blank" rel="external">Groovy官网</a>下载最新版的installer，按照步骤安装（前提是已经安装了JDK）。</li>
-<li>安装完毕之后，打开Windows下的Dos窗口，输入命令<strong>groovy -version</strong>，如果成功输出版本信息，说明安装成功。</li>
-</ol>
-
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/10/Groovy安装/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -423,29 +444,12 @@
       
         
           <h2 id="简介">简介</h2><p>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
-<h2 id="Doze和APP_Standby模式测试">Doze和APP Standby模式测试</h2><p>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。</p>
-<h3 id="进入Doze模式">进入Doze模式</h3><ol>
-<li>准备一台安装了Android 6.0系统的设备</li>
-<li>在开发机器上连接你的设备，然后安装应用</li>
-<li>运行应用</li>
-<li>关闭设备屏幕</li>
-<li>通过命令行进入Doze模式</li>
-</ol>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell dumpsys battery unplug</span><br><span class="line">$ adb shell dumpsys deviceidle step</span><br></pre></td></tr></table></figure>
-<h3 id="进入App_Standby模式">进入App Standby模式</h3><p>前三步和进入Doze模式的步骤一样，只是不需要关闭屏幕。</p>
-<p>通过命令行进入App Standby模式</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell dumpsys battery unplug</span><br><span class="line">$ adb shell am <span class="keyword">set</span>-inactive &lt;packageName&gt; true</span><br></pre></td></tr></table></figure>
-<p>通过命令唤醒App</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell am <span class="keyword">set</span>-inactive &lt;packageName&gt; false</span><br><span class="line">$ adb shell am get-inactive &lt;packageName&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="App_Standby模式对推送的影响">App Standby模式对推送的影响</h2><p>在Doze模式和Standby模式下，第三方推送将会被废，唯一能用的就是Google的GCM。看起来Google希望通过Doze和App Standby来强推GCM。</p>
-<p>此处重点研究App Standby模式。通过几个Demo测试，得出以下结果：</p>
-<ol>
-<li>通过startService启动PushService无法把应用从Standby模式唤醒。</li>
-<li>先杀死PushService再startService也是不可行的。</li>
-<li>通过启动应用然后再杀死是可行的，但是会对用户进行干扰。如果选择半夜偷偷启动应用再杀死，未免太过猥琐。</li>
-</ol>
-<p>Google在最后关头为开发者提供了一个例外方案：应用可以声明<strong>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</strong>权限，并主动要求用户将其加入至白名单中，从而不受Doze Mode和App Standby的影响。</p>
-
+<h2 id="Doze和APP_Standby模式测试">Doze和APP Standby模式测试</h2><p>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/10/Android 6.0 Doze和App Standby调研/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -482,7 +486,7 @@
           
             
               <a class="post-title-link" href="/2015/07/11/Java调用Groovy/">
-                Java代码嵌入Groovy
+                Java如何调用Groovy
               </a>
             
           
@@ -498,7 +502,7 @@
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Note/">Note</a>
+              <a href="/categories/Document/">Document</a>
 
               
               
@@ -520,8 +524,8 @@
 
       
         
-          <h3 id="Java调用Groovy">Java调用Groovy</h3><p>如果想在Java代码中嵌入Groovy，目前主要有三种方式。</p>
-<h4 id="GroovyShell">GroovyShell</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> groovy.lang.Binding;</span><br><span class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="typename">void</span> main(String[] args)&#123;</span><br><span class="line">        Binding bind =  <span class="keyword">new</span> Binding();</span><br><span class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</span><br><span class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</span><br><span class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</span><br><span class="line">        System.out.println(object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。</p>
+<h3 id="GroovyShell">GroovyShell</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> groovy.lang.Binding;</span><br><span class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="typename">void</span> main(String[] args)&#123;</span><br><span class="line">        Binding bind =  <span class="keyword">new</span> Binding();</span><br><span class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</span><br><span class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</span><br><span class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</span><br><span class="line">        System.out.println(object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果输出为：</p>
 <pre><code><span class="variable">Hello</span> <span class="variable">Groovy</span><span class="exclamation_mark">!</span>
 </code></pre>

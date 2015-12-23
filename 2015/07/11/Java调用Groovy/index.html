@@ -46,7 +46,7 @@
 
 
 
-  <title> Java代码嵌入Groovy // C.Y </title>
+  <title> Java如何调用Groovy // C.Y </title>
 </head>
 
 <body>
@@ -126,7 +126,7 @@
           
           
             
-              Java代码嵌入Groovy
+              Java如何调用Groovy
             
           
         </h1>
@@ -141,7 +141,7 @@
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Note/">Note</a>
+              <a href="/categories/Document/">Document</a>
 
               
               
@@ -162,8 +162,8 @@
       
 
       
-        <h3 id="Java调用Groovy">Java调用Groovy</h3><p>如果想在Java代码中嵌入Groovy，目前主要有三种方式。</p>
-<h4 id="GroovyShell">GroovyShell</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> groovy.lang.Binding;</span><br><span class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="typename">void</span> main(String[] args)&#123;</span><br><span class="line">        Binding bind =  <span class="keyword">new</span> Binding();</span><br><span class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</span><br><span class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</span><br><span class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</span><br><span class="line">        System.out.println(object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。</p>
+<h3 id="GroovyShell">GroovyShell</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> groovy.lang.Binding;</span><br><span class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="typename">void</span> main(String[] args)&#123;</span><br><span class="line">        Binding bind =  <span class="keyword">new</span> Binding();</span><br><span class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</span><br><span class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</span><br><span class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</span><br><span class="line">        System.out.println(object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果输出为：</p>
 <pre><code><span class="variable">Hello</span> <span class="variable">Groovy</span><span class="exclamation_mark">!</span>
 </code></pre><a id="more"></a>
@@ -348,7 +348,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java调用Groovy"><span class="nav-number">1.</span> <span class="nav-text">Java调用Groovy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GroovyShell"><span class="nav-number">1.1.</span> <span class="nav-text">GroovyShell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyScriptEngine"><span class="nav-number">2.</span> <span class="nav-text">GroovyScriptEngine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyClassLoader"><span class="nav-number">3.</span> <span class="nav-text">GroovyClassLoader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种方法"><span class="nav-number">3.1.</span> <span class="nav-text">第一种方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种方法"><span class="nav-number">3.2.</span> <span class="nav-text">第二种方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyShell"><span class="nav-number">1.</span> <span class="nav-text">GroovyShell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyScriptEngine"><span class="nav-number">2.</span> <span class="nav-text">GroovyScriptEngine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyClassLoader"><span class="nav-number">3.</span> <span class="nav-text">GroovyClassLoader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种方法"><span class="nav-number">3.1.</span> <span class="nav-text">第一种方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种方法"><span class="nav-number">3.2.</span> <span class="nav-text">第二种方法</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
