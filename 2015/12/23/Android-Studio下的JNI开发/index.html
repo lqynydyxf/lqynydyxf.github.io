@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="Lua," />
+  <meta name="keywords" content="Android,Java," />
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-  <title> Lua学习笔记(2) // C.Y </title>
+  <title> Android Studio下的JNI开发 // C.Y </title>
 </head>
 
 <body>
@@ -126,7 +126,7 @@
           
           
             
-              Lua学习笔记(2)
+              Android Studio下的JNI开发
             
           
         </h1>
@@ -134,14 +134,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-05-28
+          发表于 2015-12-23
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Note/">Note</a>
+              <a href="/categories/Document/">Document</a>
 
               
               
@@ -162,39 +162,82 @@
       
 
       
-        <h3 id="Lua关系操作符">Lua关系操作符</h3><p>Lua提供了一下关系操作符：</p>
+        <blockquote>
+<p>开发环境：Android Studio 2.0 Preview 3b</p>
+</blockquote>
+<h3 id="第一步：新建项目">第一步：新建项目</h3><p>新建项目，命名MyJniProject，我选择的是Empty Activity，然后一路Next。<br><img src="/img/5.jpg" alt=""></p>
+<h3 id="第二步：新建一个HelloWorld类">第二步：新建一个HelloWorld类</h3><p>在HelloWorld类里新增一个native方法，命名为<strong><em>getJNIString</em></strong>，如下图所示。<br><img src="/img/6.png" alt=""></p>
+<p>然后Build整个工程，会自动生成class文件。先把目录结构从Android切为Project，看到class文件的目录如下图所示。<br><img src="/img/7.png" alt=""></p>
+<h3 id="第三步：生成-h文件">第三步：生成.h文件</h3><p>点击Android Studio底部的Terminal，会打开IDE内置的命令行工具。然后cd命令进入到debug目录下，然后输入命令：</p>
+<blockquote>
+<p>set classpath=”debug目录的绝对路径”</p>
+</blockquote>
+<p>比如在我的MAC上，绝对路径就是</p>
+<blockquote>
+<p><strong>/Users/lqynydyxf/Documents/MyJniProject/app/build/intermediates/classes/debug</strong></p>
+</blockquote>
+<p>所以我输入的就是：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set classpath=/Users/lqynydyxf/Documents/MyJniProject/app/build/intermediates/classes/debug</span><br></pre></td></tr></table></figure>
+<p>然后用<strong><em>javah -jni</em></strong>命令编译HelloWorld.class，生成.h文件。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah -jni com.example.lqynydyxf.myjniproject.HelloWorld</span><br></pre></td></tr></table></figure>
+<p><img src="/img/8.png" alt=""></p>
+<p>执行上述操作后，在debug目录下，会出现一个文件名为<strong>com_example_lqynydyxf_myjniproject_HelloWorld</strong>的.h文件。</p>
+<p><img src="/img/9.png" alt=""></p>
+<p>.h文件内的代码其实就是对之前定义的<strong>getJNIString</strong>方法的声明，但是此时方法名会变成</p>
+<blockquote>
+<p>Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString**。</p>
+</blockquote>
+<p><img src="/img/10.png" alt=""></p>
+<h3 id="第四步：生成-c文件">第四步：生成.c文件</h3><p>进入到src目录下，新建一个名为jni的文件夹（New-&gt;Directory），然后把之前生成的.h文件剪切过来，放到jni目录下，同时在jni目录下新建一个.c文件，可随意命名，但是这里为了整齐，我将.c文件的文件名写的和.h文件一样。.c文件的内容是对.h文件中声明的方法进行具体实现。.c文件的内容如下所示：</p>
+<p><img src="/img/11.png" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "com_example_lqynydyxf_myjniproject_HelloWorld.h"</span></span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString</span></span><br><span class="line">        <span class="params">(JNIEnv *env, jobject object)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">"Hello World!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里，我们直接返回了一个 <strong><em>Hello World!</em></strong> 字符串。</p>
+<h3 id="第五步：生成Android-mk文件">第五步：生成Android.mk文件</h3><p>此时，在jni目录下，我们已经拥有了一个.h和.c文件，然后我们需要再新建一个<strong>Android.mk</strong>文件，然后添加如下内容：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := $(call my-dir)&#10;include $(CLEAR_VARS)&#10;LOCAL_MODULE := helloworld&#10;LOCAL_SRC_FILES := com_example_lqynydyxf_myjniproject_HelloWorld.c&#10;include $(BUILD_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure>
+<p>添加后，结果如下图所示：</p>
+<p><img src="/img/12.png" alt=""></p>
 <ul>
-<li>\&lt;</li>
-<li>></li>
-<li>\&lt;=</li>
-<li>>=</li>
-<li>==</li>
-<li>~=</li>
+<li>LOCAL_PATH: 这个变量用于给出当前文件的路径。 必须在 Android.mk 的开头定义，可以这样使用：<strong>LOCAL_PATH := $(call my-dir)</strong>。如当前目录下有个文件夹名称 src，则可以这样写 $(call src)，那么就会得到 src 目录的完整路径。这个变量不会被$(CLEAR_VARS)清除，因此每个 Android.mk 只需要定义一次(即使在一个文件中定义了几个模块的情况下)。</li>
 </ul>
-<p>对于table，userdata和函数，Lua是作引用比较的。 </p>
-<h3 id="Lua逻辑操作符">Lua逻辑操作符</h3><ul>
-<li>and</li>
-<li>or</li>
-<li>not</li>
+<blockquote>
+<p><strong>my-dir</strong>是GNU Make函数宏，必须通过使用<strong>$(call  )</strong>，返回当前Android.mk文件所在的目录的路径，相对于 NDK 编译系统的顶层。</p>
+</blockquote>
+<ul>
+<li><p>LOCAL_MODULE: 这是模块的名字，它必须是唯一的，而且不能包含空格。 必须在包含任一的$(BUILD_XXXX)脚本之前定义它。模块的名字决定了生成文件的名字。 </p>
+</li>
+<li><p>LOCAL_SRC_FILES: 这是要编译的源代码文件列表。 只要列出要传递给编译器的文件，因为编译系统自动计算依赖。</p>
+</li>
 </ul>
-<p>所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，如果它的第一个操作数为真，就返回第一个操作数；不然返回第二个操作数。</p>
-<blockquote>
-<p>“x=x or v”等价于 if not x then x = v end</p>
-<p>为了选出数字x和y中的较大者，可以使用以下语句：</p>
-<p>max = （x &gt; y） and x or y</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="多重赋值">多重赋值</h3><p>a, b, c = 0, 0, 0 </p>
-<p>在多重赋值中，Lua先对等号右边的所有元素求值，然后才执行赋值。因此利用多重赋值可以交换两个变量。</p>
-<p>x, y = y, x（交换x与y）</p>
-<p>多重赋值也可用于收集函数的多个返回值</p>
-<h3 id="泛型">泛型</h3><p>泛型for循环通过一个迭代器函数来遍历所有值。</p>
-<blockquote>
-<p>迭代文件中每行的（io.lines），迭代table元素的（pairs），迭代数组元素的（ipairs），迭代字符串中单词的string.gmatch等。</p>
-</blockquote>
-<h3 id="变长参数">变长参数</h3><p>Lua中的函数可以可以接受不同数量的实参。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function add(...)</span><br><span class="line">local s = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i, v <span class="keyword">in</span> ipairs(...) <span class="keyword">do</span></span><br><span class="line">		s = s + v</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"> <span class="keyword">return</span> s</span><br><span class="line"> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>参数表中的三个点(…)表示该函数可接受不同数量的实参。当这个函数被调用时，它的所有参数都会被收集到一起。这部分收集起来的实参称为这个函数的”变长参数”。</p>
+<h3 id="第六步：其他配置">第六步：其他配置</h3><ul>
+<li>在<strong>local.properties文件</strong>中指明ndk的目录：</li>
+</ul>
+<p><img src="/img/13.png" alt=""></p>
+<ul>
+<li>修改Module的build.gradle文件：在defaultConfig中加入如下代码：</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ndk&#123;</span><br><span class="line">    moduleName <span class="string">'helloworld'</span></span><br><span class="line">    abiFilters <span class="string">'armeabi'</span>, <span class="string">'armeabi-v7a'</span>, <span class="string">'x86'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的<strong>moduleName</strong>需要和Android.mk文件里的<strong>LOCAL_MODULE</strong>一致。</p>
+<ul>
+<li>在gradle.properties中加入以下代码：</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.useDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>到这里，基本的配置结束，然后Build整个项目。Build通过后，就可以进行下一步，也是最重要的一步。</p>
+<h3 id="第七步：生成so文件">第七步：生成so文件</h3><p>打开Terminal，使用cd命令进入到jni目录下，执行ndk-build命令。</p>
+<p><img src="/img/14.png" alt=""></p>
+<p>如图所示，代表执行成功，这时切换到Project目录结构下，我们可以发现，在libs文件夹下，成功生成了.so文件。</p>
+<p><img src="/img/15.png" alt=""></p>
+<p>NDK编译系统会在<strong>moduleName</strong>前面加上<strong>lib</strong>，后面加上<strong>.so</strong>来作为so文件的文件名。</p>
+<h3 id="第八步：调用so文件">第八步：调用so文件</h3><p>回到HelloWorld类中，我们添加如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">     System.loadLibrary(<span class="string">"helloworld"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后HelloWorld类的内部如下图所示：</p>
+<p><img src="/img/16.png" alt=""></p>
+<p>然后修改MainActivity的onCreate代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        TextView textView = <span class="keyword">new</span> TextView(<span class="keyword">this</span>);</span><br><span class="line">        HelloWorld helloWorld = <span class="keyword">new</span> HelloWorld();</span><br><span class="line">        textView.setText(helloWorld.getJNIString());</span><br><span class="line">        setContentView(textView);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>结果如图所示：</p>
+<p><img src="/img/17.png" alt=""></p>
+<h3 id="第九步：运行">第九步：运行</h3><p>运行项目，模拟器界面如下：</p>
+<p><img src="/img/18.png" alt=""></p>
+<p>这里输出的<strong><em>Hello World!</em></strong>就是我们通过JNI调用得到的。</p>
 
       
     </div>
@@ -203,7 +246,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Lua/"> #Lua </a>
+            <a href="/tags/Android/"> #Android </a>
+          
+            <a href="/tags/Java/"> #Java </a>
           
         </div>
       
@@ -212,13 +257,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/28/Lua学习笔记（3）/">Lua学习笔记（3）</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/26/Lua学习笔记（1）/">Lua学习笔记(1)</a>
+              <a href="/2015/12/10/Groovy基础语法/">Groovy基础语法</a>
             
           </div>
         </div>
@@ -330,7 +373,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua关系操作符"><span class="nav-number">1.</span> <span class="nav-text">Lua关系操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua逻辑操作符"><span class="nav-number">2.</span> <span class="nav-text">Lua逻辑操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重赋值"><span class="nav-number">3.</span> <span class="nav-text">多重赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型"><span class="nav-number">4.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变长参数"><span class="nav-number">5.</span> <span class="nav-text">变长参数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：新建项目"><span class="nav-number">1.</span> <span class="nav-text">第一步：新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：新建一个HelloWorld类"><span class="nav-number">2.</span> <span class="nav-text">第二步：新建一个HelloWorld类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：生成-h文件"><span class="nav-number">3.</span> <span class="nav-text">第三步：生成.h文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：生成-c文件"><span class="nav-number">4.</span> <span class="nav-text">第四步：生成.c文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步：生成Android-mk文件"><span class="nav-number">5.</span> <span class="nav-text">第五步：生成Android.mk文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步：其他配置"><span class="nav-number">6.</span> <span class="nav-text">第六步：其他配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七步：生成so文件"><span class="nav-number">7.</span> <span class="nav-text">第七步：生成so文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八步：调用so文件"><span class="nav-number">8.</span> <span class="nav-text">第八步：调用so文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九步：运行"><span class="nav-number">9.</span> <span class="nav-text">第九步：运行</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
