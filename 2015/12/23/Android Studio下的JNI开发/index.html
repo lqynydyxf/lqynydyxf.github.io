@@ -182,13 +182,15 @@
 <p>然后用<strong><em>javah -jni</em></strong>命令编译HelloWorld.class，生成.h文件。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah -jni com.example.lqynydyxf.myjniproject.HelloWorld</span><br></pre></td></tr></table></figure>
 <p><img src="/img/8.png" alt=""></p>
-<p>执行上述操作后，在debug目录下，会出现一个文件名为<strong>com_example_lqynydyxf_myjniproject_HelloWorld</strong>的.h文件。</p>
+<p>执行上述操作后，在debug目录下，会出现一个文件名为<br><strong>com_example_lqynydyxf_myjniproject_HelloWorld</strong>的.h文件。</p>
 <p><img src="/img/9.png" alt=""></p>
 <p>.h文件内的代码其实就是对之前定义的<strong>getJNIString</strong>方法的声明，但是此时方法名会变成</p>
 <blockquote>
 <p>Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString**。</p>
 </blockquote>
 <p><img src="/img/10.png" alt=""></p>
+<p>.h文件的内容如下图所示：</p>
+<p><img src="/img/19.png" alt=""></p>
 <h3 id="第四步：生成-c文件">第四步：生成.c文件</h3><p>进入到src目录下，新建一个名为jni的文件夹（New-&gt;Directory），然后把之前生成的.h文件剪切过来，放到jni目录下，同时在jni目录下新建一个.c文件，可随意命名，但是这里为了整齐，我将.c文件的文件名写的和.h文件一样。.c文件的内容是对.h文件中声明的方法进行具体实现。.c文件的内容如下所示：</p>
 <p><img src="/img/11.png" alt=""></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "com_example_lqynydyxf_myjniproject_HelloWorld.h"</span></span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString</span></span><br><span class="line">        <span class="params">(JNIEnv *env, jobject object)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">"Hello World!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
