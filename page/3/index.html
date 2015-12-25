@@ -46,18 +46,14 @@
 
 
 
-  <title>
-  
-
-  
-    分类 // C.Y
-  
-</title>
+  <title> C.Y </title>
 </head>
 
 <body>
 <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
-  <div class="container one-column ">
+  <div class="container one-column 
+   page-home 
+">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -119,19 +115,201 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-
   <div id="posts" class="posts-expand">
     
-    
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 3 个分类
-        </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Document/">Document</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Survey/">Survey</a><span class="category-list-count">1</span></li></ul>
-        </div>
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/28/Lua学习笔记（2）/">
+                Lua学习笔记(2)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-28
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
       </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="Lua关系操作符">Lua关系操作符</h3><p>Lua提供了一下关系操作符：</p>
+<ul>
+<li>\&lt;</li>
+<li>></li>
+<li>\&lt;=</li>
+<li>>=</li>
+<li>==</li>
+<li>~=</li>
+</ul>
+<p>对于table，userdata和函数，Lua是作引用比较的。 </p>
+<h3 id="Lua逻辑操作符">Lua逻辑操作符</h3><ul>
+<li>and</li>
+<li>or</li>
+<li>not</li>
+</ul>
+<p>所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，如果它的第一个操作数为真，就返回第一个操作数；不然返回第二个操作数。</p>
+<blockquote>
+<p>“x=x or v”等价于 if not x then x = v end</p>
+<p>为了选出数字x和y中的较大者，可以使用以下语句：</p>
+<p>max = （x &gt; y） and x or y</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/28/Lua学习笔记（2）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Lua/"> #Lua </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
     
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/26/Lua学习笔记（1）/">
+                Lua学习笔记(1)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-26
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="Lua语法规范">Lua语法规范</h2><ul>
+<li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
+<li>Lua是有大小写之分的</li>
+<li>Lua的数组下标是从1开始计算的</li>
+<li>Lua将0和空字符串也视为真</li>
+</ul>
+<h2 id="解释器的几个主要选项参数">解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
+<p>2.”-l” 用来加载库文件</p>
+<p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/26/Lua学习笔记（1）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Lua/"> #Lua </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+  </div>
+
+  
+  <div class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </div>
 
 
@@ -284,6 +462,13 @@
   
 
   
+  
+  
+
+  
+
+
+
 
   
   
