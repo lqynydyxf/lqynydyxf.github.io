@@ -165,7 +165,7 @@
         <p>因为Java支持函数重载（方法名一样但是参数不一样），所以在JNI层要想确定Java层的方法，必须有一个标准把方法和参数都定义进去，这样JNI才能知道它要调用的是哪个Java方法。而<strong>JNI方法签名</strong>就是这个标准。</p>
 <a id="more"></a>
 <p>先来看一下基本数据类型的签名：</p>
-<table class"table="" table-bordered="" table-striped="" table-condensed"=""><br>    <tr><br>        <td><strong>Java基本类型</strong></td><br>        <td><strong>签名</strong></td><br>    </tr><br>    <tr><br>        <td align="center">boolean</td><br>        <td align="center">Z</td><br>    </tr><br>    <tr><br>        <td align="center">byte</td><br>        <td align="center">B</td><br>    </tr><br>    <tr><br>        <td align="center">char</td><br>        <td align="center">C</td><br>    </tr><br>    <tr><br>        <td align="center">short</td><br>        <td align="center">S</td><br>    </tr><br>    <tr><br>        <td align="center">int</td><br>        <td align="center">I</td><br>    </tr><br>    <tr><br>        <td align="center">long</td><br>        <td align="center">J</td><br>    </tr><br>    <tr><br>        <td align="center">float</td><br>        <td align="center">F</td><br>    </tr><br>    <tr><br>        <td align="center">double</td><br>        <td align="center">D</td><br>    </tr><br>    <tr><br>        <td align="center">void</td><br>        <td align="center">V</td><br>    </tr><br></table>
+<table><br>    <tr><br>        <td><strong>Java基本类型</strong></td><br>        <td><strong>签名</strong></td><br>    </tr><br>    <tr><br>        <td>boolean</td><br>        <td>Z</td><br>    </tr><br>    <tr><br>        <td>byte</td><br>        <td>B</td><br>    </tr><br>    <tr><br>        <td>char</td><br>        <td>C</td><br>    </tr><br>    <tr><br>        <td>short</td><br>        <td>S</td><br>    </tr><br>    <tr><br>        <td>int</td><br>        <td>I</td><br>    </tr><br>    <tr><br>        <td>long</td><br>        <td>J</td><br>    </tr><br>    <tr><br>        <td>float</td><br>        <td>F</td><br>    </tr><br>    <tr><br>        <td>double</td><br>        <td>D</td><br>    </tr><br>    <tr><br>        <td>void</td><br>        <td>V</td><br>    </tr><br></table>
 
 <blockquote>
 <p>可以看到，基本数据类型签名一般是首字母的大写，boolean例外，是因为B已经被 byte占用。long的标签之所以不是L，是因为L表示的是类的签名。</p>
@@ -199,6 +199,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/25/JNI调用Java的简单介绍/">JNI调用Java的简单介绍</a>
             
           </div>
 
@@ -264,14 +266,14 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
