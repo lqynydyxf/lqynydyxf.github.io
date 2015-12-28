@@ -165,16 +165,96 @@
         <p>因为Java支持函数重载（方法名一样但是参数不一样），所以在JNI层要想确定Java层的方法，必须有一个标准把方法和参数都定义进去，这样JNI才能知道它要调用的是哪个Java方法。而<strong>JNI方法签名</strong>就是这个标准。</p>
 <a id="more"></a>
 <p>先来看一下基本数据类型的签名：</p>
-<table><br>    <tr><br>        <td><strong>Java基本类型</strong></td><br>        <td><strong>签名</strong></td><br>    </tr><br>    <tr><br>        <td>boolean</td><br>        <td>Z</td><br>    </tr><br>    <tr><br>        <td>byte</td><br>        <td>B</td><br>    </tr><br>    <tr><br>        <td>char</td><br>        <td>C</td><br>    </tr><br>    <tr><br>        <td>short</td><br>        <td>S</td><br>    </tr><br>    <tr><br>        <td>int</td><br>        <td>I</td><br>    </tr><br>    <tr><br>        <td>long</td><br>        <td>J</td><br>    </tr><br>    <tr><br>        <td>float</td><br>        <td>F</td><br>    </tr><br>    <tr><br>        <td>double</td><br>        <td>D</td><br>    </tr><br>    <tr><br>        <td>void</td><br>        <td>V</td><br>    </tr><br></table>
-
+<table>
+<thead>
+<tr>
+<th><strong>Java基本类型</strong></th>
+<th style="text-align:center"><strong>签名</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td style="text-align:center">Z</td>
+</tr>
+<tr>
+<td>byte</td>
+<td style="text-align:center">B</td>
+</tr>
+<tr>
+<td>char</td>
+<td style="text-align:center">C</td>
+</tr>
+<tr>
+<td>short</td>
+<td style="text-align:center">S</td>
+</tr>
+<tr>
+<td>int</td>
+<td style="text-align:center">I</td>
+</tr>
+<tr>
+<td>long</td>
+<td style="text-align:center">J</td>
+</tr>
+<tr>
+<td>float</td>
+<td style="text-align:center">F</td>
+</tr>
+<tr>
+<td>double</td>
+<td style="text-align:center">D</td>
+</tr>
+<tr>
+<td>void</td>
+<td style="text-align:center">V</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>可以看到，基本数据类型签名一般是首字母的大写，boolean例外，是因为B已经被 byte占用。long的标签之所以不是L，是因为L表示的是类的签名。</p>
 </blockquote>
 <p>类的签名比较简单，它采用”L+包名+类名+;”的形式，只需要将其中的 <strong>.</strong> 替换成 <strong>/</strong> 即可。比如java.lang.String，它的签名为 <strong>Ljava/lang/String;</strong>，末尾的 <strong>;</strong> 也是签名的一部分。</p>
 <p>对象的签名就是它所属的类的签名，比如String对象，它的签名就是String类的签名，即 <strong>Ljava/lang/String;</strong>。</p>
 <p>数组的签名为 [+类型签名，比如int数组，其类型为int，而int的签名为 <strong>I</strong> ，所以int数组的类型签名就是 <strong>[I</strong>，同理可以得到如下的签名对应关系：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>[]    [C</span><br><span class="line"><span class="keyword">float</span>[]    [F</span><br><span class="line"><span class="keyword">double</span>[]  [D</span><br><span class="line"><span class="keyword">long</span>[]    [J</span><br><span class="line">String[]  [Ljava/lang/String;</span><br><span class="line">Object[]  [Ljava/lang/Object;</span><br></pre></td></tr></table></figure>
-<p>方法的签名为（参数的类型签名）+返回值类型签名。举例说明，如下方法：</p>
+<table>
+<thead>
+<tr>
+<th><strong>数组</strong></th>
+<th style="text-align:center"><strong>签名</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char[]</td>
+<td style="text-align:center">[C</td>
+</tr>
+<tr>
+<td>float[]</td>
+<td style="text-align:center">[F</td>
+</tr>
+<tr>
+<td>double[]</td>
+<td style="text-align:center">[D</td>
+</tr>
+<tr>
+<td>long[]</td>
+<td style="text-align:center">[J</td>
+</tr>
+<tr>
+<td>String[]</td>
+<td style="text-align:center">[Ljava/lang/String;</td>
+</tr>
+<tr>
+<td>Object[]</td>
+<td style="text-align:center">[Ljava/lang/Object;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>方法的签名为（参数的类型签名）+返回值类型签名。</p>
+</blockquote>
+<p>举例说明，如下方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br></pre></td></tr></table></figure>
 <p>参数的类型签名连在一起是 <strong>II</strong>，返回值类型签名是 <strong>I</strong>，所以整个方法的签名就是   <strong>(II)I</strong>。再举个复杂点的例子，如下方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, String b, <span class="keyword">int</span>[] c)</span></span></span><br></pre></td></tr></table></figure>
