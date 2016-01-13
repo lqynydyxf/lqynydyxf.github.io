@@ -168,6 +168,13 @@
 
         
           
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2016/01/11/修改AndroidManifest.xml防止反编译/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/修改AndroidManifest.xml防止反编译/"></span>
+            </a>
+          </span>
+          
         
       </div>
     </div>
@@ -215,9 +222,9 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jarsigner -digestalg SHA1 -sigalg MD5withRSA -verbose -keystore new.keystore -signedjar new-signed.apk new.apk new</span><br></pre></td></tr></table></figure>
 <p>我们可以看到目录下新生成new-signed.apk，这个就是我们最终要得到的apk。</p>
 <p><img src="/img/ModifyAM/10.png" alt=""></p>
-<h4 id="第六步">第六步</h4><p>运行安装命令，我们发现新的apk成功安装。</p>
+<h4 id="第六步">第六步</h4><p>运行安装命令，我们发现new-signed.apk成功安装。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb install new-signed.apk</span><br></pre></td></tr></table></figure>
-<p>使用apktool对new-signed.apk进行反编译。</p>
+<p><img src="/img/ModifyAM/13.png" alt=""><br>使用apktool对new-signed.apk进行反编译。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apktool d new-signed.apk</span><br></pre></td></tr></table></figure>
 <p>在当前目录下，生成一个new-signed目录，里面是反编译后的文件。</p>
 <p><img src="/img/ModifyAM/11.png" alt=""></p>
@@ -264,6 +271,10 @@
 
     
       <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2016/01/11/修改AndroidManifest.xml防止反编译/"
+               data-title="修改AndroidManifest.xml防止反编译" data-url="http://yoursite.com/2016/01/11/修改AndroidManifest.xml防止反编译/">
+          </div>
         
       </div>
     
@@ -600,11 +611,24 @@
 
   
   
-  
 
   
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lqynydyxf"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
 
 
   
