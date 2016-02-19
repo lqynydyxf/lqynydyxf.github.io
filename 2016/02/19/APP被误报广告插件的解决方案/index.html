@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="Android,C++,Java," />
+  <meta name="keywords" content="Android,安全," />
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-  <title> Android Studio下的JNI开发 // C.Y </title>
+  <title> APP被误报广告插件的解决方案 // C.Y </title>
 </head>
 
 <body>
@@ -134,7 +134,7 @@
           
           
             
-              Android Studio下的JNI开发
+              APP被误报广告插件的解决方案
             
           
         </h1>
@@ -142,14 +142,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-12-23
+          发表于 2016-02-19
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/Document/">Document</a>
+              <a href="/categories/Android/">Android</a>
 
               
               
@@ -162,8 +162,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/12/23/Android Studio下的JNI开发/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/23/Android Studio下的JNI开发/"></span>
+            <a href="/2016/02/19/APP被误报广告插件的解决方案/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/19/APP被误报广告插件的解决方案/"></span>
             </a>
           </span>
           
@@ -177,85 +177,11 @@
       
 
       
-        <h2 id="前言">前言</h2><p>Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。</p>
-<blockquote>
-<p>开发环境：Android Studio 2.0 Preview 3b</p>
-</blockquote>
-<h3 id="1-_新建项目">1. 新建项目</h3><p>新建项目，命名MyJniProject，选择Empty Activity。<br><a id="more"></a><br><img src="/img/5.jpg" alt=""></p>
-<h3 id="2-_新建一个HelloWorld类">2. 新建一个HelloWorld类</h3><p>在HelloWorld类里新增一个native方法，命名为<strong><em>getJNIString</em></strong>，如下图所示。<br><img src="/img/6.jpeg" alt=""></p>
-<p>然后Build整个工程，会自动生成class文件。先把目录结构从Android切为Project，看到class文件的目录如下图所示。<br><img src="/img/7.jpeg" alt=""></p>
-<h3 id="3-_生成-h文件">3. 生成.h文件</h3><p>点击Android Studio底部的Terminal，会打开IDE内置的命令行工具。然后cd命令进入到debug目录下，然后输入命令：</p>
-<blockquote>
-<p>set classpath=”debug目录的绝对路径”</p>
-</blockquote>
-<p>比如在我的MAC上，绝对路径就是</p>
-<blockquote>
-<p><strong>/Users/lqynydyxf/Documents/MyJniProject/app/build/intermediates/classes/debug</strong></p>
-</blockquote>
-<p>所以我输入的就是：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set classpath=/Users/lqynydyxf/Documents/MyJniProject/app/build/intermediates/classes/debug</span><br></pre></td></tr></table></figure>
-<p>然后用<strong><em>javah -jni</em></strong>命令编译HelloWorld.class，生成.h文件。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah -jni com.example.lqynydyxf.myjniproject.HelloWorld</span><br></pre></td></tr></table></figure>
-<p><img src="/img/8.png" alt=""></p>
-<p>执行上述操作后，在debug目录下，会出现一个文件名为<br><strong>com_example_lqynydyxf_myjniproject_HelloWorld</strong>的.h文件。</p>
-<p><img src="/img/9.png" alt=""></p>
-<p>.h文件内的代码其实就是对之前定义的<strong>getJNIString</strong>方法的声明，但是此时方法名会变成</p>
-<blockquote>
-<p>Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString**。</p>
-</blockquote>
-<p><img src="/img/10.png" alt=""></p>
-<p>.h文件的内容如下图所示：</p>
-<p><img src="/img/19.png" alt=""></p>
-<h3 id="4-_生成-c文件">4. 生成.c文件</h3><p>进入到src目录下，新建一个名为jni的文件夹（New-&gt;Directory），然后把之前生成的.h文件剪切过来，放到jni目录下，同时在jni目录下新建一个.c文件，可随意命名，但是这里为了整齐，我将.c文件的文件名写的和.h文件一样。.c文件的内容是对.h文件中声明的方法进行具体实现。.c文件的内容如下所示：</p>
-<p><img src="/img/11.png" alt=""></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"com_example_lqynydyxf_myjniproject_HelloWorld.h"</span></span></span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString</span></span><br><span class="line">        <span class="params">(JNIEnv *env, jobject object)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">"Hello JNI!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里，我们直接返回了一个 <strong><em>Hello World!</em></strong> 字符串。</p>
-<h3 id="5-_生成Android-mk文件">5. 生成Android.mk文件</h3><p>此时，在jni目录下，我们已经拥有了一个.h和.c文件，然后我们需要再新建一个<strong>Android.mk</strong>文件，然后添加如下内容：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := $(call my-dir)&#10;include $(CLEAR_VARS)&#10;LOCAL_MODULE := helloworld&#10;LOCAL_SRC_FILES := com_example_lqynydyxf_myjniproject_HelloWorld.c&#10;include $(BUILD_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure>
-<p>添加后，结果如下图所示：</p>
-<p><img src="/img/12.png" alt=""></p>
-<ul>
-<li>LOCAL_PATH: 这个变量用于给出当前文件的路径。 必须在 Android.mk 的开头定义，可以这样使用：<strong>LOCAL_PATH := $(call my-dir)</strong>。如当前目录下有个文件夹名称 src，则可以这样写 $(call src)，那么就会得到 src 目录的完整路径。这个变量不会被$(CLEAR_VARS)清除，因此每个 Android.mk 只需要定义一次(即使在一个文件中定义了几个模块的情况下)。</li>
-</ul>
-<blockquote>
-<p><strong>my-dir</strong>是GNU Make函数宏，必须通过使用<strong>$(call  )</strong>，返回当前Android.mk文件所在的目录的路径，相对于 NDK 编译系统的顶层。</p>
-</blockquote>
-<ul>
-<li><p>LOCAL_MODULE: 这是模块的名字，它必须是唯一的，而且不能包含空格。 必须在包含任一的$(BUILD_XXXX)脚本之前定义它。模块的名字决定了生成文件的名字。 </p>
-</li>
-<li><p>LOCAL_SRC_FILES: 这是要编译的源代码文件列表。 只要列出要传递给编译器的文件，因为编译系统自动计算依赖。</p>
-</li>
-</ul>
-<h3 id="6-_其他配置">6. 其他配置</h3><ul>
-<li>在<strong>local.properties文件</strong>中指明ndk的目录：</li>
-</ul>
-<p><img src="/img/13.png" alt=""></p>
-<ul>
-<li>修改Module的build.gradle文件：在defaultConfig中加入如下代码：</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ndk&#123;</span><br><span class="line">    moduleName <span class="string">'helloworld'</span></span><br><span class="line">    abiFilters <span class="string">'armeabi'</span>, <span class="string">'armeabi-v7a'</span>, <span class="string">'x86'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里的<strong>moduleName</strong>需要和Android.mk文件里的<strong>LOCAL_MODULE</strong>一致。</p>
-<ul>
-<li>在gradle.properties中加入以下代码：</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.useDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>到这里，基本的配置结束，然后Build整个项目。Build通过后，就可以进行下一步，也是最重要的一步。</p>
-<h3 id="7-_生成so文件">7. 生成so文件</h3><p>打开Terminal，使用cd命令进入到jni目录下，执行ndk-build命令。</p>
-<p><img src="/img/14.png" alt=""></p>
-<p>如图所示，代表执行成功，这时切换到Project目录结构下，我们可以发现，在libs文件夹下，成功生成了.so文件。</p>
-<p><img src="/img/15.png" alt=""></p>
-<p>NDK编译系统会在<strong>moduleName</strong>前面加上<strong>lib</strong>，后面加上<strong>.so</strong>来作为so文件的文件名。</p>
-<h3 id="8-_调用so文件">8. 调用so文件</h3><p>回到HelloWorld类中，我们添加如下代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">     System.loadLibrary(<span class="string">"helloworld"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最后HelloWorld类的内部如下图所示：</p>
-<p><img src="/img/16.png" alt=""></p>
-<p>然后修改MainActivity的onCreate代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        TextView textView = <span class="keyword">new</span> TextView(<span class="keyword">this</span>);</span><br><span class="line">        HelloWorld helloWorld = <span class="keyword">new</span> HelloWorld();</span><br><span class="line">        textView.setText(helloWorld.getJNIString());</span><br><span class="line">        setContentView(textView);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>结果如图所示：</p>
-<p><img src="/img/17.png" alt=""></p>
-<h3 id="9-运行">9.运行</h3><p>运行项目，模拟器界面如下：</p>
-<p><img src="/img/18.jpeg" alt=""></p>
-<p>这里输出的<strong><em>Hello World!</em></strong>就是我们通过JNI调用得到的。</p>
+        <h2 id="前言">前言</h2><p>最近QA报了一个bug，说用腾讯安全管家扫描手机时，报告我司的App含有广告插件（多点：a.banner.doubleClick）。问题是我司的App并没有集成广告插件。后来想到可能是使用的第三方库包含了什么广告模块。</p>
+<h3 id="解决步骤">解决步骤</h3><p>因为我司的产品面向海外，所以为了使用GCM，我们集成了<strong>google-play-services.jar</strong>。这个包就是问题所在。</p>
+<p>使用JD-GUI反编译<strong>google-play-services.jar</strong>，该jar的结构如下所示。<br><img src="/img/ads.jpeg" alt=""></p>
+<p>这两个ads文件夹应该就是谷歌自带的广告模块。</p>
+<p>解决方法是解压<strong>google-play-services.jar</strong>，然后删除这两个ads文件夹，再使用<strong>jar -cvf</strong>命令重新打包，将新打包的jar文件替换原来的jar即可。</p>
 
       
     </div>
@@ -266,9 +192,7 @@
           
             <a href="/tags/Android/"> #Android </a>
           
-            <a href="/tags/C/"> #C++ </a>
-          
-            <a href="/tags/Java/"> #Java </a>
+            <a href="/tags/安全/"> #安全 </a>
           
         </div>
       
@@ -277,13 +201,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/25/JNI方法签名/">JNI方法签名</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/10/Groovy基础语法/">Groovy基础语法</a>
+              <a href="/2016/01/11/修改AndroidManifest.xml防止反编译/">修改AndroidManifest.xml防止反编译</a>
             
           </div>
         </div>
@@ -299,8 +221,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/12/23/Android Studio下的JNI开发/"
-               data-title="Android Studio下的JNI开发" data-url="http://yoursite.com/2015/12/23/Android Studio下的JNI开发/">
+          <div class="ds-thread" data-thread-key="2016/02/19/APP被误报广告插件的解决方案/"
+               data-title="APP被误报广告插件的解决方案" data-url="http://yoursite.com/2016/02/19/APP被误报广告插件的解决方案/">
           </div>
         
       </div>
@@ -399,7 +321,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">1. 新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_新建一个HelloWorld类"><span class="nav-number">1.2.</span> <span class="nav-text">2. 新建一个HelloWorld类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-_生成-h文件"><span class="nav-number">1.3.</span> <span class="nav-text">3. 生成.h文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-_生成-c文件"><span class="nav-number">1.4.</span> <span class="nav-text">4. 生成.c文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-_生成Android-mk文件"><span class="nav-number">1.5.</span> <span class="nav-text">5. 生成Android.mk文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-_其他配置"><span class="nav-number">1.6.</span> <span class="nav-text">6. 其他配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-_生成so文件"><span class="nav-number">1.7.</span> <span class="nav-text">7. 生成so文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-_调用so文件"><span class="nav-number">1.8.</span> <span class="nav-text">8. 调用so文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-运行"><span class="nav-number">1.9.</span> <span class="nav-text">9.运行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决步骤"><span class="nav-number">1.1.</span> <span class="nav-text">解决步骤</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
