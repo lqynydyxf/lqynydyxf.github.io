@@ -177,8 +177,9 @@
       
 
       
-        <h2 id="前言">前言</h2><p>最近QA报了一个bug，说用腾讯安全管家扫描手机时，报告我司的App含有广告插件（多点：a.banner.doubleClick）。问题是我司的App并没有集成广告插件。后来想到可能是使用的第三方库包含了什么广告模块。</p>
-<h3 id="解决步骤">解决步骤</h3><p>因为我司的产品面向海外，所以为了使用GCM，我们集成了<strong>google-play-services.jar</strong>。这个包就是问题所在。</p>
+        <h2 id="前言">前言</h2><p>最近QA报了一个bug，说用腾讯安全管家扫描手机时，报告我司的App含有广告插件（多点：a.banner.doubleClick）。问题是我司的App并没有集成广告模块，猜测是项目中使用的第三方库集成了广告模块。</p>
+<a id="more"></a>
+<h3 id="解决步骤">解决步骤</h3><p>我司的产品面向海外，故需要用到Google的GCM，因此在项目里集成了<strong>google-play-services.jar</strong>。从网上查阅的资料来看，这个jar包很可能就是罪魁祸首。</p>
 <p>使用JD-GUI反编译<strong>google-play-services.jar</strong>，该jar的结构如下所示。<br><img src="/img/ads.jpeg" alt=""></p>
 <p>这两个ads文件夹应该就是谷歌自带的广告模块。</p>
 <p>解决方法是解压<strong>google-play-services.jar</strong>，然后删除这两个ads文件夹，再使用<strong>jar -cvf</strong>命令重新打包，将新打包的jar文件替换原来的jar即可。</p>
