@@ -226,6 +226,9 @@
 <li><p>LOCAL_SRC_FILES: 这是要编译的源代码文件列表。 只要列出要传递给编译器的文件，因为编译系统自动计算依赖。</p>
 </li>
 </ul>
+<p>如果想要生成不同架构下的so文件，再新建一个Application.mk文件（默认是armeabi），比如：</p>
+<p>Application.mk</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">APP_ABI := armeabi armeabi-v7a x86 mips</span><br></pre></td></tr></table></figure>
 <h3 id="6-_其他配置">6. 其他配置</h3><ul>
 <li>在<strong>local.properties文件</strong>中指明ndk的目录：</li>
 </ul>
