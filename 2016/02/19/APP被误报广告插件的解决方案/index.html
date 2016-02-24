@@ -57,17 +57,17 @@
 
 
 
-<meta name="description" content="关于App被检测出广告插件的解决方案，现记录如下。">
+<meta name="description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="APP被误报广告插件的解决方案">
 <meta property="og:url" content="http://yoursite.com/2016/02/19/APP被误报广告插件的解决方案/index.html">
 <meta property="og:site_name" content="C.Y'Blog">
-<meta property="og:description" content="关于App被检测出广告插件的解决方案，现记录如下。">
+<meta property="og:description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
 <meta property="og:image" content="http://yoursite.com/img/ads.jpeg">
-<meta property="og:updated_time" content="2016-02-24T10:19:13.000Z">
+<meta property="og:updated_time" content="2016-02-24T15:49:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APP被误报广告插件的解决方案">
-<meta name="twitter:description" content="关于App被检测出广告插件的解决方案，现记录如下。">
+<meta name="twitter:description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
 
 
 
@@ -289,7 +289,8 @@
       
 
       
-        <h2 id="前言">前言</h2><p>最近QA报了一个bug，说用腾讯安全管家扫描手机时，报告我司的App含有广告插件。问题是我司的App并没有集成广告模块，猜测是项目中使用的第三方库集成了广告模块。</p>
+        <h2 id="前言">前言</h2><p>App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。</p>
+<a id="more"></a>
 <h3 id="解决步骤">解决步骤</h3><p>我司的产品面向海外，故需要用到Google的GCM，因此在项目里集成了<strong>google-play-services.jar</strong>。从网上查阅的资料来看，这个jar包很可能就是罪魁祸首。</p>
 <p>使用JD-GUI反编译<strong>google-play-services.jar</strong>，该jar的结构如下所示。<br><img src="/img/ads.jpeg" alt=""></p>
 <p>这两个ads文件夹应该就是谷歌自带的广告模块。</p>
