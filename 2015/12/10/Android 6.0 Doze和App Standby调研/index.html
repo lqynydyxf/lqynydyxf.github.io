@@ -1,44 +1,25 @@
 <!doctype html>
-
-
-
+<html class="theme-next use-motion theme-next-mist">
+<head>
   
 
-
-<html class="theme-next pisces use-motion">
-<head>
-  <meta charset="UTF-8"/>
+<meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
 
 
+    <meta name="description" content="陈旸旸，快奔跑" />
 
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android," />
@@ -47,245 +28,150 @@
 
 
 
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
-
-<meta name="description" content="简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。
-Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下充分测试">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android 6.0 Doze模式和App Standby调研">
-<meta property="og:url" content="http://yoursite.com/2015/12/10/Android 6.0 Doze和App Standby调研/index.html">
-<meta property="og:site_name" content="C.Y'Blog">
-<meta property="og:description" content="简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。
-Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下充分测试">
-<meta property="og:updated_time" content="2015-12-23T08:06:14.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 6.0 Doze模式和App Standby调研">
-<meta name="twitter:description" content="简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。
-Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下充分测试">
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
 
 
 
 <script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"hi"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
+    scheme: 'Mist',
+    analytics: {
+      baidu: '',
+      google: ''
+    },
+    sidebar: 'hide'
   };
 </script>
 
-  <title> Android 6.0 Doze模式和App Standby调研 | C.Y'Blog </title>
+
+
+
+  <title> Android 6.0 Doze模式和App Standby调研 // C.Y'Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+<body>
+<!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
       <span class="site-title">C.Y'Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">Talk is cheap, show me u photo</p>
-</div>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
 
-<nav class="site-nav">
-  
+  <ul id="menu" class="menu">
+     
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-commonweal">
+        <a href="/404.html">
+          <i class="menu-item-icon icon-commonweal"></i> <br />
+          公益404
+        </a>
+      </li>
+    
+  </ul>
 
-  
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
 
-      
-      
-      
-    </ul>
-  
+      </div>
+    </div>
 
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
+    <div id="main" class="main">
       <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
+        <div id="content" class="content">
+          
 
   <div id="posts" class="posts-expand">
     
 
-  
-  
+  <div class="post post-type-normal ">
+    <div class="post-header">
 
-  
-  
-  
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              Android 6.0 Doze模式和App Standby调研
+            
+          
+        </h1>
+      
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-12-10
+        </span>
 
         
-        
-          <h1 class="post-title" itemprop="name headline">
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
             
-            
+              <a href="/categories/Survey/">Survey</a>
+
               
-                Android 6.0 Doze模式和App Standby调研
               
-            
-          </h1>
-        
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-10T10:16:20+08:00" content="2015-12-10">
-              2015-12-10
-            </time>
+            
           </span>
+        
 
+        
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Survey/" itemprop="url" rel="index">
-                    <span itemprop="name">Survey</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/12/10/Android 6.0 Doze和App Standby调研/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/Android 6.0 Doze和App Standby调研/"></span>
+            </a>
+          </span>
           
+        
+      </div>
+    </div>
 
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/10/Android 6.0 Doze和App Standby调研/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/Android 6.0 Doze和App Standby调研/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body">
 
       
       
@@ -318,30 +204,26 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       
     </div>
 
-    <footer class="post-footer">
+    <div class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag">#Android</a>
+            <a href="/tags/Android/"> #Android </a>
           
         </div>
       
 
       
         <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/11/Java调用Groovy/" rel="next" title="Java如何调用Groovy">
-                <i class="fa fa-chevron-left"></i> Java如何调用Groovy
-              </a>
+              <a href="/2015/12/10/Groovy安装/">Groovy安装</a>
             
           </div>
 
-          <div class="post-nav-prev post-nav-item">
+          <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/10/Groovy安装/" rel="prev" title="Groovy安装">
-                Groovy安装 <i class="fa fa-chevron-right"></i>
-              </a>
+              <a href="/2015/07/11/Java调用Groovy/">Java如何调用Groovy</a>
             
           </div>
         </div>
@@ -349,37 +231,30 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 
       
       
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
     </div>
   </div>
 
 
-          </div>
-          
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
-
-          
-  <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/10/Android 6.0 Doze和App Standby调研/"
-           data-title="Android 6.0 Doze模式和App Standby调研" data-url="http://yoursite.com/2015/12/10/Android 6.0 Doze和App Standby调研/">
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/12/10/Android 6.0 Doze和App Standby调研/"
+               data-title="Android 6.0 Doze模式和App Standby调研" data-url="http://yoursite.com/2015/12/10/Android 6.0 Doze和App Standby调研/">
+          </div>
+        
       </div>
     
   </div>
 
 
         </div>
+
         
-          
+      </div>
+
+
+      
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -389,14 +264,12 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
-
-      
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -405,41 +278,35 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/img/1.png"
-               alt="陈旸" />
-          <p class="site-author-name" itemprop="name">陈旸</p>
-          <p class="site-description motion-element" itemprop="description">陈旸旸，快奔跑</p>
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/img/1.png" alt="陈旸" />
+          <p class="site-author-name">陈旸</p>
         </div>
-        <nav class="site-state motion-element">
+        <p class="site-description motion-element">陈旸旸，快奔跑</p>
+        <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
-          
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">标签</span>
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
               </a>
-            </div>
-          
+          </div>
 
-        </nav>
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
 
         
 
@@ -447,36 +314,20 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/midiao" target="_blank">
-                  
-                    <i class="fa fa-github"></i> GitHub
-                  
-                </a>
-              </span>
+              <a href="https://github.com/midiao" target="_blank">GitHub</a>
+            </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/lqynydyxf" target="_blank">
-                  
-                    <i class="fa fa-weibo"></i> 新浪微博
-                  
-                </a>
-              </span>
+              <a href="http://weibo.com/lqynydyxf" target="_blank">新浪微博</a>
+            </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lqynydyxf" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> 知乎
-                  
-                </a>
-              </span>
+              <a href="http://www.zhihu.com/people/lqynydyxf" target="_blank">知乎</a>
+            </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/users/710fc06f8ec8/latest_articles" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> 简书
-                  
-                </a>
-              </span>
+              <a href="http://www.jianshu.com/users/710fc06f8ec8/latest_articles" target="_blank">简书</a>
+            </span>
             
           
         </div>
@@ -484,49 +335,37 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
         
         
 
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
+      </div>
 
       
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
           <div class="post-toc">
-            
-              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doze和APP_Standby模式测试"><span class="nav-number">2.</span> <span class="nav-text">Doze和APP Standby模式测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入Doze模式"><span class="nav-number">2.1.</span> <span class="nav-text">进入Doze模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入App_Standby模式"><span class="nav-number">2.2.</span> <span class="nav-text">进入App Standby模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#App_Standby模式对推送的影响"><span class="nav-number">3.</span> <span class="nav-text">App Standby模式对推送的影响</span></a></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
       
 
     </div>
-  </aside>
+  </div>
 
 
-        
-      </div>
-    </main>
+    </div>
 
-    <footer id="footer" class="footer">
+    <div id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  &copy; &nbsp;  2015 - 
+  2016
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="icon-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">陈旸</span>
+  <span class="author">陈旸</span>
 </div>
 
 <div class="powered-by">
@@ -536,60 +375,43 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
 
 
       </div>
-    </footer>
+    </div>
 
     <div class="back-to-top"></div>
   </div>
 
-  
-
-
-  
-
-
-
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+  
 
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js"></script>
+  
 
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/motion_global.js" id="motion.global"></script>
 
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
   
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js" id="bootstrap.scrollspy.custom"></script>
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
-
-
-
-  
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -621,6 +443,7 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
     }
 
     function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
       var height = $('.sidebar').height() -
                    $tocSelector.position().top -
                    $('.post-toc-indicator-bottom').height();
@@ -642,7 +465,7 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       )
     }
 
-    $(document).on('sidebar.motion.complete', function () {
+    $(document).on('sidebar.didShow', function () {
       processTOC();
     });
 
@@ -659,6 +482,7 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       element.on('mousewheel DOMMouseScroll', function (event) {
           var oe = event.originalEvent;
           var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
 
           this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
           event.preventDefault();
@@ -668,95 +492,95 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
     }
 
     function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
     }
 
   });
 </script>
 
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
 
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
 
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
 
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
           target
             .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .velocity('transition.slideDownIn', 200)
             .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
         });
 
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
 
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
         html.velocity('stop').velocity('scroll', {
           offset: offset  + 'px',
           mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
+        });
+      });
 
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
+      // Expand sidebar on post detail page by default, when post has a toc.
       var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+      if (isDesktop() && CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
+          displaySidebar();
         }
       }
-    };
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
   });
 </script>
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
   
 
   
@@ -768,7 +592,6 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
@@ -777,19 +600,10 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
   </script>
 
   
-    
-  
-
-
-
 
 
   
   
-
-  
-  
-
 
 </body>
 </html>
