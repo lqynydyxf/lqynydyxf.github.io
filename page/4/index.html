@@ -46,12 +46,14 @@
 
 
 
-  <title> 标签: Android // C.Y'Blog </title>
+  <title> C.Y'Blog </title>
 </head>
 
 <body>
 <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
-  <div class="container one-column ">
+  <div class="container one-column 
+   page-home 
+">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -121,55 +123,98 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Android
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
       
 
-  <div class="post post-type-normal">
+  <div class="post post-type-normal ">
     <div class="post-header">
 
-      <div class="post-title">
-        
-            <a class="post-title-link" href="/2015/12/23/Android Studio下的JNI开发/">
-              Android Studio下的JNI开发
-            </a>
-        
-      </div>
-
-      <div class="post-meta">
-        <span class="post-time"> 12-23 </span>
-      </div>
-
-    </div>
-  </div>
-
-
-    
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/26/Lua学习笔记（1）/">
+                Lua学习笔记(1)
+              </a>
+            
+          
+        </h1>
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
-
-      <div class="post-title">
-        
-            <a class="post-title-link" href="/2015/12/10/Android 6.0 Doze和App Standby调研/">
-              Android 6.0 Doze模式和App Standby调研
-            </a>
-        
-      </div>
-
       <div class="post-meta">
-        <span class="post-time"> 12-10 </span>
-      </div>
+        <span class="post-time">
+          发表于 2015-05-26
+        </span>
 
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Note/">Note</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/26/Lua学习笔记（1）/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/26/Lua学习笔记（1）/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="Lua语法规范">Lua语法规范</h2><ul>
+<li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
+<li>Lua是有大小写之分的</li>
+<li>Lua的数组下标是从1开始计算的</li>
+<li>Lua将0和空字符串也视为真</li>
+</ul>
+<h2 id="解释器的几个主要选项参数">解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
+<p>2.”-l” 用来加载库文件</p>
+<p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/26/Lua学习笔记（1）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Lua/"> #Lua </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </div>
   </div>
 
@@ -179,7 +224,7 @@
 
   
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Android/">&laquo;</a><a class="page-number" href="/tags/Android/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </div>
 
 
@@ -306,12 +351,6 @@
 
   
   
-  
-    <script type="text/javascript">
-      postMotionOptions = {stagger: 100, drag: true};
-    </script>
-  
-
 
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
@@ -363,6 +402,26 @@
 
 
   
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lqynydyxf"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
 
   
   
