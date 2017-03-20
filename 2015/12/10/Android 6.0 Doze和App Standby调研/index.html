@@ -27,6 +27,9 @@
 
 
 
+
+
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
@@ -105,11 +108,11 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: '11178078',
       author: '博主'
     },
     algolia: {
@@ -146,34 +149,42 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 
 
 
+
+
+
+
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">以梦为码</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">以梦为码</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap, show me u photo</p>
+      
   </div>
-  <p class="site-subtitle">Talk is cheap, show me u photo</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -189,16 +200,6 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
           </a>
         </li>
       
@@ -261,20 +262,17 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/10/Android 6.0 Doze和App Standby调研/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/10/Android 6.0 Doze和App Standby调研/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="ChenYang">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/img/1.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="以梦为码">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="以梦为码" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈旸">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/1.png">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为码">
+    </span>
 
     
       <header class="post-header">
@@ -297,8 +295,10 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-12-10T10:16:20+08:00">
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-10T10:16:20+08:00">
                 2015-12-10
               </time>
             
@@ -310,11 +310,15 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Survey/" itemprop="url" rel="index">
@@ -332,6 +336,9 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/12/10/Android 6.0 Doze和App Standby调研/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/Android 6.0 Doze和App Standby调研/" itemprop="commentCount"></span>
                 </a>
@@ -340,8 +347,8 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
           
 
           
-
           
+
           
 
           
@@ -400,6 +407,12 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -408,6 +421,10 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
             <a href="/tags/Android/" rel="tag"># Android</a>
           
         </div>
+      
+
+      
+        
       
 
       
@@ -491,21 +508,28 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
-               alt="ChenYang" />
-          <p class="site-author-name" itemprop="name">ChenYang</p>
-          <p class="site-description motion-element" itemprop="description">在杭州，与笑终老</p>
+               alt="陈旸" />
+          <p class="site-author-name" itemprop="name">陈旸</p>
+           
+              <p class="site-description motion-element" itemprop="description">杭州</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -513,8 +537,10 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -596,6 +622,8 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -613,7 +641,7 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">ChenYang</span>
+  <span class="author" itemprop="copyrightHolder">陈旸</span>
 </div>
 
 
@@ -635,9 +663,13 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -657,6 +689,7 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 
 
   
+
 
 
 
@@ -725,6 +758,10 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 
   
     
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
     
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
@@ -737,8 +774,19 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 
 
 
+
+
+
+
+
+
+
+
   
-  
+
+
+
+
 
   
 
@@ -747,7 +795,6 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
   
 
   
-
 
 </body>
 </html>
