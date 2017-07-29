@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Groovy," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="MAC OS XHomebrew打开终端，输入以下命令（MAC OS X系统自带Ruby）：
-1ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
+<meta name="description" content="Synchronized用法
+Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Groovy安装">
-<meta property="og:url" content="http://yoursite.com/2015/12/10/Groovy安装/index.html">
+<meta property="og:title" content="Java关键字-Synchronized">
+<meta property="og:url" content="http://yoursite.com/2017/07/29/Java关键字-Synchronized/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="MAC OS XHomebrew打开终端，输入以下命令（MAC OS X系统自带Ruby）：
-1ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
-<meta property="og:updated_time" content="2015-12-23T08:08:53.000Z">
+<meta property="og:description" content="Synchronized用法
+Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》">
+<meta property="og:updated_time" content="2017-07-29T15:44:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Groovy安装">
-<meta name="twitter:description" content="MAC OS XHomebrew打开终端，输入以下命令（MAC OS X系统自带Ruby）：
-1ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
+<meta name="twitter:title" content="Java关键字-Synchronized">
+<meta name="twitter:description" content="Synchronized用法
+Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/12/10/Groovy安装/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/29/Java关键字-Synchronized/"/>
 
 
 
 
 
-  <title> Groovy安装 | 以梦为码 </title>
+  <title> Java关键字-Synchronized | 以梦为码 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/10/Groovy安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/Java关键字-Synchronized/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈旸">
@@ -283,7 +283,7 @@
             
             
               
-                Groovy安装
+                Java关键字-Synchronized
               
             
           </h1>
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-10T10:18:54+08:00">
-                2015-12-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T23:38:19+08:00">
+                2017-07-29
               </time>
             
 
@@ -321,8 +321,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Note</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -339,8 +339,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/12/10/Groovy安装/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/Groovy安装/" itemprop="commentCount"></span>
+                <a href="/2017/07/29/Java关键字-Synchronized/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/29/Java关键字-Synchronized/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -366,23 +366,24 @@
       
 
       
-        <h2 id="MAC_OS_X">MAC OS X</h2><h3 id="Homebrew">Homebrew</h3><p>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>等安装完毕，输入<strong>brew —version</strong>命令，输出<strong>Homebrew</strong>的版本，比如我的版本是0.9.5，如果成功输出版本信息，说明安装成功。</p>
-<h3 id="安装Groovy">安装Groovy</h3><p>这一步非常简单，输入如下命令即可：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install groovy</span><br></pre></td></tr></table></figure>
-<p>等安装完毕，在终端输入<strong>groovy —version</strong>命令，系统会输出Groovy版本，比如我的版本是2.4.3，如果成功输出版本信息，说明安装成功。</p>
-<h3 id="GVM_(the_Groovy_enVironment_Manager)">GVM (the Groovy enVironment Manager)</h3><p>输入以下命令，依次运行：</p>
-<blockquote>
-<p>$ curl -s get.gvmtool.net | bash</p>
-<p>$ source “$HOME/.gvm/bin/gvm-init.sh”</p>
-<p>$ gvm install groovy</p>
-<p>$ groovy -version</p>
+        <h2 id="Synchronized用法">Synchronized用法</h2><blockquote>
+<p><strong>Synchronized</strong>关键字主要用在多线程并发时共享资源竞争的问题。当执行被<strong>synchronized</strong>关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》</p>
 </blockquote>
-<h2 id="Windows">Windows</h2><ol>
-<li>先去<a href="http://www.groovy-lang.org" target="_blank" rel="external">Groovy官网</a>下载最新版的installer，按照步骤安装（前提是已经安装了JDK）。</li>
-<li>安装完毕之后，打开Windows下的Dos窗口，输入命令<strong>groovy -version</strong>，如果成功输出版本信息，说明安装成功。</li>
+<a id="more"></a>
+<p>Synchronized的可以修饰类，方法，静态方法以及代码块。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"OutputUtil"</span>;</span><br><span class="line">    <span class="comment">//修饰一个方法</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个代码块</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="comment">//TODO</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个静态方法</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个类</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (OutputUtil.class) &#123;</span><br><span class="line">            <span class="comment">//TODO</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个方法</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">func5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在修饰方法和代码块时，获得是对象锁；而修饰类和静态方法（属于类而不属于对象）时，获得是类锁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Test test1 = <span class="keyword">new</span> Test();</span><br><span class="line">Test test2 = <span class="keyword">new</span> Test();</span><br></pre></td></tr></table></figure>
+<p>接下来说明对象锁和类锁的区别：</p>
+<p>顾名思义，对象锁的作用对象是针对单个对象的：在不同的线程执行<code>test1.fun1()</code>和<code>test2.fun1()</code>，二者是故不干扰的。另外，同个对象的对象锁是互斥的，在不同线程执行<code>test1.func1()</code>和<code>test1.func5()</code>，需等<code>test1.func1()</code>执行完毕释放<code>test1</code>的对象锁，<code>test1.func5()</code>拿到锁后才能执行。</p>
+<p>而类锁的作用对象是整个类，在不同的线程执行<code>test1.fun4()</code>和<code>test2.fun4()</code>是互斥的，必须先等<code>test1.fun4()</code>执行完毕，释放类锁，<code>test2.fun4()</code>才能执行。同理<code>test1.fun3()</code>和<code>test2.fun3()</code>也是一样，因为使用<strong>synchronized</strong>修饰静态方法，拿到的也是类锁。</p>
+<p>综上所述，可以得出结论：</p>
+<ol>
+<li>同对象的对象锁是互斥的，不同对象的对象锁是非互斥的，对象锁和类锁也是非互斥的。</li>
+<li>因为同步对运行效率有影响，因此尽量是用同步代码块越小越好，即尽量使用<strong>synchronized*(this)</strong>来同步一块代码，而不是直接修饰一整个方法。</li>
+<li><strong>synchronized</strong>关键字是不能继承的。若子类覆盖了父类的<strong>synchronized</strong>方法，默认是没有同步的。</li>
+<li>构造方法不能使用<strong>synchronized</strong>关键字，但是可以使用<strong>synchronized</strong>代码块来进行同步.</li>
+<li>在定义接口方法时不能使用<strong>synchronized</strong>关键字。</li>
 </ol>
 
       
@@ -413,7 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Groovy/" rel="tag"># Groovy</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -426,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/10/Android 6.0 Doze和App Standby调研/" rel="next" title="Android 6.0 Doze模式和App Standby调研">
-                <i class="fa fa-chevron-left"></i> Android 6.0 Doze模式和App Standby调研
+              <a href="/2017/03/20/Freeline和JRebel分析/" rel="next" title="Freeline和JRebel分析">
+                <i class="fa fa-chevron-left"></i> Freeline和JRebel分析
               </a>
             
           </div>
@@ -435,10 +436,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/10/Groovy基础语法/" rel="prev" title="Groovy基础语法">
-                Groovy基础语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,8 +461,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/10/Groovy安装/"
-           data-title="Groovy安装" data-url="http://yoursite.com/2015/12/10/Groovy安装/">
+      <div class="ds-thread" data-thread-key="2017/07/29/Java关键字-Synchronized/"
+           data-title="Java关键字-Synchronized" data-url="http://yoursite.com/2017/07/29/Java关键字-Synchronized/">
       </div>
     
   </div>
@@ -609,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC_OS_X"><span class="nav-number">1.</span> <span class="nav-text">MAC OS X</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew"><span class="nav-number">1.1.</span> <span class="nav-text">Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Groovy"><span class="nav-number">1.2.</span> <span class="nav-text">安装Groovy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GVM_(the_Groovy_enVironment_Manager)"><span class="nav-number">1.3.</span> <span class="nav-text">GVM (the Groovy enVironment Manager)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows"><span class="nav-number">2.</span> <span class="nav-text">Windows</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synchronized用法"><span class="nav-number">1.</span> <span class="nav-text">Synchronized用法</span></a></li></ol></div>
             
 
           </div>
