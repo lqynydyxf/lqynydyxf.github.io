@@ -87,17 +87,20 @@
 
 
 
-<meta name="description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
+<meta name="description" content="##前言 App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
+<meta name="keywords" content="Android,安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="APP被误报广告插件的解决方案">
 <meta property="og:url" content="http://yoursite.com/2016/02/19/APP被误报广告插件的解决方案/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
+<meta property="og:description" content="##前言 App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/ads.jpeg">
 <meta property="og:updated_time" content="2016-02-24T15:49:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APP被误报广告插件的解决方案">
-<meta name="twitter:description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
+<meta name="twitter:description" content="##前言 App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
+<meta name="twitter:image" content="http://yoursite.com/img/ads.jpeg">
 
 
 
@@ -364,9 +367,10 @@
       
 
       
-        <h2 id="前言">前言</h2><p>App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。</p>
+        <p>##前言</p>
+<p>App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。</p>
 <a id="more"></a>
-<h3 id="解决步骤">解决步骤</h3><p>我司的产品面向海外，故需要用到Google的GCM，因此在项目里集成了<strong>google-play-services.jar</strong>。从网上查阅的资料来看，这个jar包很可能就是罪魁祸首。</p>
+<p>###解决步骤<br>我司的产品面向海外，故需要用到Google的GCM，因此在项目里集成了<strong>google-play-services.jar</strong>。从网上查阅的资料来看，这个jar包很可能就是罪魁祸首。</p>
 <p>使用JD-GUI反编译<strong>google-play-services.jar</strong>，该jar的结构如下所示。<br><img src="/img/ads.jpeg" alt=""></p>
 <p>这两个ads文件夹应该就是谷歌自带的广告模块。</p>
 <p>解决方法是解压<strong>google-play-services.jar</strong>，然后删除这两个ads文件夹，再使用<strong>jar -cvf</strong>命令重新打包，将新打包的jar文件替换原来的jar即可。</p>
@@ -477,17 +481,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -587,22 +582,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决步骤"><span class="nav-number">1.1.</span> <span class="nav-text">解决步骤</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

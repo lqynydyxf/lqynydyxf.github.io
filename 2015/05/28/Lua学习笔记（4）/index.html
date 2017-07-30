@@ -87,19 +87,18 @@
 
 
 
-<meta name="description" content="元表与元方法元表Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。使用setmetatable来设置或修改任何table的元表。
-1234t = &amp;#123;&amp;#125;t1 = &amp;#123;&amp;#125;setmetatable(t, t1)assert(getmetatable(t)">
+<meta name="description" content="##元表与元方法 ###元表 Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。使用setmetatable来设置或修改任何table的元表。 1234t = &amp;#123;&amp;#125;t1 = &amp;#123;&amp;#125;setmetatable(t, t1)assert(getmetata">
+<meta name="keywords" content="Lua">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lua学习笔记（4）">
 <meta property="og:url" content="http://yoursite.com/2015/05/28/Lua学习笔记（4）/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="元表与元方法元表Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。使用setmetatable来设置或修改任何table的元表。
-1234t = &amp;#123;&amp;#125;t1 = &amp;#123;&amp;#125;setmetatable(t, t1)assert(getmetatable(t)">
+<meta property="og:description" content="##元表与元方法 ###元表 Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。使用setmetatable来设置或修改任何table的元表。 1234t = &amp;#123;&amp;#125;t1 = &amp;#123;&amp;#125;setmetatable(t, t1)assert(getmetata">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-12-10T03:02:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua学习笔记（4）">
-<meta name="twitter:description" content="元表与元方法元表Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。使用setmetatable来设置或修改任何table的元表。
-1234t = &amp;#123;&amp;#125;t1 = &amp;#123;&amp;#125;setmetatable(t, t1)assert(getmetatable(t)">
+<meta name="twitter:description" content="##元表与元方法 ###元表 Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。使用setmetatable来设置或修改任何table的元表。 1234t = &amp;#123;&amp;#125;t1 = &amp;#123;&amp;#125;setmetatable(t, t1)assert(getmetata">
 
 
 
@@ -366,48 +365,52 @@
       
 
       
-        <h2 id="元表与元方法">元表与元方法</h2><h3 id="元表">元表</h3><p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = &#123;&#125;</span><br><span class="line">t1 = &#123;&#125;</span><br><span class="line">setmetatable(t, t1)</span><br><span class="line">assert(getmetatable(t) ==  t1)</span><br></pre></td></tr></table></figure>
+        <p>##元表与元方法</p>
+<p>###元表</p>
+<p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">t = &#123;&#125;</div><div class="line">t1 = &#123;&#125;</div><div class="line">setmetatable(t, t1)</div><div class="line">assert(getmetatable(t) ==  t1)</div></pre></td></tr></table></figure>
 <p>任何table都可以作为任何值的元表，而一组相关的table也可以共享一个通用的元表，此元表描述了它们共同的行为。</p>
 <blockquote>
 <p>Lua代码中，只能设置table的元表。若要设置其他类型的值的元表，则必须通过C代码来完成。</p>
 </blockquote>
 <a id="more"></a>
 <p>下面示例用来说明如何使用元表。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">set = &#123;&#125;</span><br><span class="line">local mt = &#123;&#125; </span><br><span class="line">function <span class="constant">Set</span>.new(l)</span><br><span class="line">		local set = &#123;&#125;</span><br><span class="line"> 	setmetatable(set, mt)</span><br><span class="line"> 	<span class="keyword">for</span> <span class="number">_</span>, v <span class="keyword">in</span> ipairs(l) <span class="keyword">do</span> set[v] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">return</span> set</span><br><span class="line"><span class="keyword">and</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function <span class="constant">Set</span>.union(a, b)</span><br><span class="line">		local res = <span class="constant">Set</span>.new&#123;&#125;</span><br><span class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span> res[k] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(b) <span class="keyword">do</span> res[k] = <span class="keyword">true</span> <span class="keyword">end</span></span><br><span class="line"> 	<span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function <span class="constant">Set</span>.intersection(a, b)</span><br><span class="line">	local res = <span class="constant">Set</span>.new&#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span></span><br><span class="line">		res[k] = b[k]</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function <span class="constant">Set</span>.tostring(set)</span><br><span class="line">	local l = &#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> e <span class="keyword">in</span> pairs(set) <span class="keyword">do</span></span><br><span class="line">		l[<span class="comment">#l + 1] = e</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">"&#123;"</span> .. table.concat(l, <span class="string">", "</span>) .. <span class="string">"&#125;"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mt.__le = function(a, b)</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">if</span> <span class="keyword">not</span> b[k] <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">false</span> <span class="keyword">end</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mt.__lt = function(a, b)</span><br><span class="line">	<span class="keyword">return</span> a &lt;= b <span class="keyword">and</span> <span class="keyword">not</span> (b &lt;= a)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mt.__eq = function(a, b)</span><br><span class="line">	<span class="keyword">return</span> a &lt;= b <span class="keyword">and</span> b &lt;= a</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mt.__add = <span class="constant">Set</span>.union</span><br><span class="line">s1 = <span class="constant">Set</span>.new&#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>&#125;</span><br><span class="line">s2 = <span class="constant">Set</span>.new&#123;<span class="number">30</span>, <span class="number">1</span>&#125;</span><br><span class="line">s3 = s1 + s2</span><br><span class="line"><span class="constant">Set</span>.print(s3)  --&gt; (<span class="number">1</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="constant">Set</span>.new&#123;<span class="number">2</span>, <span class="number">4</span>&#125;</span><br><span class="line">s2 = <span class="constant">Set</span>.new&#123;<span class="number">4</span>, <span class="number">10</span>, <span class="number">2</span>&#125;</span><br><span class="line">print(s1 &lt;= s2) --&gt; <span class="keyword">true</span></span><br><span class="line">print(s1 &lt; s2)	--&gt; <span class="keyword">true</span></span><br><span class="line">print(s1 &gt;= s1)  --&gt; <span class="keyword">true</span></span><br><span class="line">print(s1 &gt; s1)  --&gt; <span class="keyword">false</span></span><br><span class="line">print(s1 == s2 * s1)  --&gt; <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">set = &#123;&#125;</div><div class="line">local mt = &#123;&#125; </div><div class="line">function Set.new(l)</div><div class="line">		local set = &#123;&#125;</div><div class="line"> 	setmetatable(set, mt)</div><div class="line"> 	<span class="keyword">for</span> <span class="number">_</span>, v <span class="keyword">in</span> ipairs(l) <span class="keyword">do</span> set[v] = <span class="literal">true</span> <span class="keyword">end</span></div><div class="line"> 	<span class="keyword">return</span> set</div><div class="line"><span class="keyword">and</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function Set.union(a, b)</div><div class="line">		local res = Set.new&#123;&#125;</div><div class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span> res[k] = <span class="literal">true</span> <span class="keyword">end</span></div><div class="line"> 	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(b) <span class="keyword">do</span> res[k] = <span class="literal">true</span> <span class="keyword">end</span></div><div class="line"> 	<span class="keyword">return</span> res</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Set.intersection(a, b)</div><div class="line">	local res = Set.new&#123;&#125;</div><div class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span></div><div class="line">		res[k] = b[k]</div><div class="line">	<span class="keyword">end</span></div><div class="line">	<span class="keyword">return</span> res</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Set.tostring(set)</div><div class="line">	local l = &#123;&#125;</div><div class="line">	<span class="keyword">for</span> e <span class="keyword">in</span> pairs(set) <span class="keyword">do</span></div><div class="line">		l[<span class="comment">#l + 1] = e</span></div><div class="line">	<span class="keyword">end</span></div><div class="line">	<span class="keyword">return</span> <span class="string">"&#123;"</span> .. table.concat(l, <span class="string">", "</span>) .. <span class="string">"&#125;"</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mt.__le = function(a, b)</div><div class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> pairs(a) <span class="keyword">do</span></div><div class="line">		<span class="keyword">if</span> <span class="keyword">not</span> b[k] <span class="keyword">then</span> <span class="keyword">return</span> <span class="literal">false</span> <span class="keyword">end</span></div><div class="line">	<span class="keyword">end</span></div><div class="line">	<span class="keyword">return</span> <span class="literal">true</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mt.__lt = function(a, b)</div><div class="line">	<span class="keyword">return</span> a &lt;= b <span class="keyword">and</span> <span class="keyword">not</span> (b &lt;= a)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mt.__eq = function(a, b)</div><div class="line">	<span class="keyword">return</span> a &lt;= b <span class="keyword">and</span> b &lt;= a</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mt.__add = Set.union</div><div class="line">s1 = Set.new&#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>&#125;</div><div class="line">s2 = Set.new&#123;<span class="number">30</span>, <span class="number">1</span>&#125;</div><div class="line">s3 = s1 + s2</div><div class="line">Set.print(s3)  --&gt; (<span class="number">1</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">s1 = Set.new&#123;<span class="number">2</span>, <span class="number">4</span>&#125;</div><div class="line">s2 = Set.new&#123;<span class="number">4</span>, <span class="number">10</span>, <span class="number">2</span>&#125;</div><div class="line">print(s1 &lt;= s2) --&gt; <span class="literal">true</span></div><div class="line">print(s1 &lt; s2)	--&gt; <span class="literal">true</span></div><div class="line">print(s1 &gt;= s1)  --&gt; <span class="literal">true</span></div><div class="line">print(s1 &gt; s1)  --&gt; <span class="literal">false</span></div><div class="line">print(s1 == s2 * s1)  --&gt; <span class="literal">true</span></div></pre></td></tr></table></figure>
 <p>在元表中，每种算术操作符都有对应的字段名。</p>
 <ul>
-<li>__add(+) —&gt; 加法</li>
-<li>__mul(*) —&gt; 乘法</li>
-<li>__sub(减法) —&gt; 减法</li>
-<li>__div(除法) —&gt; 除法</li>
+<li>__add(+) –&gt; 加法</li>
+<li>__mul(*) –&gt; 乘法</li>
+<li>__sub(减法) –&gt; 减法</li>
+<li>__div(除法) –&gt; 除法</li>
 <li>__unm(相反数)</li>
 <li>__mod(取模)</li>
 <li>__pow(乘幂)</li>
 <li>__concat(描述连接操作符的行为) </li>
-<li>__le(&lt;=) —&gt; 子集</li>
-<li>__lt(&lt;) —&gt; 真子集</li>
-<li>__eq(==) —&gt; 相等</li>
-<li>__len —&gt; 长度</li>
-<li>__index —&gt; 索引查询</li>
-<li>__newindex —&gt; 索引更新</li>
+<li>__le(&lt;=) –&gt; 子集</li>
+<li>__lt(&lt;) –&gt; 真子集</li>
+<li>__eq(==) –&gt; 相等</li>
+<li>__len –&gt; 长度</li>
+<li>__index –&gt; 索引查询</li>
+<li>__newindex –&gt; 索引更新</li>
 </ul>
-<h3 id="table访问的元方法">table访问的元方法</h3><h4 id="__index元方法">__index元方法</h4><p>当访问一个table中不存在的字段时，这些访问会促使解释器去寻找一个叫__index的元方法，如果没有这个元方法，那么访问结果为nil。否则，就由这个元方法来提供最终结果。</p>
+<p>###table访问的元方法</p>
+<p>####__index元方法</p>
+<p>当访问一个table中不存在的字段时，这些访问会促使解释器去寻找一个叫__index的元方法，如果没有这个元方法，那么访问结果为nil。否则，就由这个元方法来提供最终结果。</p>
 <p>下面将介绍一个有关继承的典型示例。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Window</span> = &#123;&#125; -- 创建一个名字空间</span><br><span class="line">-- 使用默认值创建一个原型</span><br><span class="line"><span class="constant">Window</span>.prototype = &#123;x=<span class="number">0</span>, y=<span class="number">0</span>, width=<span class="number">100</span>, height=<span class="number">100</span>&#125;</span><br><span class="line"><span class="constant">Window</span>.mt = &#123;&#125;  -- 创建元表</span><br><span class="line">-- 声明构造函数</span><br><span class="line">function <span class="constant">Window</span>.new(o)</span><br><span class="line">	setmetatable(o, <span class="constant">Window</span>.mt)</span><br><span class="line">	<span class="keyword">return</span> o</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Window</span>.mt.__index = function(table, key)</span><br><span class="line">	<span class="keyword">return</span> <span class="constant">Window</span>.prototype[key]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = <span class="constant">Window</span>.new&#123;x=<span class="number">10</span>, y=<span class="number">20</span>&#125;</span><br><span class="line">print(w.width) --&gt; <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Window = &#123;&#125; -- 创建一个名字空间</div><div class="line">-- 使用默认值创建一个原型</div><div class="line">Window.prototype = &#123;x=<span class="number">0</span>, y=<span class="number">0</span>, width=<span class="number">100</span>, height=<span class="number">100</span>&#125;</div><div class="line">Window.mt = &#123;&#125;  -- 创建元表</div><div class="line">-- 声明构造函数</div><div class="line">function Window.new(o)</div><div class="line">	setmetatable(o, Window.mt)</div><div class="line">	<span class="keyword">return</span> o</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Window.mt.__index = function(table, key)</div><div class="line">	<span class="keyword">return</span> Window.prototype[key]</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">w = Window.new&#123;x=<span class="number">10</span>, y=<span class="number">20</span>&#125;</div><div class="line">print(w.width) --&gt; <span class="number">100</span></div></pre></td></tr></table></figure>
 <p>下面通过__index元方法实现一个具有默认值的table</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function setDefault (t, d)</span><br><span class="line">	local mt = &#123;__index = function () <span class="keyword">return</span> d <span class="keyword">end</span>&#125;</span><br><span class="line">	setmetatable(t, mt)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tab = &#123;x=<span class="number">10</span>, y=<span class="number">20</span>&#125;</span><br><span class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="keyword">nil</span>(因为没有设置元表，所以tab.z返回了<span class="keyword">nil</span>)</span><br><span class="line">setDefault(tab, <span class="number">0</span>)</span><br><span class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function setDefault (t, d)</div><div class="line">	local mt = &#123;__index = function () <span class="keyword">return</span> d <span class="keyword">end</span>&#125;</div><div class="line">	setmetatable(t, mt)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tab = &#123;x=<span class="number">10</span>, y=<span class="number">20</span>&#125;</div><div class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="literal">nil</span>(因为没有设置元表，所以tab.z返回了<span class="literal">nil</span>)</div><div class="line">setDefault(tab, <span class="number">0</span>)</div><div class="line">print(tab.x, tab.z) --&gt; <span class="number">10</span> <span class="number">0</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -512,17 +515,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -622,22 +616,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#元表与元方法"><span class="nav-number">1.</span> <span class="nav-text">元表与元方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元表"><span class="nav-number">1.1.</span> <span class="nav-text">元表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table访问的元方法"><span class="nav-number">1.2.</span> <span class="nav-text">table访问的元方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#__index元方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">__index元方法</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,C++,Java," />
+  <meta name="keywords" content="Android,Java,C++," />
 
 
 
@@ -88,11 +88,13 @@
 
 
 <meta name="description" content="我们知道不仅可以在Java中通过JNI调C或C++，我们也可以在C或C++中调Java方法。要想实现在C或C++中调Java，我们首先需要知道什么是JNI方法签名。">
+<meta name="keywords" content="Android,Java,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JNI方法签名">
 <meta property="og:url" content="http://yoursite.com/2015/12/25/JNI方法签名/index.html">
 <meta property="og:site_name" content="以梦为码">
 <meta property="og:description" content="我们知道不仅可以在Java中通过JNI调C或C++，我们也可以在C或C++中调Java方法。要想实现在C或C++中调Java，我们首先需要知道什么是JNI方法签名。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-12-28T01:49:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI方法签名">
@@ -460,9 +462,9 @@
 <p>方法的签名为（参数的类型签名）+返回值类型签名。</p>
 </blockquote>
 <p>举例说明，如下方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></div></pre></td></tr></table></figure>
 <p>参数的类型签名连在一起是 <strong>II</strong>，返回值类型签名是 <strong>I</strong>，所以整个方法的签名就是   <strong>(II)I</strong>。再举个复杂点的例子，如下方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, String b, <span class="keyword">int</span>[] c)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">String <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, String b, <span class="keyword">int</span>[] c)</span></span></div></pre></td></tr></table></figure>
 <p>整个方法的签名就是 <strong>(ILjava/lang/String;[I)Ljava/lang/String;</strong>。</p>
 
       
@@ -495,9 +497,9 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/C/" rel="tag"># C++</a>
-          
             <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       

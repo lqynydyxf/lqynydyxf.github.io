@@ -87,19 +87,18 @@
 
 
 
-<meta name="description" content="Synchronized用法
-Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》">
+<meta name="description" content="##Synchronized用法  Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            –《Java编程思想》">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java关键字-Synchronized">
 <meta property="og:url" content="http://yoursite.com/2017/07/29/Java关键字-Synchronized/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="Synchronized用法
-Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》">
-<meta property="og:updated_time" content="2017-07-29T15:44:07.000Z">
+<meta property="og:description" content="##Synchronized用法  Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            –《Java编程思想》">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-30T13:26:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java关键字-Synchronized">
-<meta name="twitter:description" content="Synchronized用法
-Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》">
+<meta name="twitter:description" content="##Synchronized用法  Synchronized关键字主要用在多线程并发时共享资源竞争的问题。当执行被synchronized关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            –《Java编程思想》">
 
 
 
@@ -366,16 +365,17 @@ Synchronized关键字主要用在多线程并发时共享资源竞争的问题�
       
 
       
-        <h2 id="Synchronized用法">Synchronized用法</h2><blockquote>
-<p><strong>Synchronized</strong>关键字主要用在多线程并发时共享资源竞争的问题。当执行被<strong>synchronized</strong>关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            —《Java编程思想》</p>
+        <p>##Synchronized用法</p>
+<blockquote>
+<p><strong>Synchronized</strong>关键字主要用在多线程并发时共享资源竞争的问题。当执行被<strong>synchronized</strong>关键字保护的代码片段时，将检查锁是否可用，若锁可用，则获取锁，执行代码，释放锁。            –《Java编程思想》</p>
 </blockquote>
 <a id="more"></a>
 <p>Synchronized的可以修饰类，方法，静态方法以及代码块。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"OutputUtil"</span>;</span><br><span class="line">    <span class="comment">//修饰一个方法</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个代码块</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="comment">//TODO</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个静态方法</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个类</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (OutputUtil.class) &#123;</span><br><span class="line">            <span class="comment">//TODO</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修饰一个方法</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">func5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"OutputUtil"</span>;</div><div class="line">    <span class="comment">//修饰一个方法</span></div><div class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//TODO</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//修饰一个代码块</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">            <span class="comment">//TODO</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//修饰一个静态方法</span></div><div class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func3</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//TODO</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//修饰一个类</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func4</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span> (OutputUtil.class) &#123;</div><div class="line">            <span class="comment">//TODO</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//修饰一个方法</span></div><div class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">func5</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//TODO</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在修饰方法和代码块时，获得是对象锁；而修饰类和静态方法（属于类而不属于对象）时，获得是类锁。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Test test1 = <span class="keyword">new</span> Test();</span><br><span class="line">Test test2 = <span class="keyword">new</span> Test();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Test test1 = <span class="keyword">new</span> Test();</div><div class="line">Test test2 = <span class="keyword">new</span> Test();</div></pre></td></tr></table></figure>
 <p>接下来说明对象锁和类锁的区别：</p>
-<p>顾名思义，对象锁的作用对象是针对单个对象的：在不同的线程执行<code>test1.fun1()</code>和<code>test2.fun1()</code>，二者是故不干扰的。另外，同个对象的对象锁是互斥的，在不同线程执行<code>test1.func1()</code>和<code>test1.func5()</code>，需等<code>test1.func1()</code>执行完毕释放<code>test1</code>的对象锁，<code>test1.func5()</code>拿到锁后才能执行。</p>
+<p>顾名思义，对象锁的作用对象是针对单个对象的：在不同的线程执行<code>test1.fun1()</code>和<code>test2.fun1()</code>，二者是互不干扰的。另外，同个对象的对象锁是互斥的，在不同线程执行<code>test1.func1()</code>和<code>test1.func5()</code>，需等<code>test1.func1()</code>执行完毕释放<code>test1</code>的对象锁，<code>test1.func5()</code>拿到锁后才能执行。</p>
 <p>而类锁的作用对象是整个类，在不同的线程执行<code>test1.fun4()</code>和<code>test2.fun4()</code>是互斥的，必须先等<code>test1.fun4()</code>执行完毕，释放类锁，<code>test2.fun4()</code>才能执行。同理<code>test1.fun3()</code>和<code>test2.fun3()</code>也是一样，因为使用<strong>synchronized</strong>修饰静态方法，拿到的也是类锁。</p>
 <p>综上所述，可以得出结论：</p>
 <ol>
@@ -486,17 +486,8 @@ Synchronized关键字主要用在多线程并发时共享资源竞争的问题�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -596,22 +587,6 @@ Synchronized关键字主要用在多线程并发时共享资源竞争的问题�
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synchronized用法"><span class="nav-number">1.</span> <span class="nav-text">Synchronized用法</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

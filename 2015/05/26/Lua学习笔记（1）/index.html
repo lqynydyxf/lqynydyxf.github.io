@@ -87,40 +87,18 @@
 
 
 
-<meta name="description" content="Lua语法规范
-Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。
-Lua是有大小写之分的
-Lua的数组下标是从1开始计算的
-Lua将0和空字符串也视为真
-
-解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码
-2.”-l” 用来加载库文件
-3.”-i” 运行完其他命令行参数后进入交互模式">
+<meta name="description" content="##Lua语法规范  Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。 Lua是有大小写之分的 Lua的数组下标是从1开始计算的 Lua将0和空字符串也视为真  ##解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码 2.”-l” 用来加载库文件 3.”-i” 运行完其他命令行参数后进入交互模式">
+<meta name="keywords" content="Lua">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lua学习笔记(1)">
 <meta property="og:url" content="http://yoursite.com/2015/05/26/Lua学习笔记（1）/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="Lua语法规范
-Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。
-Lua是有大小写之分的
-Lua的数组下标是从1开始计算的
-Lua将0和空字符串也视为真
-
-解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码
-2.”-l” 用来加载库文件
-3.”-i” 运行完其他命令行参数后进入交互模式">
+<meta property="og:description" content="##Lua语法规范  Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。 Lua是有大小写之分的 Lua的数组下标是从1开始计算的 Lua将0和空字符串也视为真  ##解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码 2.”-l” 用来加载库文件 3.”-i” 运行完其他命令行参数后进入交互模式">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-12-10T03:01:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua学习笔记(1)">
-<meta name="twitter:description" content="Lua语法规范
-Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。
-Lua是有大小写之分的
-Lua的数组下标是从1开始计算的
-Lua将0和空字符串也视为真
-
-解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码
-2.”-l” 用来加载库文件
-3.”-i” 运行完其他命令行参数后进入交互模式">
+<meta name="twitter:description" content="##Lua语法规范  Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。 Lua是有大小写之分的 Lua的数组下标是从1开始计算的 Lua将0和空字符串也视为真  ##解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码 2.”-l” 用来加载库文件 3.”-i” 运行完其他命令行参数后进入交互模式">
 
 
 
@@ -387,17 +365,19 @@ Lua将0和空字符串也视为真
       
 
       
-        <h2 id="Lua语法规范">Lua语法规范</h2><ul>
+        <p>##Lua语法规范</p>
+<ul>
 <li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
 <li>Lua是有大小写之分的</li>
 <li>Lua的数组下标是从1开始计算的</li>
 <li>Lua将0和空字符串也视为真</li>
 </ul>
-<h2 id="解释器的几个主要选项参数">解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
+<p>##解释器的几个主要选项参数<br>1.”-e” 可以直接诶在命令行中输入代码</p>
 <p>2.”-l” 用来加载库文件</p>
 <p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
 <a id="more"></a>
-<h2 id="Lua的8种基础类型">Lua的8种基础类型</h2><ul>
+<p>##Lua的8种基础类型</p>
+<ul>
 <li>nil</li>
 <li>boolean</li>
 <li>number</li>
@@ -411,13 +391,14 @@ Lua将0和空字符串也视为真
 <p>Lua中的字符串是不可变的值</p>
 <p>函数type可根据一个值返回其类型名称(返回的是一个字符串)</p>
 </blockquote>
-<h2 id="Lua的自动类型转换">Lua的自动类型转换</h2><h4 id="1-">1.</h4><p>Lua提供了运行时的数字雨字符串的自动转换。Lua不仅在算术操作中会施以这种强制转换，还会在其他任何需要数字的地方这么做。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"10"</span> + <span class="number">1</span>） --&gt; <span class="number">11</span></span><br><span class="line">print(<span class="string">"-5.3e-10"</span>*<span class="string">"2"</span>)  --&gt;-<span class="number">1.06</span>e-09</span><br></pre></td></tr></table></figure>
-<h4 id="2-">2.</h4><p>Lua可以讲数字转换成字符串，”..”是字符串连接操作符。当直接在一个数字后面输入它的时候，必须要用一个空格来分隔。不然Lua会将第一个点理解为一个小数点。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">10</span> .. <span class="number">20</span>)  --&gt; <span class="number">1020</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-">3.</h4><p>显式地将一个字符串转换为数字，可以使用tonumber方法</p>
+<p>##Lua的自动类型转换</p>
+<p>####1.<br>Lua提供了运行时的数字雨字符串的自动转换。Lua不仅在算术操作中会施以这种强制转换，还会在其他任何需要数字的地方这么做。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">"10"</span> + <span class="number">1</span>） --&gt; <span class="number">11</span></div><div class="line">print(<span class="string">"-5.3e-10"</span>*<span class="string">"2"</span>)  --&gt;-<span class="number">1.06</span>e-09</div></pre></td></tr></table></figure>
+<p>####2.<br>Lua可以讲数字转换成字符串，”..”是字符串连接操作符。当直接在一个数字后面输入它的时候，必须要用一个空格来分隔。不然Lua会将第一个点理解为一个小数点。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(<span class="number">10</span> .. <span class="number">20</span>)  --&gt; <span class="number">1020</span></div></pre></td></tr></table></figure>
+<p>####3.<br>显式地将一个字符串转换为数字，可以使用tonumber方法</p>
 <p>将一个数字转换成字符串，可以使用tostring方法，或者将该数字与一个空字符串相连接</p>
-<h4 id="4-">4.</h4><p>在Lua 5.1中，可以在字符串前放置操作符”#”来获得该字符串的长度</p>
+<p>####4.<br>在Lua 5.1中，可以在字符串前放置操作符”#”来获得该字符串的长度</p>
 
       
     </div>
@@ -519,17 +500,8 @@ Lua将0和空字符串也视为真
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -629,22 +601,6 @@ Lua将0和空字符串也视为真
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua语法规范"><span class="nav-number">1.</span> <span class="nav-text">Lua语法规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释器的几个主要选项参数"><span class="nav-number">2.</span> <span class="nav-text">解释器的几个主要选项参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua的8种基础类型"><span class="nav-number">3.</span> <span class="nav-text">Lua的8种基础类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua的自动类型转换"><span class="nav-number">4.</span> <span class="nav-text">Lua的自动类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-"><span class="nav-number">4.0.4.</span> <span class="nav-text">4.</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

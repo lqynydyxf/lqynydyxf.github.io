@@ -93,6 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="以梦为码">
 <meta property="og:description" content="杭州">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以梦为码">
 <meta name="twitter:description" content="杭州">
@@ -368,11 +369,12 @@
 
       
         
-          <h2 id="MAC_OS_X">MAC OS X</h2><h3 id="Homebrew">Homebrew</h3><p>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure>
+          <p>##MAC OS X</p>
+<p>###Homebrew<br>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/12/10/Groovy安装/#далее" rel="contents">
+            <a class="btn" href="/2015/12/10/Groovy安装/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -526,11 +528,11 @@
 
       
         
-          <h2 id="简介">简介</h2><p>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
-<h2 id="Doze和APP_Standby模式测试">Doze和APP Standby模式测试</h2><p>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。<br>
+          <p>##简介<br>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
+<p>##Doze和APP Standby模式测试<br>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/12/10/Android 6.0 Doze和App Standby调研/#далее" rel="contents">
+            <a class="btn" href="/2015/12/10/Android 6.0 Doze和App Standby调研/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -685,13 +687,14 @@
       
         
           <p>如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。</p>
-<h3 id="GroovyShell">GroovyShell</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> groovy.lang.Binding;</span><br><span class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="typename">void</span> main(String[] args)&#123;</span><br><span class="line">        Binding bind =  <span class="keyword">new</span> Binding();</span><br><span class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</span><br><span class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</span><br><span class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</span><br><span class="line">        System.out.println(object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###GroovyShell</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> groovy.lang.Binding;</div><div class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</div><div class="line">        Binding bind =  <span class="keyword">new</span> Binding();</div><div class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</div><div class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</div><div class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</div><div class="line">        System.out.println(object);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>结果输出为：</p>
-<pre><code><span class="variable">Hello</span> <span class="variable">Groovy</span><span class="exclamation_mark">!</span>
+<pre><code>Hello Groovy!
 </code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/07/11/Java调用Groovy/#далее" rel="contents">
+            <a class="btn" href="/2015/07/11/Java调用Groovy/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -845,15 +848,17 @@
 
       
         
-          <h2 id="元表与元方法">元表与元方法</h2><h3 id="元表">元表</h3><p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = &#123;&#125;</span><br><span class="line">t1 = &#123;&#125;</span><br><span class="line">setmetatable(t, t1)</span><br><span class="line">assert(getmetatable(t) ==  t1)</span><br></pre></td></tr></table></figure>
+          <p>##元表与元方法</p>
+<p>###元表</p>
+<p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">t = &#123;&#125;</div><div class="line">t1 = &#123;&#125;</div><div class="line">setmetatable(t, t1)</div><div class="line">assert(getmetatable(t) ==  t1)</div></pre></td></tr></table></figure>
 <p>任何table都可以作为任何值的元表，而一组相关的table也可以共享一个通用的元表，此元表描述了它们共同的行为。</p>
 <blockquote>
 <p>Lua代码中，只能设置table的元表。若要设置其他类型的值的元表，则必须通过C代码来完成。</p>
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/05/28/Lua学习笔记（4）/#далее" rel="contents">
+            <a class="btn" href="/2015/05/28/Lua学习笔记（4）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

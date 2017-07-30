@@ -87,19 +87,18 @@
 
 
 
-<meta name="description" content="简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。
-Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下充分测试">
+<meta name="description" content="##简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。 ##Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 6.0 Doze模式和App Standby调研">
 <meta property="og:url" content="http://yoursite.com/2015/12/10/Android 6.0 Doze和App Standby调研/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。
-Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下充分测试">
+<meta property="og:description" content="##简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。 ##Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-12-23T08:06:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 6.0 Doze模式和App Standby调研">
-<meta name="twitter:description" content="简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。
-Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下充分测试">
+<meta name="twitter:description" content="##简介Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，Doze模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，App Standby模式会延迟App的后台网络活动。 ##Doze和APP Standby模式测试为了确保完美的用户体验，开发者应该在这两种模式下">
 
 
 
@@ -366,22 +365,24 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       
 
       
-        <h2 id="简介">简介</h2><p>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
-<h2 id="Doze和APP_Standby模式测试">Doze和APP Standby模式测试</h2><p>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。<br><a id="more"></a></p>
-<h3 id="进入Doze模式">进入Doze模式</h3><ol>
+        <p>##简介<br>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
+<p>##Doze和APP Standby模式测试<br>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。<br><a id="more"></a></p>
+<p>###进入Doze模式</p>
+<ol>
 <li>准备一台安装了Android 6.0系统的设备</li>
 <li>在开发机器上连接你的设备，然后安装应用</li>
 <li>运行应用</li>
 <li>关闭设备屏幕</li>
 <li>通过命令行进入Doze模式</li>
 </ol>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell dumpsys battery unplug</span><br><span class="line">$ adb shell dumpsys deviceidle step</span><br></pre></td></tr></table></figure>
-<h3 id="进入App_Standby模式">进入App Standby模式</h3><p>前三步和进入Doze模式的步骤一样，只是不需要关闭屏幕。</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ adb shell dumpsys battery unplug</div><div class="line">$ adb shell dumpsys deviceidle step</div></pre></td></tr></table></figure>
+<p>###进入App Standby模式</p>
+<p>前三步和进入Doze模式的步骤一样，只是不需要关闭屏幕。</p>
 <p>通过命令行进入App Standby模式</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell dumpsys battery unplug</span><br><span class="line">$ adb shell am <span class="keyword">set</span>-inactive &lt;packageName&gt; true</span><br></pre></td></tr></table></figure>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ adb shell dumpsys battery unplug</div><div class="line">$ adb shell am <span class="built_in">set</span>-inactive &lt;packageName&gt; true</div></pre></td></tr></table></figure>
 <p>通过命令唤醒App</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell am <span class="keyword">set</span>-inactive &lt;packageName&gt; false</span><br><span class="line">$ adb shell am get-inactive &lt;packageName&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="App_Standby模式对推送的影响">App Standby模式对推送的影响</h2><p>在Doze模式和Standby模式下，第三方推送将会被废，唯一能用的就是Google的GCM。看起来Google希望通过Doze和App Standby来强推GCM。</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ adb shell am <span class="built_in">set</span>-inactive &lt;packageName&gt; false</div><div class="line">$ adb shell am get-inactive &lt;packageName&gt;</div></pre></td></tr></table></figure>
+<p>##App Standby模式对推送的影响<br>在Doze模式和Standby模式下，第三方推送将会被废，唯一能用的就是Google的GCM。看起来Google希望通过Doze和App Standby来强推GCM。</p>
 <p>此处重点研究App Standby模式。通过几个Demo测试，得出以下结果：</p>
 <ol>
 <li>通过startService启动PushService无法把应用从Standby模式唤醒。</li>
@@ -494,17 +495,8 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -604,22 +596,6 @@ Doze和APP Standby模式测试为了确保完美的用户体验，开发者应�
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doze和APP_Standby模式测试"><span class="nav-number">2.</span> <span class="nav-text">Doze和APP Standby模式测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入Doze模式"><span class="nav-number">2.1.</span> <span class="nav-text">进入Doze模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入App_Standby模式"><span class="nav-number">2.2.</span> <span class="nav-text">进入App Standby模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#App_Standby模式对推送的影响"><span class="nav-number">3.</span> <span class="nav-text">App Standby模式对推送的影响</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
