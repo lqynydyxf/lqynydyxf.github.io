@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。 Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件之中，中间没有添加任何分割符，这使得整个Class文件中存储的内容几">
+<meta name="description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《深入理解Java虚拟机》读书笔记——类文件结构">
 <meta property="og:url" content="http://yoursite.com/2019/07/20/《深入理解Java虚拟机》读书笔记——类文件结构/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。 Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件之中，中间没有添加任何分割符，这使得整个Class文件中存储的内容几">
+<meta property="og:description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-20T15:29:24.730Z">
+<meta property="og:updated_time" content="2019-07-20T15:31:41.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解Java虚拟机》读书笔记——类文件结构">
-<meta name="twitter:description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。 Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件之中，中间没有添加任何分割符，这使得整个Class文件中存储的内容几">
+<meta name="twitter:description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
 
 
 
@@ -343,8 +343,7 @@
       
 
       
-        <p>##概述<br>Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。</p>
-<p>Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件之中，中间没有添加任何分割符，这使得整个Class文件中存储的内容几乎全部都是程序运行的必要数据，没有空隙存在。<br>根据Java虚拟机规范的规定，Class文件格式采用一种类似C语言结构体的伪结构来存储数据，这种伪结构只有两种数据结构：无符号数和表。</p>
+        <p>##概述<br>Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。<br><a id="more"></a><br>Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件之中，中间没有添加任何分割符，这使得整个Class文件中存储的内容几乎全部都是程序运行的必要数据，没有空隙存在。<br>根据Java虚拟机规范的规定，Class文件格式采用一种类似C语言结构体的伪结构来存储数据，这种伪结构只有两种数据结构：无符号数和表。</p>
 <blockquote>
 <p>无符号数：基本数据类型，以u1，u2，u4，u8来分别表示1个字节，2个字节，4个字节和8个字节的无符号数，无符号数可以用来描述数字，索引饮用，数量值或者按照UTF-8编码构成字符串值。</p>
 <p>表：是由多个无符号数或者其他表作为数据项构成的复合数据类型，所有表都习惯性地以”_info”结尾。表用于描述有层次关系的复合结构的数据，整个Class文件本质上就是一张表。</p>
