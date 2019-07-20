@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="###Lua关系操作符Lua提供了一下关系操作符：  \&amp;lt; &amp;gt; \&amp;lt;= &amp;gt;= == ~=  对于table，userdata和函数，Lua是作引用比较的。  ###Lua逻辑操作符  and or not  所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，">
+<meta name="description" content="Lua关系操作符Lua提供了一下关系操作符：  \&amp;lt; &amp;gt; \&amp;lt;= &amp;gt;= == ~=  对于table，userdata和函数，Lua是作引用比较的。  Lua逻辑操作符 and or not  所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，如果它的第一个">
 <meta name="keywords" content="Lua">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lua学习笔记(2)">
 <meta property="og:url" content="http://yoursite.com/2015/05/28/Lua学习笔记（2）/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="###Lua关系操作符Lua提供了一下关系操作符：  \&amp;lt; &amp;gt; \&amp;lt;= &amp;gt;= == ~=  对于table，userdata和函数，Lua是作引用比较的。  ###Lua逻辑操作符  and or not  所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，">
+<meta property="og:description" content="Lua关系操作符Lua提供了一下关系操作符：  \&amp;lt; &amp;gt; \&amp;lt;= &amp;gt;= == ~=  对于table，userdata和函数，Lua是作引用比较的。  Lua逻辑操作符 and or not  所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，如果它的第一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2015-12-10T03:02:04.000Z">
+<meta property="og:updated_time" content="2019-07-20T15:54:01.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua学习笔记(2)">
-<meta name="twitter:description" content="###Lua关系操作符Lua提供了一下关系操作符：  \&amp;lt; &amp;gt; \&amp;lt;= &amp;gt;= == ~=  对于table，userdata和函数，Lua是作引用比较的。  ###Lua逻辑操作符  and or not  所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，">
+<meta name="twitter:description" content="Lua关系操作符Lua提供了一下关系操作符：  \&amp;lt; &amp;gt; \&amp;lt;= &amp;gt;= == ~=  对于table，userdata和函数，Lua是作引用比较的。  Lua逻辑操作符 and or not  所有的逻辑操作符将false和nil视为假，而将其他的任何东西视为真。对于操作符and来说，如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数。对于操作符or来说，如果它的第一个">
 
 
 
@@ -365,7 +365,7 @@
       
 
       
-        <p>###Lua关系操作符<br>Lua提供了一下关系操作符：</p>
+        <h3 id="Lua关系操作符"><a href="#Lua关系操作符" class="headerlink" title="Lua关系操作符"></a>Lua关系操作符</h3><p>Lua提供了一下关系操作符：</p>
 <ul>
 <li>\&lt;</li>
 <li>></li>
@@ -375,8 +375,7 @@
 <li>~=</li>
 </ul>
 <p>对于table，userdata和函数，Lua是作引用比较的。 </p>
-<p>###Lua逻辑操作符</p>
-<ul>
+<h3 id="Lua逻辑操作符"><a href="#Lua逻辑操作符" class="headerlink" title="Lua逻辑操作符"></a>Lua逻辑操作符</h3><ul>
 <li>and</li>
 <li>or</li>
 <li>not</li>
@@ -388,16 +387,15 @@
 <p>max = （x &gt; y） and x or y</p>
 </blockquote>
 <a id="more"></a>
-<p>###多重赋值</p>
-<p>a, b, c = 0, 0, 0 </p>
+<h3 id="多重赋值"><a href="#多重赋值" class="headerlink" title="多重赋值"></a>多重赋值</h3><p>a, b, c = 0, 0, 0 </p>
 <p>在多重赋值中，Lua先对等号右边的所有元素求值，然后才执行赋值。因此利用多重赋值可以交换两个变量。</p>
 <p>x, y = y, x（交换x与y）</p>
 <p>多重赋值也可用于收集函数的多个返回值</p>
-<p>###泛型<br>泛型for循环通过一个迭代器函数来遍历所有值。</p>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><p>泛型for循环通过一个迭代器函数来遍历所有值。</p>
 <blockquote>
 <p>迭代文件中每行的（io.lines），迭代table元素的（pairs），迭代数组元素的（ipairs），迭代字符串中单词的string.gmatch等。</p>
 </blockquote>
-<p>###变长参数<br>Lua中的函数可以可以接受不同数量的实参。</p>
+<h3 id="变长参数"><a href="#变长参数" class="headerlink" title="变长参数"></a>变长参数</h3><p>Lua中的函数可以可以接受不同数量的实参。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function add(...)</div><div class="line">local s = <span class="number">0</span></div><div class="line">	<span class="keyword">for</span> i, v <span class="keyword">in</span> ipairs(...) <span class="keyword">do</span></div><div class="line">		s = s + v</div><div class="line">	<span class="keyword">end</span></div><div class="line"> <span class="keyword">return</span> s</div><div class="line"> <span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>参数表中的三个点(…)表示该函数可接受不同数量的实参。当这个函数被调用时，它的所有参数都会被收集到一起。这部分收集起来的实参称为这个函数的”变长参数”。</p>
 
@@ -505,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -606,6 +613,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua关系操作符"><span class="nav-number">1.</span> <span class="nav-text">Lua关系操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lua逻辑操作符"><span class="nav-number">2.</span> <span class="nav-text">Lua逻辑操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重赋值"><span class="nav-number">3.</span> <span class="nav-text">多重赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型"><span class="nav-number">4.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变长参数"><span class="nav-number">5.</span> <span class="nav-text">变长参数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

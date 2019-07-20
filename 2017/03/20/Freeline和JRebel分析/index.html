@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="以梦为码">
 <meta property="og:description" content="使用Android Studio开发时，常常会觉得编译很慢，要花好几分钟才能把App部署到手机上。本文对比了Freeline以及JRebel两种快速编译方案，希望可以找到合适的一个方案解决这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-03-20T13:09:01.000Z">
+<meta property="og:updated_time" content="2019-07-20T15:51:48.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Freeline和JRebel分析">
 <meta name="twitter:description" content="使用Android Studio开发时，常常会觉得编译很慢，要花好几分钟才能把App部署到手机上。本文对比了Freeline以及JRebel两种快速编译方案，希望可以找到合适的一个方案解决这个问题。">
@@ -347,18 +347,18 @@
       
 
       
-        <p>##Freeline原理<br>Freeline是蚂蚁聚宝团队为Android平台量身定做的HotSwap方案。它的技术思想来源于Buck和LayoutCast，并做了改良。Freeline全版本覆盖，2.x ～ 6.x版本均支持；平台覆盖也比Buck（PC端不支持Windows）和LayoutCast（手机端不支持Android 5.0以下）广。</p>
+        <h2 id="Freeline原理"><a href="#Freeline原理" class="headerlink" title="Freeline原理"></a>Freeline原理</h2><p>Freeline是蚂蚁聚宝团队为Android平台量身定做的HotSwap方案。它的技术思想来源于Buck和LayoutCast，并做了改良。Freeline全版本覆盖，2.x ～ 6.x版本均支持；平台覆盖也比Buck（PC端不支持Windows）和LayoutCast（手机端不支持Android 5.0以下）广。</p>
 <p>工作流程：PC端与手机建立TCP长连接，扫描各个子工程文件变化，各个子工程的增量dex构建，增量资源包构建，合并所有工程dex，传输增量包。   </p>
 <p>增量更新主要分为代码增量和资源增量。</p>
-<p>###代码增量<br>在代码增量方面，Freeline采用的是主流Hotpatch的方案：植入Dex 到系统DexList。在Google支持MultiDex后，构建工具默认会按照65536方法及LinearAlloc内存限制进行分包，一般一个大型app，会有多个dex文件存在。系统从dex数组最前的位置开始找，找到对应的Class则不会继续往下找。在应用启动时候，把我们准备好的增量dex通过反射注入到DexElements最前面，则整个增量部署就完成了。</p>
-<p>###资源增量<br>资源增量是Freeline相对其他构建方式，比较明显的一个特性。资源增量主要需要解决下面三个问题：</p>
+<h3 id="代码增量"><a href="#代码增量" class="headerlink" title="代码增量"></a>代码增量</h3><p>在代码增量方面，Freeline采用的是主流Hotpatch的方案：植入Dex 到系统DexList。在Google支持MultiDex后，构建工具默认会按照65536方法及LinearAlloc内存限制进行分包，一般一个大型app，会有多个dex文件存在。系统从dex数组最前的位置开始找，找到对应的Class则不会继续往下找。在应用启动时候，把我们准备好的增量dex通过反射注入到DexElements最前面，则整个增量部署就完成了。</p>
+<h3 id="资源增量"><a href="#资源增量" class="headerlink" title="资源增量"></a>资源增量</h3><p>资源增量是Freeline相对其他构建方式，比较明显的一个特性。资源增量主要需要解决下面三个问题：</p>
 <ol>
 <li>增量包资源id怎么兼容基线包资源id？</li>
 <li>怎么样高效构建出仅仅包含变更集合的资源包?</li>
 <li>怎么样在手机端让上面构建的增量包生效？</li>
 </ol>
 <p>解决第一个问题，Freeline采取的思路是通过最后一次编译res过程的R.java，反向导出保留id所需要的两个文件（public.xml，ids.xml），这个功能抽成单独的工具“id-gen-tool”，该工具会根据枚举常量生成的id的上下文特征，过滤掉枚举常量，解决掉其引起的内存越界问题。<br>剩下两个问题，可以阅读下面的参考资料，内有详细说明。</p>
-<p>###缺点<br>Freeline也并非没有缺点，它有以下几点限制：</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>Freeline也并非没有缺点，它有以下几点限制：</p>
 <ul>
 <li>第一次增量资源编译的时候可能会有点慢</li>
 <li>不支持删除带 id 的资源，否则可能导致 aapt 编译出错</li>
@@ -366,7 +366,7 @@
 <li>不支持开启 Jack 编译</li>
 <li>不支持 Kotlin/Groovy/Scala</li>
 </ul>
-<p>##Freeline集成<br>Freeline选择Python+Java作为构建语言，因此需要安装Python环境，并添加到环境变量中。阅读freeline源码，可以发现目前只支持Python 2.7+，对Python 3.0及以上版本不支持。</p>
+<h2 id="Freeline集成"><a href="#Freeline集成" class="headerlink" title="Freeline集成"></a>Freeline集成</h2><p>Freeline选择Python+Java作为构建语言，因此需要安装Python环境，并添加到环境变量中。阅读freeline源码，可以发现目前只支持Python 2.7+，对Python 3.0及以上版本不支持。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line"><span class="keyword">if</span> sys.version_info &gt; (<span class="number">3</span>, <span class="number">0</span>):</div><div class="line">print(<span class="string">'Freeline only support Python 2.7+ now. Please use the correct version of Python for freeline.'</span>)</div><div class="line">exit()</div></pre></td></tr></table></figure>
 <p>配置 project-level 的 build.gradle，加入 freeline-gradle 的依赖：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.antfortune.freeline:gradle:0.8.4'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -385,12 +385,12 @@ Linux/Mac: ./gradlew initFreeline
 <p>##JRebel for Android原理<br>JRebel是一款Java热更新插件，最早使用在Java Web以及Java Server端的开发中。它支持所有的JVM语言，比如Java，Groovy以及Scala等；同时支持多个IDE，比如Eclipse，MyEclipse以及 IntelliJ IDEA等。</p>
 <p>为了可以在运行期间更新项目代码，需要运行classes文件并在APK中添加代理。代理用于接收变更过的类以及资源。为了减少启动时间，Jrebel在在Gradle Plugin中增加了一个jrebelPrepareDebug任务，但是跳过dexing这个过程。因此构建APK不包括任何.dex文件，但是包括所有相关的APK文件：manifest，resources，.so库等等。一旦这个加壳APK安装完成，所有运行过的项目代码会被发送到代理那里，然后程序就会启动。</p>
 <p>如果代码或者资源有变化，点击”Apply changes with JRebel for Android”（安装插件后会出现）按钮，就会启用jrebelCompileDebug这个Gradle task。所有有改变的类和资源会被打包然后通过ADB发送给代理。代理会应用这些变更资源。为了确保app使用的是最新的资源，代理会调用任务栈里top-most activity的recreate方法。通常在设备配置改变后（比如转动设备）才会调用这个方法。</p>
-<p>##JRebel使用<br>JRebel For Android的使用非常简单，只要在Plugin里搜索并且安装就可以了。此外它还支持Debuger模式（Freeline不支持）。</p>
-<p>##使用感受<br>使用Freeline全量更新Apk，记录数据如下：</p>
+<h2 id="JRebel使用"><a href="#JRebel使用" class="headerlink" title="JRebel使用"></a>JRebel使用</h2><p>JRebel For Android的使用非常简单，只要在Plugin里搜索并且安装就可以了。此外它还支持Debuger模式（Freeline不支持）。</p>
+<h2 id="使用感受"><a href="#使用感受" class="headerlink" title="使用感受"></a>使用感受</h2><p>使用Freeline全量更新Apk，记录数据如下：</p>
 <table><br> <tr><br>  <th>次数</th><br>  <td>1</td><br>  <td>2</td><br>  <td>3</td><br>  <td>4</td><br> </tr><br> <tr><br>  <th>启动时间</th><br>  <td>181s</td><br>  <td>145s</td><br>  <td>195s</td><br>  <td>211s</td><br> </tr><br></table>
 
 <p>删除了一段代码后重新部署耗时7s，修改资源名后重新部署耗时3s，感觉速度还算快。但是前期集成有点麻烦，而且在使用Freeline后切回AS自带的运行方式，需要先clean一把。<br>在速度上JRebel和Freeline差不多，但是使用比较简单，而且支持debug模式，综上JRebel更胜一筹。</p>
-<p>##参考<br><a href="https://github.com/alibaba/freeline" target="_blank" rel="external">Freeline项目</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/alibaba/freeline" target="_blank" rel="external">Freeline项目</a></p>
 <p><a href="https://github.com/alibaba/freeline/wiki/Freeline-DSL-References" target="_blank" rel="external">Freeline DSL Reference</a></p>
 <p><a href="https://yq.aliyun.com/articles/59122?spm=5176.8091938.0.0.1Bw3mU" target="_blank" rel="external">Freeline - Android平台上的秒级编译方案</a></p>
 <p><a href="https://zeroturnaround.com/rebellabs/under-the-hood-of-jrebel-for-android/" target="_blank" rel="external">Under the hood of JRebel for Android</a></p>
@@ -500,8 +500,17 @@ Linux/Mac: ./gradlew initFreeline
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -601,6 +610,22 @@ Linux/Mac: ./gradlew initFreeline
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Freeline原理"><span class="nav-number">1.</span> <span class="nav-text">Freeline原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码增量"><span class="nav-number">1.1.</span> <span class="nav-text">代码增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源增量"><span class="nav-number">1.2.</span> <span class="nav-text">资源增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Freeline集成"><span class="nav-number">2.</span> <span class="nav-text">Freeline集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JRebel使用"><span class="nav-number">3.</span> <span class="nav-text">JRebel使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用感受"><span class="nav-number">4.</span> <span class="nav-text">使用感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

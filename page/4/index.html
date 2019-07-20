@@ -369,9 +369,7 @@
 
       
         
-          <p>##元表与元方法</p>
-<p>###元表</p>
-<p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
+          <h2 id="元表与元方法"><a href="#元表与元方法" class="headerlink" title="元表与元方法"></a>元表与元方法</h2><h3 id="元表"><a href="#元表" class="headerlink" title="元表"></a>元表</h3><p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">t = &#123;&#125;</div><div class="line">t1 = &#123;&#125;</div><div class="line">setmetatable(t, t1)</div><div class="line">assert(getmetatable(t) ==  t1)</div></pre></td></tr></table></figure>
 <p>任何table都可以作为任何值的元表，而一组相关的table也可以共享一个通用的元表，此元表描述了它们共同的行为。</p>
 <blockquote>
@@ -533,8 +531,7 @@
 
       
         
-          <p>##协同程序</p>
-<p>Lua将所有关于协同程序的函数放置在一个名为”coroutine”的table中。函数create用于创建新的协同程序，它只有一个参数，就是一个函数，函数代码就是所需执行的内容。create会返回一个thread类型的值，用以表示新的协同程序。通常create的参数是一个匿名函数：</p>
+          <h2 id="协同程序"><a href="#协同程序" class="headerlink" title="协同程序"></a>协同程序</h2><p>Lua将所有关于协同程序的函数放置在一个名为”coroutine”的table中。函数create用于创建新的协同程序，它只有一个参数，就是一个函数，函数代码就是所需执行的内容。create会返回一个thread类型的值，用以表示新的协同程序。通常create的参数是一个匿名函数：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">co = coroutine.create(function () print(<span class="string">"hi"</span>) <span class="keyword">end</span>)</div><div class="line">print(co)  --&gt;<span class="symbol">thread:</span> <span class="number">0x7fa97b404f60</span></div></pre></td></tr></table></figure>
 <p>一个协同程序可以处于4种不同的状态：</p>
 <ul>
@@ -699,7 +696,7 @@
 
       
         
-          <p>###Lua关系操作符<br>Lua提供了一下关系操作符：</p>
+          <h3 id="Lua关系操作符"><a href="#Lua关系操作符" class="headerlink" title="Lua关系操作符"></a>Lua关系操作符</h3><p>Lua提供了一下关系操作符：</p>
 <ul>
 <li>\&lt;</li>
 <li>></li>
@@ -709,8 +706,7 @@
 <li>~=</li>
 </ul>
 <p>对于table，userdata和函数，Lua是作引用比较的。 </p>
-<p>###Lua逻辑操作符</p>
-<ul>
+<h3 id="Lua逻辑操作符"><a href="#Lua逻辑操作符" class="headerlink" title="Lua逻辑操作符"></a>Lua逻辑操作符</h3><ul>
 <li>and</li>
 <li>or</li>
 <li>not</li>
@@ -877,14 +873,13 @@
 
       
         
-          <p>##Lua语法规范</p>
-<ul>
+          <h2 id="Lua语法规范"><a href="#Lua语法规范" class="headerlink" title="Lua语法规范"></a>Lua语法规范</h2><ul>
 <li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
 <li>Lua是有大小写之分的</li>
 <li>Lua的数组下标是从1开始计算的</li>
 <li>Lua将0和空字符串也视为真</li>
 </ul>
-<p>##解释器的几个主要选项参数<br>1.”-e” 可以直接诶在命令行中输入代码</p>
+<h2 id="解释器的几个主要选项参数"><a href="#解释器的几个主要选项参数" class="headerlink" title="解释器的几个主要选项参数"></a>解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
 <p>2.”-l” 用来加载库文件</p>
 <p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
           <!--noindex-->

@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://yoursite.com/img/ModifyAM/13.png">
 <meta property="og:image" content="http://yoursite.com/img/ModifyAM/11.png">
 <meta property="og:image" content="http://yoursite.com/img/ModifyAM/12.png">
-<meta property="og:updated_time" content="2016-11-03T14:55:45.000Z">
+<meta property="og:updated_time" content="2019-07-20T15:50:24.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Manifest加密">
 <meta name="twitter:description" content="APK加固有多种思路。今天介绍一种对Manifest文件进行加密的方法。">
@@ -393,18 +393,17 @@
       
 
       
-        <p>###准备工作</p>
-<ol>
+        <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
 <li>阅读<a href="http://www.cnblogs.com/wanyuanchun/p/4084292.html#3180509" target="_blank" rel="external">AndroidManifest Ambiguity方案原理及代码</a>，了解原理。</li>
 <li>安装apktool。</li>
 <li>下载<a href="https://github.com/wanchouchou/ManifestAmbiguity" target="_blank" rel="external">源码</a>。按提示操作，得到<strong>manifestAmbiguity</strong>执行文件，然后把所在目录添加到环境变量里。这样在任何目录下都可以使用<strong>manifestAmbiguity</strong>命令来修改AXML文件。</li>
 <li>需要加密的APK文件（本文中拿apkdemo.apk进行测试）。</li>
 </ol>
-<p>####第一步<br>进入目标apk所在目录，使用<strong>unzip</strong>命令解压apk文件到指定目录。如下所示，解压apkdemo.apk到output文件夹中。</p>
+<h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><p>进入目标apk所在目录，使用<strong>unzip</strong>命令解压apk文件到指定目录。如下所示，解压apkdemo.apk到output文件夹中。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ unzip -o -d output apkdemo.apk</div></pre></td></tr></table></figure>
 <p>首先看一下output文件里的目录结构：</p>
 <p><img src="/img/ModifyAM/2.png" alt=""><br>箭头所知的AndroidManifest.xml文件是AXML格式的，它是XML格式的二进制格式。我们要做的工作就是修改这个AXML文件，往里面添加一些无意义的字段，从而影响反编译后的重新打包。<br>使用<strong>manifestAmbiguity -p</strong>命令打印AndroidManifest.xml文件。<br><img src="/img/ModifyAM/6.png" alt=""></p>
-<p>####第二步<br>进入output文件夹，运行<strong>manifestAmbiguity -m</strong>命令，修改AndroidManifest.xml文件，生成新的xml文件。</p>
+<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><p>进入output文件夹，运行<strong>manifestAmbiguity -m</strong>命令，修改AndroidManifest.xml文件，生成新的xml文件。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ manifestAmbiguity -m AndroidManifest.xml -o out.xml</div></pre></td></tr></table></figure>
 <p><img src="/img/ModifyAM/3.png" alt=""></p>
 <p>我们可以看到在output文件夹下出现一个out.xml文件。</p>
@@ -412,12 +411,12 @@
 <p>使用<strong>manifestAmbiguity -p</strong>命令打印out.xml文件。结果如下：</p>
 <p><img src="/img/ModifyAM/5.png" alt=""></p>
 <p>红框内就是我们添加的无意义字段。</p>
-<p>####第三步<br>删除原来的AndroidManifest.xml文件，将新生成的out.xml文件重命名为AndroidManifest.xml，并且删除META-INF文件夹（签名有关的文件夹）。</p>
+<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><p>删除原来的AndroidManifest.xml文件，将新生成的out.xml文件重命名为AndroidManifest.xml，并且删除META-INF文件夹（签名有关的文件夹）。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ rm AndroidManifest.xml</div><div class="line">$ mv out.xml AndroidManifest.xml</div><div class="line">$ rm -rf META-INF/</div></pre></td></tr></table></figure>
-<p>####第四步<br>在当前目录（此处为output文件夹下）使用zip命令，将所有文件重新打包成一个新的apk。</p>
+<h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><p>在当前目录（此处为output文件夹下）使用zip命令，将所有文件重新打包成一个新的apk。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ zip -9 -r new.apk ./*</div></pre></td></tr></table></figure>
 <p><img src="/img/ModifyAM/7.png" alt=""></p>
-<p>####第五步<br>给新生成的apk进行签名。</p>
+<h4 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h4><p>给新生成的apk进行签名。</p>
 <ul>
 <li>生成new.keystore签名：</li>
 </ul>
@@ -431,7 +430,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jarsigner -digestalg SHA1 -sigalg MD5withRSA -verbose -keystore new.keystore -signedjar new-signed.apk new.apk new</div></pre></td></tr></table></figure>
 <p>我们可以看到目录下新生成new-signed.apk，这个就是我们最终要得到的apk。</p>
 <p><img src="/img/ModifyAM/10.png" alt=""></p>
-<p>####第六步<br>运行安装命令，我们发现new-signed.apk成功安装。</p>
+<h4 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h4><p>运行安装命令，我们发现new-signed.apk成功安装。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ adb install new-signed.apk</div></pre></td></tr></table></figure>
 <p><img src="/img/ModifyAM/13.png" alt=""><br>使用apktool对new-signed.apk进行反编译。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ apktool d new-signed.apk</div></pre></td></tr></table></figure>
@@ -441,7 +440,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ apktool b new-signed</div></pre></td></tr></table></figure>
 <p>重新打包将会失败，错误信息如下：</p>
 <p><img src="/img/ModifyAM/12.png" alt=""></p>
-<p>###后续<br>这种方法安全非常低，破解者只要删除这些无意义的字段，就能重新打包，打包后再次签名，apk就能安装了。所以本文只是验证这种方式的可行性。</p>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><p>这种方法安全非常低，破解者只要删除这些无意义的字段，就能重新打包，打包后再次签名，apk就能安装了。所以本文只是验证这种方式的可行性。</p>
 
       
     </div>
@@ -549,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -650,6 +658,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步"><span class="nav-number">1.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步"><span class="nav-number">1.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步"><span class="nav-number">1.3.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步"><span class="nav-number">1.4.</span> <span class="nav-text">第四步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五步"><span class="nav-number">1.5.</span> <span class="nav-text">第五步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六步"><span class="nav-number">1.6.</span> <span class="nav-text">第六步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续"><span class="nav-number">2.</span> <span class="nav-text">后续</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

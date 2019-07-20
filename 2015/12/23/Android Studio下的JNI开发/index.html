@@ -87,13 +87,13 @@
 
 
 
-<meta name="description" content="##前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  ###1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
+<meta name="description" content="前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
 <meta name="keywords" content="Android,Java,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Studio下的JNI开发">
 <meta property="og:url" content="http://yoursite.com/2015/12/23/Android Studio下的JNI开发/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="##前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  ###1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
+<meta property="og:description" content="前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/5.jpg">
 <meta property="og:image" content="http://yoursite.com/img/6.jpeg">
@@ -110,10 +110,10 @@
 <meta property="og:image" content="http://yoursite.com/img/16.png">
 <meta property="og:image" content="http://yoursite.com/img/17.png">
 <meta property="og:image" content="http://yoursite.com/img/18.jpeg">
-<meta property="og:updated_time" content="2016-02-24T06:44:14.000Z">
+<meta property="og:updated_time" content="2019-07-20T15:51:05.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio下的JNI开发">
-<meta name="twitter:description" content="##前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  ###1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
+<meta name="twitter:description" content="前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
 <meta name="twitter:image" content="http://yoursite.com/img/5.jpg">
 
 
@@ -381,14 +381,14 @@
       
 
       
-        <p>##前言<br>Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。</p>
 <blockquote>
 <p>开发环境：Android Studio 2.0 Preview 3b</p>
 </blockquote>
-<p>###1. 新建项目<br>新建项目，命名MyJniProject，选择Empty Activity。<br><a id="more"></a><br><img src="/img/5.jpg" alt=""></p>
-<p>###2. 新建一个HelloWorld类<br>在HelloWorld类里新增一个native方法，命名为<strong><em>getJNIString</em></strong>，如下图所示。<br><img src="/img/6.jpeg" alt=""></p>
+<h3 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h3><p>新建项目，命名MyJniProject，选择Empty Activity。<br><a id="more"></a><br><img src="/img/5.jpg" alt=""></p>
+<h3 id="2-新建一个HelloWorld类"><a href="#2-新建一个HelloWorld类" class="headerlink" title="2. 新建一个HelloWorld类"></a>2. 新建一个HelloWorld类</h3><p>在HelloWorld类里新增一个native方法，命名为<strong><em>getJNIString</em></strong>，如下图所示。<br><img src="/img/6.jpeg" alt=""></p>
 <p>然后Build整个工程，会自动生成class文件。先把目录结构从Android切为Project，看到class文件的目录如下图所示。<br><img src="/img/7.jpeg" alt=""></p>
-<p>###3. 生成.h文件<br>点击Android Studio底部的Terminal，会打开IDE内置的命令行工具。然后cd命令进入到debug目录下，然后输入命令：</p>
+<h3 id="3-生成-h文件"><a href="#3-生成-h文件" class="headerlink" title="3. 生成.h文件"></a>3. 生成.h文件</h3><p>点击Android Studio底部的Terminal，会打开IDE内置的命令行工具。然后cd命令进入到debug目录下，然后输入命令：</p>
 <blockquote>
 <p>set classpath=”debug目录的绝对路径”</p>
 </blockquote>
@@ -410,11 +410,11 @@
 <p><img src="/img/10.png" alt=""></p>
 <p>.h文件的内容如下图所示：</p>
 <p><img src="/img/19.png" alt=""></p>
-<p>###4. 生成.c文件<br>进入到src目录下，新建一个名为jni的文件夹（New-&gt;Directory），然后把之前生成的.h文件剪切过来，放到jni目录下，同时在jni目录下新建一个.c文件，可随意命名，但是这里为了整齐，我将.c文件的文件名写的和.h文件一样。.c文件的内容是对.h文件中声明的方法进行具体实现。.c文件的内容如下所示：</p>
+<h3 id="4-生成-c文件"><a href="#4-生成-c文件" class="headerlink" title="4. 生成.c文件"></a>4. 生成.c文件</h3><p>进入到src目录下，新建一个名为jni的文件夹（New-&gt;Directory），然后把之前生成的.h文件剪切过来，放到jni目录下，同时在jni目录下新建一个.c文件，可随意命名，但是这里为了整齐，我将.c文件的文件名写的和.h文件一样。.c文件的内容是对.h文件中声明的方法进行具体实现。.c文件的内容如下所示：</p>
 <p><img src="/img/11.png" alt=""></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"com_example_lqynydyxf_myjniproject_HelloWorld.h"</span></span></div><div class="line">JNIEXPORT jstring JNICALL Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString</div><div class="line">        (JNIEnv *env, jobject object)&#123;</div><div class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">"Hello JNI!"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这里，我们直接返回了一个 <strong><em>Hello World!</em></strong> 字符串。</p>
-<p>###5. 生成Android.mk文件<br>此时，在jni目录下，我们已经拥有了一个.h和.c文件，然后我们需要再新建一个<strong>Android.mk</strong>文件，然后添加如下内容：</p>
+<h3 id="5-生成Android-mk文件"><a href="#5-生成Android-mk文件" class="headerlink" title="5. 生成Android.mk文件"></a>5. 生成Android.mk文件</h3><p>此时，在jni目录下，我们已经拥有了一个.h和.c文件，然后我们需要再新建一个<strong>Android.mk</strong>文件，然后添加如下内容：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH := $(call my-dir)</div><div class="line">include $(CLEAR_VARS)</div><div class="line">LOCAL_MODULE := helloworld</div><div class="line">LOCAL_SRC_FILES := com_example_lqynydyxf_myjniproject_HelloWorld.c</div><div class="line">include $(BUILD_SHARED_LIBRARY)</div></pre></td></tr></table></figure>
 <p>添加后，结果如下图所示：</p>
 <p><img src="/img/12.png" alt=""></p>
@@ -433,8 +433,7 @@
 <p>如果想要生成不同架构下的so文件，再新建一个Application.mk文件（默认是armeabi），添加想要支持的平台，比如：</p>
 <p>Application.mk</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">APP_ABI := armeabi armeabi-v7a x86 mips</div></pre></td></tr></table></figure>
-<p>###6. 其他配置</p>
-<ul>
+<h3 id="6-其他配置"><a href="#6-其他配置" class="headerlink" title="6. 其他配置"></a>6. 其他配置</h3><ul>
 <li>在<strong>local.properties文件</strong>中指明ndk的目录：</li>
 </ul>
 <p><img src="/img/13.png" alt=""></p>
@@ -448,12 +447,12 @@
 </ul>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android.useDeprecatedNdk=<span class="literal">true</span></div></pre></td></tr></table></figure>
 <p>到这里，基本的配置结束，然后Build整个项目。Build通过后，就可以进行下一步，也是最重要的一步。</p>
-<p>###7. 生成so文件<br>打开Terminal，使用cd命令进入到jni目录下，执行ndk-build命令。</p>
+<h3 id="7-生成so文件"><a href="#7-生成so文件" class="headerlink" title="7. 生成so文件"></a>7. 生成so文件</h3><p>打开Terminal，使用cd命令进入到jni目录下，执行ndk-build命令。</p>
 <p><img src="/img/14.png" alt=""></p>
 <p>如图所示，代表执行成功，这时切换到Project目录结构下，我们可以发现，在libs文件夹下，成功生成了.so文件。</p>
 <p><img src="/img/15.png" alt=""></p>
 <p>NDK编译系统会在<strong>moduleName</strong>前面加上<strong>lib</strong>，后面加上<strong>.so</strong>来作为so文件的文件名。</p>
-<p>###8. 调用so文件<br>回到HelloWorld类中，我们添加如下代码：</p>
+<h3 id="8-调用so文件"><a href="#8-调用so文件" class="headerlink" title="8. 调用so文件"></a>8. 调用so文件</h3><p>回到HelloWorld类中，我们添加如下代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">     System.loadLibrary(<span class="string">"helloworld"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>最后HelloWorld类的内部如下图所示：</p>
 <p><img src="/img/16.png" alt=""></p>
@@ -461,7 +460,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        TextView textView = <span class="keyword">new</span> TextView(<span class="keyword">this</span>);</div><div class="line">        HelloWorld helloWorld = <span class="keyword">new</span> HelloWorld();</div><div class="line">        textView.setText(helloWorld.getJNIString());</div><div class="line">        setContentView(textView);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>结果如图所示：</p>
 <p><img src="/img/17.png" alt=""></p>
-<p>###9.运行<br>运行项目，模拟器界面如下：</p>
+<h3 id="9-运行"><a href="#9-运行" class="headerlink" title="9.运行"></a>9.运行</h3><p>运行项目，模拟器界面如下：</p>
 <p><img src="/img/18.jpeg" alt=""></p>
 <p>这里输出的<strong><em>Hello World!</em></strong>就是我们通过JNI调用得到的。</p>
 
@@ -573,8 +572,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -674,6 +682,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">1. 新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-新建一个HelloWorld类"><span class="nav-number">1.2.</span> <span class="nav-text">2. 新建一个HelloWorld类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-生成-h文件"><span class="nav-number">1.3.</span> <span class="nav-text">3. 生成.h文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-生成-c文件"><span class="nav-number">1.4.</span> <span class="nav-text">4. 生成.c文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-生成Android-mk文件"><span class="nav-number">1.5.</span> <span class="nav-text">5. 生成Android.mk文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-其他配置"><span class="nav-number">1.6.</span> <span class="nav-text">6. 其他配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-生成so文件"><span class="nav-number">1.7.</span> <span class="nav-text">7. 生成so文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-调用so文件"><span class="nav-number">1.8.</span> <span class="nav-text">8. 调用so文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-运行"><span class="nav-number">1.9.</span> <span class="nav-text">9.运行</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

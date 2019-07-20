@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。 ###GroovyShell 1234567891011import groovy.lang.Binding;import groovy.lang.GroovyShell;class Groovy &amp;#123;    public static void main(String[] args)&amp;#123;        Bindin">
+<meta name="description" content="如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。 GroovyShell1234567891011import groovy.lang.Binding;import groovy.lang.GroovyShell;class Groovy &amp;#123;    public static void main(String[] args)&amp;#123;        Binding bi">
 <meta name="keywords" content="Groovy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java如何调用Groovy">
 <meta property="og:url" content="http://yoursite.com/2015/07/11/Java调用Groovy/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。 ###GroovyShell 1234567891011import groovy.lang.Binding;import groovy.lang.GroovyShell;class Groovy &amp;#123;    public static void main(String[] args)&amp;#123;        Bindin">
+<meta property="og:description" content="如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。 GroovyShell1234567891011import groovy.lang.Binding;import groovy.lang.GroovyShell;class Groovy &amp;#123;    public static void main(String[] args)&amp;#123;        Binding bi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2015-12-23T08:19:55.000Z">
+<meta property="og:updated_time" content="2019-07-20T15:53:15.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java如何调用Groovy">
-<meta name="twitter:description" content="如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。 ###GroovyShell 1234567891011import groovy.lang.Binding;import groovy.lang.GroovyShell;class Groovy &amp;#123;    public static void main(String[] args)&amp;#123;        Bindin">
+<meta name="twitter:description" content="如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。 GroovyShell1234567891011import groovy.lang.Binding;import groovy.lang.GroovyShell;class Groovy &amp;#123;    public static void main(String[] args)&amp;#123;        Binding bi">
 
 
 
@@ -366,8 +366,7 @@
 
       
         <p>如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。</p>
-<p>###GroovyShell</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> groovy.lang.Binding;</div><div class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</div><div class="line">        Binding bind =  <span class="keyword">new</span> Binding();</div><div class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</div><div class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</div><div class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</div><div class="line">        System.out.println(object);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="GroovyShell"><a href="#GroovyShell" class="headerlink" title="GroovyShell"></a>GroovyShell</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> groovy.lang.Binding;</div><div class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</div><div class="line">        Binding bind =  <span class="keyword">new</span> Binding();</div><div class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</div><div class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</div><div class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</div><div class="line">        System.out.println(object);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>结果输出为：</p>
 <pre><code>Hello Groovy!
 </code></pre><a id="more"></a>
@@ -383,7 +382,7 @@
 <blockquote>
 <p>Exception in thread “main”</p>
 </blockquote>
-<p>###GroovyScriptEngine<br>GroovyScriptEngine是比GroovyShell更完整的一个方案，我们指定脚本文件所在的目录，然后在运行时传入目录下脚本的文件名以及所需参数即可。</p>
+<h3 id="GroovyScriptEngine"><a href="#GroovyScriptEngine" class="headerlink" title="GroovyScriptEngine"></a>GroovyScriptEngine</h3><p>GroovyScriptEngine是比GroovyShell更完整的一个方案，我们指定脚本文件所在的目录，然后在运行时传入目录下脚本的文件名以及所需参数即可。</p>
 <p>示例代码：</p>
 <p>Foo.groovy</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">println <span class="string">"$arg"</span></div></pre></td></tr></table></figure>
@@ -398,8 +397,7 @@
 <pre><code>binding.setVariable(&quot;arg&quot;, argument);
 </code></pre><p>中强制规定了Groovy脚本必须有一个<strong><em>arg</em></strong>参数。</p>
 <p>当然，如果要传多个参数的话，还是要通过Binding，就好像Android里的ContentValues类或者Bundle类一样。</p>
-<p>###GroovyClassLoader</p>
-<p>####第一种方法<br>通过GroovyClassLoader加载Groovy类并且调用该类的方法</p>
+<h3 id="GroovyClassLoader"><a href="#GroovyClassLoader" class="headerlink" title="GroovyClassLoader"></a>GroovyClassLoader</h3><h4 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h4><p>通过GroovyClassLoader加载Groovy类并且调用该类的方法</p>
 <p>示例代码：</p>
 <p>Foo.groovy</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>&#123;</span></div><div class="line">	<span class="keyword">public</span> sayHello(a)&#123;</div><div class="line">   		println a</div><div class="line">   	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -408,7 +406,7 @@
 <p>输出结果为：</p>
 <pre><code>Hello Groovy!
 </code></pre><p>通过GroovyObject的<strong><em>invokeMethod</em></strong>方法调用Groovy类中的方法，第一个参数为方法名，第二个参数为所调方法的参数。</p>
-<p>####第二种方法<br>定义一个Java接口，再定义一个实现该接口的Groovy类，通过GroovyClassLoader加载Groovy类，然后直接调用该接口方法即可。</p>
+<h4 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h4><p>定义一个Java接口，再定义一个实现该接口的Groovy类，通过GroovyClassLoader加载Groovy类，然后直接调用该接口方法即可。</p>
 <p>代码示例：</p>
 <p>IFoo.java </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义一个Java接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IFoo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">(Object foo)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -523,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -624,6 +631,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyShell"><span class="nav-number">1.</span> <span class="nav-text">GroovyShell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyScriptEngine"><span class="nav-number">2.</span> <span class="nav-text">GroovyScriptEngine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GroovyClassLoader"><span class="nav-number">3.</span> <span class="nav-text">GroovyClassLoader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种方法"><span class="nav-number">3.1.</span> <span class="nav-text">第一种方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种方法"><span class="nav-number">3.2.</span> <span class="nav-text">第二种方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

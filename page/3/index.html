@@ -526,8 +526,7 @@
 
       
         
-          <p>##MAC OS X</p>
-<p>###Homebrew<br>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
+          <h2 id="MAC-OS-X"><a href="#MAC-OS-X" class="headerlink" title="MAC OS X"></a>MAC OS X</h2><h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h3><p>打开终端，输入以下命令（MAC OS X系统自带Ruby）：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
@@ -685,8 +684,8 @@
 
       
         
-          <p>##简介<br>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
-<p>##Doze和APP Standby模式测试<br>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。<br>
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Android 6.0（API level 23）引入了两个新特性，当设备没有连接到电源时，通过管理应用程序的行为来延长电池的寿命。当设备闲置了很长一段时间，<strong>Doze</strong>模式通过延迟后台CPU和网络活动来减少电量消耗。当用户最近和App没有互动时，<strong>App Standby</strong>模式会延迟App的后台网络活动。</p>
+<h2 id="Doze和APP-Standby模式测试"><a href="#Doze和APP-Standby模式测试" class="headerlink" title="Doze和APP Standby模式测试"></a>Doze和APP Standby模式测试</h2><p>为了确保完美的用户体验，开发者应该在这两种模式下充分测试自己的App。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/12/10/Android 6.0 Doze和App Standby调研/#more" rel="contents">
@@ -844,8 +843,7 @@
       
         
           <p>如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。</p>
-<p>###GroovyShell</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> groovy.lang.Binding;</div><div class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</div><div class="line">        Binding bind =  <span class="keyword">new</span> Binding();</div><div class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</div><div class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</div><div class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</div><div class="line">        System.out.println(object);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="GroovyShell"><a href="#GroovyShell" class="headerlink" title="GroovyShell"></a>GroovyShell</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> groovy.lang.Binding;</div><div class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</div><div class="line">        Binding bind =  <span class="keyword">new</span> Binding();</div><div class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</div><div class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</div><div class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</div><div class="line">        System.out.println(object);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>结果输出为：</p>
 <pre><code>Hello Groovy!
 </code></pre>
