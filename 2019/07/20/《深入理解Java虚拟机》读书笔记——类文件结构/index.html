@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
+<meta name="description" content="概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《深入理解Java虚拟机》读书笔记——类文件结构">
 <meta property="og:url" content="http://yoursite.com/2019/07/20/《深入理解Java虚拟机》读书笔记——类文件结构/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
+<meta property="og:description" content="概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-20T15:31:41.106Z">
+<meta property="og:updated_time" content="2019-07-20T15:37:25.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解Java虚拟机》读书笔记——类文件结构">
-<meta name="twitter:description" content="##概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
+<meta name="twitter:description" content="概述Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。">
 
 
 
@@ -343,21 +343,19 @@
       
 
       
-        <p>##概述<br>Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。<br><a id="more"></a><br>Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件之中，中间没有添加任何分割符，这使得整个Class文件中存储的内容几乎全部都是程序运行的必要数据，没有空隙存在。<br>根据Java虚拟机规范的规定，Class文件格式采用一种类似C语言结构体的伪结构来存储数据，这种伪结构只有两种数据结构：无符号数和表。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Java虚拟机不和包括Java在内的任何语言绑定，它只与”Class文件”这种特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集和符号表以及若干其他辅助信息。虚拟机并不关心Class的来源是何种语言。<br><a id="more"></a><br>Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件之中，中间没有添加任何分割符，这使得整个Class文件中存储的内容几乎全部都是程序运行的必要数据，没有空隙存在。<br>根据Java虚拟机规范的规定，Class文件格式采用一种类似C语言结构体的伪结构来存储数据，这种伪结构只有两种数据结构：无符号数和表。</p>
 <blockquote>
 <p>无符号数：基本数据类型，以u1，u2，u4，u8来分别表示1个字节，2个字节，4个字节和8个字节的无符号数，无符号数可以用来描述数字，索引饮用，数量值或者按照UTF-8编码构成字符串值。</p>
 <p>表：是由多个无符号数或者其他表作为数据项构成的复合数据类型，所有表都习惯性地以”_info”结尾。表用于描述有层次关系的复合结构的数据，整个Class文件本质上就是一张表。</p>
 </blockquote>
-<p>##Class类文件结构详解</p>
-<p>###魔数<br>0～3：每个Class文件的头4个字节称为魔数（Magic Number），它的唯一作用是确定这个文件是否为一个能被虚拟机接受的Class文件。CLass文件的魔数值为：0xCAFEBABE。</p>
-<p>###版本号<br>4～7：第5和第6个字节是次版本号，第7和第8个字节是主版本号。即使文件格式并未发生任何变化，虚拟机也必须拒绝执行超过其版本号的Class文件。</p>
-<p>###常量池数量以及常量池<br>8～9：常量池容量计数值。由于常量池中常量的数量是不固定的，所以在常量池的入口需要放置一项u2类型的数据，代表常量池容量计数值。假如常量池容量是0x0016，即十进制的22，这就代表常量池中有21项常量。</p>
-<p>###访问标志<br>在常量池结束之后，紧接着两个字节代表访问标志（access_flags），这个标志用于识别一些类或者接口层次的访问信息，包括：这个Class是类还是接口；是否定义为public类型；是否定义为abstract类型；如果是类的话，是否被申明为final等。</p>
-<p>###类索引，父类索引与接口索引集合<br>类索引（this_class）和父类索引（super_class）都是一个u2类型的数据，而接口索引集合是一组u2类型的数据的集合，Class文件中由这三项数据来确定这个类的继承关系。类索引用于确定这个类的全限定名，父类索引用于确定这个类的父类的全限定名。</p>
-<p>###字段表集合<br>字段表用于描述接口或者类中声明的变量。字段包括类级变量以及实例级变量，但不包括在方法内部声明的局部变量。</p>
-<p>###方法表集合<br>方法表的结构如同字段表一样，依次包括了访问标志，名称索引，描述索引，属性表集合。方法里的Java代码，经过编译器编译成字节码指令后，存放在方法属性表集合中一个名为“Code”的属性里面。如果父类方法在子类中没有被重写，方法表集合中就不会出现来自父类的方法信息。但同样的，有可能会出现编译器自动添加的方法，最典型的便是类构造器”<clinit>“方法和实例构造方法”<init>“方法。</init></clinit></p>
-<p>###属性表集合</p>
-<ol>
+<h2 id="Class类文件结构详解"><a href="#Class类文件结构详解" class="headerlink" title="Class类文件结构详解"></a>Class类文件结构详解</h2><h3 id="魔数"><a href="#魔数" class="headerlink" title="魔数"></a>魔数</h3><p>0～3：每个Class文件的头4个字节称为魔数（Magic Number），它的唯一作用是确定这个文件是否为一个能被虚拟机接受的Class文件。CLass文件的魔数值为：0xCAFEBABE。</p>
+<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>4～7：第5和第6个字节是次版本号，第7和第8个字节是主版本号。即使文件格式并未发生任何变化，虚拟机也必须拒绝执行超过其版本号的Class文件。</p>
+<h3 id="常量池数量以及常量池"><a href="#常量池数量以及常量池" class="headerlink" title="常量池数量以及常量池"></a>常量池数量以及常量池</h3><p>8～9：常量池容量计数值。由于常量池中常量的数量是不固定的，所以在常量池的入口需要放置一项u2类型的数据，代表常量池容量计数值。假如常量池容量是0x0016，即十进制的22，这就代表常量池中有21项常量。</p>
+<h3 id="访问标志"><a href="#访问标志" class="headerlink" title="访问标志"></a>访问标志</h3><p>在常量池结束之后，紧接着两个字节代表访问标志（access_flags），这个标志用于识别一些类或者接口层次的访问信息，包括：这个Class是类还是接口；是否定义为public类型；是否定义为abstract类型；如果是类的话，是否被申明为final等。</p>
+<h3 id="类索引，父类索引与接口索引集合"><a href="#类索引，父类索引与接口索引集合" class="headerlink" title="类索引，父类索引与接口索引集合"></a>类索引，父类索引与接口索引集合</h3><p>类索引（this_class）和父类索引（super_class）都是一个u2类型的数据，而接口索引集合是一组u2类型的数据的集合，Class文件中由这三项数据来确定这个类的继承关系。类索引用于确定这个类的全限定名，父类索引用于确定这个类的父类的全限定名。</p>
+<h3 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h3><p>字段表用于描述接口或者类中声明的变量。字段包括类级变量以及实例级变量，但不包括在方法内部声明的局部变量。</p>
+<h3 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h3><p>方法表的结构如同字段表一样，依次包括了访问标志，名称索引，描述索引，属性表集合。方法里的Java代码，经过编译器编译成字节码指令后，存放在方法属性表集合中一个名为“Code”的属性里面。如果父类方法在子类中没有被重写，方法表集合中就不会出现来自父类的方法信息。但同样的，有可能会出现编译器自动添加的方法，最典型的便是类构造器”<clinit>“方法和实例构造方法”<init>“方法。</init></clinit></p>
+<h3 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h3><ol>
 <li>Code属性；Java程序方法体中的代码经过Javac编译器处理后，最终变成字节码指令存储在Code属性内。Code属性出现在方法表的属性集合之中，但并非所有的方法表都必须存在这个属性，譬如接口或者抽象类中的方法就不存在Code属性。</li>
 <li>Exceptions属性：作用是列举方法中可能抛出的受查异常，也就是方法描述时在throws关键字后面列举的异常。</li>
 <li>LineNumberTable属性：用于描述Java源码行号与字节码行号之间的对应关系。可以在Javac中分别使用-g:none或-g:lines选项来取消或要求生成这项信息。如果不生成，对程序运行产生的最主要的影响就是当抛出异常时，堆栈中将不会显示出错的行号，并且在调试程序的时候，也无法按照源码行来设置断电。</li>
@@ -467,8 +465,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/1.png"
@@ -568,6 +575,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class类文件结构详解"><span class="nav-number">2.</span> <span class="nav-text">Class类文件结构详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#魔数"><span class="nav-number">2.1.</span> <span class="nav-text">魔数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本号"><span class="nav-number">2.2.</span> <span class="nav-text">版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量池数量以及常量池"><span class="nav-number">2.3.</span> <span class="nav-text">常量池数量以及常量池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问标志"><span class="nav-number">2.4.</span> <span class="nav-text">访问标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类索引，父类索引与接口索引集合"><span class="nav-number">2.5.</span> <span class="nav-text">类索引，父类索引与接口索引集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段表集合"><span class="nav-number">2.6.</span> <span class="nav-text">字段表集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法表集合"><span class="nav-number">2.7.</span> <span class="nav-text">方法表集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性表集合"><span class="nav-number">2.8.</span> <span class="nav-text">属性表集合</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
