@@ -317,6 +317,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/28/Lua学习笔记（4）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈旸">
+      <meta itemprop="description" content="杭州">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为码">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/05/28/Lua学习笔记（4）/" class="post-title-link" itemprop="url">Lua学习笔记（4）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-05-28 22:05:23" itemprop="dateCreated datePublished" datetime="2015-05-28T22:05:23+08:00">2015-05-28</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-20 23:54:17" itemprop="dateModified" datetime="2019-07-20T23:54:17+08:00">2019-07-20</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="元表与元方法"><a href="#元表与元方法" class="headerlink" title="元表与元方法"></a>元表与元方法</h2><h3 id="元表"><a href="#元表" class="headerlink" title="元表"></a>元表</h3><p>Lua中的每个值都有一个元表。table和userdata可以有各自独立的元表，而其他类型的值则共享类型所属的单一元表。Lua在创建新的table时不会创建元表。<br>使用<strong>setmetatable</strong>来设置或修改任何table的元表。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = &#123;&#125;</span><br><span class="line">t1 = &#123;&#125;</span><br><span class="line">setmetatable(t, t1)</span><br><span class="line">assert(getmetatable(t) ==  t1)</span><br></pre></td></tr></table></figure>
+
+
+<p>任何table都可以作为任何值的元表，而一组相关的table也可以共享一个通用的元表，此元表描述了它们共同的行为。</p>
+<blockquote>
+<p>Lua代码中，只能设置table的元表。若要设置其他类型的值的元表，则必须通过C代码来完成。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/05/28/Lua学习笔记（4）/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/28/Lua学习笔记（3）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -929,7 +1117,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -960,7 +1148,9 @@
         
           
         
-        <span class="site-state-item-count">7</span>
+          
+        
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>

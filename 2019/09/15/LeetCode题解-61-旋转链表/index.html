@@ -93,18 +93,17 @@
   };
 </script>
 
-  <meta name="description" content="Lua语法规范 Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。 Lua是有大小写之分的 Lua的数组下标是从1开始计算的 Lua将0和空字符串也视为真  解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码 2.”-l” 用来加载库文件 3.”-i” 运行完其他命令行参数后进入交互模式">
-<meta name="keywords" content="Lua">
+  <meta name="description" content="##题目描述给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 ##解题思路先求出链表长度length，k对length取余得到值offset，offset是链表实际需要移动的距离。如果offset=0，则链表不用移动。此题只要得到倒数第offset-1个节点，将此节点的next节点置空，然后将原链表的最后一个节点连上原链表的头节点即可。 ##代码 123456789">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lua学习笔记(1)">
-<meta property="og:url" content="http://yoursite.com/2015/05/26/Lua学习笔记（1）/index.html">
+<meta property="og:title" content="LeetCode题解-61.旋转链表">
+<meta property="og:url" content="http://yoursite.com/2019/09/15/LeetCode题解-61-旋转链表/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="Lua语法规范 Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。 Lua是有大小写之分的 Lua的数组下标是从1开始计算的 Lua将0和空字符串也视为真  解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码 2.”-l” 用来加载库文件 3.”-i” 运行完其他命令行参数后进入交互模式">
+<meta property="og:description" content="##题目描述给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 ##解题思路先求出链表长度length，k对length取余得到值offset，offset是链表实际需要移动的距离。如果offset=0，则链表不用移动。此题只要得到倒数第offset-1个节点，将此节点的next节点置空，然后将原链表的最后一个节点连上原链表的头节点即可。 ##代码 123456789">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-20T15:53:51.618Z">
+<meta property="og:updated_time" content="2019-09-15T09:36:23.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lua学习笔记(1)">
-<meta name="twitter:description" content="Lua语法规范 Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。 Lua是有大小写之分的 Lua的数组下标是从1开始计算的 Lua将0和空字符串也视为真  解释器的几个主要选项参数1.”-e” 可以直接诶在命令行中输入代码 2.”-l” 用来加载库文件 3.”-i” 运行完其他命令行参数后进入交互模式">
+<meta name="twitter:title" content="LeetCode题解-61.旋转链表">
+<meta name="twitter:description" content="##题目描述给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 ##解题思路先求出链表长度length，k对length取余得到值offset，offset是链表实际需要移动的距离。如果offset=0，则链表不用移动。此题只要得到倒数第offset-1个节点，将此节点的next节点置空，然后将原链表的最后一个节点连上原链表的头节点即可。 ##代码 123456789">
 
 
 
@@ -112,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2015/05/26/Lua学习笔记（1）/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/15/LeetCode题解-61-旋转链表/">
 
 
 
@@ -123,7 +122,7 @@
 </script>
 
   
-  <title>Lua学习笔记(1) | 以梦为码</title>
+  <title>LeetCode题解-61.旋转链表 | 以梦为码</title>
   
 
 
@@ -318,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/26/Lua学习笔记（1）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/LeetCode题解-61-旋转链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈旸">
@@ -335,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Lua学习笔记(1)
+          <h1 class="post-title" itemprop="name headline">LeetCode题解-61.旋转链表
 
               
             
@@ -361,23 +360,13 @@
                 
               
 
-              <time title="创建时间：2015-05-26 11:30:36" itemprop="dateCreated datePublished" datetime="2015-05-26T11:30:36+08:00">2015-05-26</time>
+              <time title="创建时间：2019-09-15 17:25:00 / 修改时间：17:36:23" itemprop="dateCreated datePublished" datetime="2019-09-15T17:25:00+08:00">2019-09-15</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-20 23:53:51" itemprop="dateModified" datetime="2019-07-20T23:53:51+08:00">2019-07-20</time>
-              </span>
             
           
 
@@ -390,7 +379,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
 
                 
                 
@@ -430,41 +419,10 @@
       
 
       
-        <h2 id="Lua语法规范"><a href="#Lua语法规范" class="headerlink" title="Lua语法规范"></a>Lua语法规范</h2><ul>
-<li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
-<li>Lua是有大小写之分的</li>
-<li>Lua的数组下标是从1开始计算的</li>
-<li>Lua将0和空字符串也视为真</li>
-</ul>
-<h2 id="解释器的几个主要选项参数"><a href="#解释器的几个主要选项参数" class="headerlink" title="解释器的几个主要选项参数"></a>解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
-<p>2.”-l” 用来加载库文件</p>
-<p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
-<a id="more"></a>
-
-<h2 id="Lua的8种基础类型"><a href="#Lua的8种基础类型" class="headerlink" title="Lua的8种基础类型"></a>Lua的8种基础类型</h2><ul>
-<li>nil</li>
-<li>boolean</li>
-<li>number</li>
-<li>string</li>
-<li>userdata(自定义类型)</li>
-<li>function(函数)</li>
-<li>thread</li>
-<li>table(表)</li>
-</ul>
-<blockquote>
-<p>Lua中的字符串是不可变的值</p>
-<p>函数type可根据一个值返回其类型名称(返回的是一个字符串)</p>
-</blockquote>
-<h2 id="Lua的自动类型转换"><a href="#Lua的自动类型转换" class="headerlink" title="Lua的自动类型转换"></a>Lua的自动类型转换</h2><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p>Lua提供了运行时的数字雨字符串的自动转换。Lua不仅在算术操作中会施以这种强制转换，还会在其他任何需要数字的地方这么做。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"10"</span> + <span class="number">1</span>） --&gt; <span class="number">11</span></span><br><span class="line">print(<span class="string">"-5.3e-10"</span>*<span class="string">"2"</span>)  --&gt;-<span class="number">1.06</span>e-09</span><br></pre></td></tr></table></figure>
-
-<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><p>Lua可以讲数字转换成字符串，”..”是字符串连接操作符。当直接在一个数字后面输入它的时候，必须要用一个空格来分隔。不然Lua会将第一个点理解为一个小数点。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">10</span> .. <span class="number">20</span>)  --&gt; <span class="number">1020</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><p>显式地将一个字符串转换为数字，可以使用tonumber方法</p>
-<p>将一个数字转换成字符串，可以使用tostring方法，或者将该数字与一个空字符串相连接</p>
-<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4><p>在Lua 5.1中，可以在字符串前放置操作符”#”来获得该字符串的长度</p>
-
+        <p>##题目描述<br>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
+<p>##解题思路<br>先求出链表长度length，k对length取余得到值offset，offset是链表实际需要移动的距离。如果offset=0，则链表不用移动。此题只要得到倒数第offset-1个节点，将此节点的next节点置空，然后将原链表的最后一个节点连上原链表的头节点即可。</p>
+<p>##代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">rotateRight</span><span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 边界处理</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="comment">// 得到链表长度</span></span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            length++;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 取余得到offset</span></span><br><span class="line">        <span class="keyword">int</span> offset = k % length;</span><br><span class="line">        <span class="keyword">if</span> (offset == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 先拿到第offset+1 个节点</span></span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; offset; i++) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        <span class="comment">// 再拿到倒数第offset-1个节点，即fast；此时slow为链表的最后一个节点</span></span><br><span class="line">        <span class="keyword">while</span> (slow.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode newHead = fast.next;</span><br><span class="line">        <span class="comment">// 将倒数第offset-1个节点的next置空，否则会出现循环链表；将最后一个节点的next置为头节点</span></span><br><span class="line">        fast.next = <span class="keyword">null</span>;</span><br><span class="line">        slow.next = head;</span><br><span class="line">        <span class="keyword">return</span> newHead;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -489,15 +447,6 @@
 
     <footer class="post-footer">
       
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/Lua/" rel="tag"># Lua</a>
-          
-        </div>
-      
 
       
       
@@ -507,15 +456,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/04/《深入理解Java虚拟机》读书笔记——Java内存模型/" rel="next" title="《深入理解Java虚拟机》读书笔记——Java内存模型">
+                <i class="fa fa-chevron-left"></i> 《深入理解Java虚拟机》读书笔记——Java内存模型
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/05/28/Lua学习笔记（2）/" rel="prev" title="Lua学习笔记(2)">
-                Lua学习笔记(2) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,17 +508,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -673,23 +613,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua语法规范"><span class="nav-number">1.</span> <span class="nav-text">Lua语法规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释器的几个主要选项参数"><span class="nav-number">2.</span> <span class="nav-text">解释器的几个主要选项参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua的8种基础类型"><span class="nav-number">3.</span> <span class="nav-text">Lua的8种基础类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua的自动类型转换"><span class="nav-number">4.</span> <span class="nav-text">Lua的自动类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4"><span class="nav-number">4.0.4.</span> <span class="nav-text">4.</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
