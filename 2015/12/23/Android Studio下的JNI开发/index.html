@@ -101,26 +101,26 @@
 <meta property="og:site_name" content="以梦为码">
 <meta property="og:description" content="前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/5.jpg">
-<meta property="og:image" content="http://yoursite.com/img/6.jpeg">
-<meta property="og:image" content="http://yoursite.com/img/7.jpeg">
-<meta property="og:image" content="http://yoursite.com/img/8.png">
-<meta property="og:image" content="http://yoursite.com/img/9.png">
-<meta property="og:image" content="http://yoursite.com/img/10.png">
-<meta property="og:image" content="http://yoursite.com/img/19.png">
-<meta property="og:image" content="http://yoursite.com/img/11.png">
-<meta property="og:image" content="http://yoursite.com/img/12.png">
-<meta property="og:image" content="http://yoursite.com/img/13.png">
-<meta property="og:image" content="http://yoursite.com/img/14.png">
-<meta property="og:image" content="http://yoursite.com/img/15.png">
-<meta property="og:image" content="http://yoursite.com/img/16.png">
-<meta property="og:image" content="http://yoursite.com/img/17.png">
-<meta property="og:image" content="http://yoursite.com/img/18.jpeg">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/6.jpeg">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/7.jpeg">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/8.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/9.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/10.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/19.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/11.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/12.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/13.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/14.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/15.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/16.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/17.png">
+<meta property="og:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/18.jpeg">
 <meta property="og:updated_time" content="2019-07-20T15:51:05.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio下的JNI开发">
 <meta name="twitter:description" content="前言Android开发无法绕开JNI，因为通过JNI我们可以使用大量成熟的用C或者C++写的库，比如openssl等。这几天一直在研究JNI的开发过程，现记录如下。  开发环境：Android Studio 2.0 Preview 3b  1. 新建项目新建项目，命名MyJniProject，选择Empty Activity。">
-<meta name="twitter:image" content="http://yoursite.com/img/5.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2015/12/23/Android%20Studio下的JNI开发/5.jpg">
 
 
 
@@ -452,9 +452,9 @@
 </blockquote>
 <h3 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h3><p>新建项目，命名MyJniProject，选择Empty Activity。</p>
 <a id="more"></a>
-<p><img src="/img/5.jpg" alt></p>
-<h3 id="2-新建一个HelloWorld类"><a href="#2-新建一个HelloWorld类" class="headerlink" title="2. 新建一个HelloWorld类"></a>2. 新建一个HelloWorld类</h3><p>在HelloWorld类里新增一个native方法，命名为<strong><em>getJNIString</em></strong>，如下图所示。<br><img src="/img/6.jpeg" alt></p>
-<p>然后Build整个工程，会自动生成class文件。先把目录结构从Android切为Project，看到class文件的目录如下图所示。<br><img src="/img/7.jpeg" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/5.jpg" alt></p>
+<h3 id="2-新建一个HelloWorld类"><a href="#2-新建一个HelloWorld类" class="headerlink" title="2. 新建一个HelloWorld类"></a>2. 新建一个HelloWorld类</h3><p>在HelloWorld类里新增一个native方法，命名为<strong><em>getJNIString</em></strong>，如下图所示。<br><img src="/2015/12/23/Android Studio下的JNI开发/6.jpeg" alt></p>
+<p>然后Build整个工程，会自动生成class文件。先把目录结构从Android切为Project，看到class文件的目录如下图所示。<br><img src="/2015/12/23/Android Studio下的JNI开发/7.jpeg" alt></p>
 <h3 id="3-生成-h文件"><a href="#3-生成-h文件" class="headerlink" title="3. 生成.h文件"></a>3. 生成.h文件</h3><p>点击Android Studio底部的Terminal，会打开IDE内置的命令行工具。然后cd命令进入到debug目录下，然后输入命令：</p>
 <blockquote>
 <p>set classpath=”debug目录的绝对路径”</p>
@@ -469,18 +469,18 @@
 <p>然后用<strong><em>javah -jni</em></strong>命令编译HelloWorld.class，生成.h文件。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah -jni com.example.lqynydyxf.myjniproject.HelloWorld</span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/8.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/8.png" alt></p>
 <p>执行上述操作后，在debug目录下，会出现一个文件名为<br><strong>com_example_lqynydyxf_myjniproject_HelloWorld</strong>的.h文件。</p>
-<p><img src="/img/9.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/9.png" alt></p>
 <p>.h文件内的代码其实就是对之前定义的<strong>getJNIString</strong>方法的声明，但是此时方法名会变成</p>
 <blockquote>
 <p>Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString**。</p>
 </blockquote>
-<p><img src="/img/10.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/10.png" alt></p>
 <p>.h文件的内容如下图所示：</p>
-<p><img src="/img/19.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/19.png" alt></p>
 <h3 id="4-生成-c文件"><a href="#4-生成-c文件" class="headerlink" title="4. 生成.c文件"></a>4. 生成.c文件</h3><p>进入到src目录下，新建一个名为jni的文件夹（New-&gt;Directory），然后把之前生成的.h文件剪切过来，放到jni目录下，同时在jni目录下新建一个.c文件，可随意命名，但是这里为了整齐，我将.c文件的文件名写的和.h文件一样。.c文件的内容是对.h文件中声明的方法进行具体实现。.c文件的内容如下所示：</p>
-<p><img src="/img/11.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/11.png" alt></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"com_example_lqynydyxf_myjniproject_HelloWorld.h"</span></span></span><br><span class="line">JNIEXPORT jstring JNICALL Java_com_example_lqynydyxf_myjniproject_HelloWorld_getJNIString</span><br><span class="line">        (JNIEnv *env, jobject object)&#123;</span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">"Hello JNI!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里，我们直接返回了一个 <strong><em>Hello World!</em></strong> 字符串。</p>
@@ -488,7 +488,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE := helloworld</span><br><span class="line">LOCAL_SRC_FILES := com_example_lqynydyxf_myjniproject_HelloWorld.c</span><br><span class="line">include $(BUILD_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure>
 
 <p>添加后，结果如下图所示：</p>
-<p><img src="/img/12.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/12.png" alt></p>
 <ul>
 <li>LOCAL_PATH: 这个变量用于给出当前文件的路径。 必须在 Android.mk 的开头定义，可以这样使用：<strong>LOCAL_PATH := $(call my-dir)</strong>。如当前目录下有个文件夹名称 src，则可以这样写 $(call src)，那么就会得到 src 目录的完整路径。这个变量不会被$(CLEAR_VARS)清除，因此每个 Android.mk 只需要定义一次(即使在一个文件中定义了几个模块的情况下)。</li>
 </ul>
@@ -508,7 +508,7 @@
 <h3 id="6-其他配置"><a href="#6-其他配置" class="headerlink" title="6. 其他配置"></a>6. 其他配置</h3><ul>
 <li>在<strong>local.properties文件</strong>中指明ndk的目录：</li>
 </ul>
-<p><img src="/img/13.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/13.png" alt></p>
 <ul>
 <li>修改Module的build.gradle文件：在defaultConfig中加入如下代码：</li>
 </ul>
@@ -522,22 +522,22 @@
 
 <p>到这里，基本的配置结束，然后Build整个项目。Build通过后，就可以进行下一步，也是最重要的一步。</p>
 <h3 id="7-生成so文件"><a href="#7-生成so文件" class="headerlink" title="7. 生成so文件"></a>7. 生成so文件</h3><p>打开Terminal，使用cd命令进入到jni目录下，执行ndk-build命令。</p>
-<p><img src="/img/14.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/14.png" alt></p>
 <p>如图所示，代表执行成功，这时切换到Project目录结构下，我们可以发现，在libs文件夹下，成功生成了.so文件。</p>
-<p><img src="/img/15.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/15.png" alt></p>
 <p>NDK编译系统会在<strong>moduleName</strong>前面加上<strong>lib</strong>，后面加上<strong>.so</strong>来作为so文件的文件名。</p>
 <h3 id="8-调用so文件"><a href="#8-调用so文件" class="headerlink" title="8. 调用so文件"></a>8. 调用so文件</h3><p>回到HelloWorld类中，我们添加如下代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">     System.loadLibrary(<span class="string">"helloworld"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>最后HelloWorld类的内部如下图所示：</p>
-<p><img src="/img/16.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/16.png" alt></p>
 <p>然后修改MainActivity的onCreate代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        TextView textView = <span class="keyword">new</span> TextView(<span class="keyword">this</span>);</span><br><span class="line">        HelloWorld helloWorld = <span class="keyword">new</span> HelloWorld();</span><br><span class="line">        textView.setText(helloWorld.getJNIString());</span><br><span class="line">        setContentView(textView);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>结果如图所示：</p>
-<p><img src="/img/17.png" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/17.png" alt></p>
 <h3 id="9-运行"><a href="#9-运行" class="headerlink" title="9.运行"></a>9.运行</h3><p>运行项目，模拟器界面如下：</p>
-<p><img src="/img/18.jpeg" alt></p>
+<p><img src="/2015/12/23/Android Studio下的JNI开发/18.jpeg" alt></p>
 <p>这里输出的<strong><em>Hello World!</em></strong>就是我们通过JNI调用得到的。</p>
 
       

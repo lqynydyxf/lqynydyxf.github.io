@@ -101,10 +101,12 @@
 <meta property="og:site_name" content="以梦为码">
 <meta property="og:description" content="题目描述编写一个程序，找到两个单链表相交的起始节点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T14:58:13.869Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/13/LeetCode题解-160-相交链表/160.jpeg">
+<meta property="og:updated_time" content="2019-10-13T15:47:17.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode题解-160. 相交链表">
 <meta name="twitter:description" content="题目描述编写一个程序，找到两个单链表相交的起始节点。">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/13/LeetCode题解-160-相交链表/160.jpeg">
 
 
 
@@ -361,7 +363,7 @@
                 
               
 
-              <time title="创建时间：2019-10-13 17:12:59 / 修改时间：22:58:13" itemprop="dateCreated datePublished" datetime="2019-10-13T17:12:59+08:00">2019-10-13</time>
+              <time title="创建时间：2019-10-13 17:12:59 / 修改时间：23:47:17" itemprop="dateCreated datePublished" datetime="2019-10-13T17:12:59+08:00">2019-10-13</time>
             </span>
           
 
@@ -425,6 +427,7 @@
 
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>除了暴力法之外，可以用双指针法来做。</p>
 <p>创建两个节点l1和l2，分别指向两个链表heabA和headB的头，然后依次向后遍历，并判断两个节点是否相等，相等且都不为空，则表示有相交。如果l1到达链表的尾部，则把l1指向headB；如果l2到达链表的尾部，则把l2指向headA。</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p><img src="/2019/10/13/LeetCode题解-160-相交链表/160.jpeg" alt="LeetCode题解-160-相交链表"></p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (headA == <span class="keyword">null</span> || headB == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode l1 = headA, l2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (l1 != l2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">                l1 = headB;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l1= l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">                l2 = headA;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -653,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明"><span class="nav-number">3.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>

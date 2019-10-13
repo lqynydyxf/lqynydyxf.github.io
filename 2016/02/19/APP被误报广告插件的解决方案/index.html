@@ -101,12 +101,12 @@
 <meta property="og:site_name" content="以梦为码">
 <meta property="og:description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/ads.jpeg">
+<meta property="og:image" content="http://yoursite.com/2016/02/19/APP被误报广告插件的解决方案/ads.jpeg">
 <meta property="og:updated_time" content="2019-07-20T15:51:28.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APP被误报广告插件的解决方案">
 <meta name="twitter:description" content="前言App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。">
-<meta name="twitter:image" content="http://yoursite.com/img/ads.jpeg">
+<meta name="twitter:image" content="http://yoursite.com/2016/02/19/APP被误报广告插件的解决方案/ads.jpeg">
 
 
 
@@ -435,7 +435,7 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>App明明没有任何广告，但是企鹅手机管家非说你的App有广告插件，太让人郁闷了。但是既然出现问题，就要解决，不然就不是一位优秀的程序猿了（严肃脸）。</p>
 <a id="more"></a>
 <h3 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h3><p>我司的产品面向海外，故需要用到Google的GCM，因此在项目里集成了<strong>google-play-services.jar</strong>。从网上查阅的资料来看，这个jar包很可能就是罪魁祸首。</p>
-<p>使用JD-GUI反编译<strong>google-play-services.jar</strong>，该jar的结构如下所示。<br><img src="/img/ads.jpeg" alt></p>
+<p>使用JD-GUI反编译<strong>google-play-services.jar</strong>，该jar的结构如下所示。<br><img src="/2016/02/19/APP被误报广告插件的解决方案/ads.jpeg" alt></p>
 <p>这两个ads文件夹应该就是谷歌自带的广告模块。</p>
 <p>解决方法是解压<strong>google-play-services.jar</strong>，然后删除这两个ads文件夹，再使用<strong>jar -cvf</strong>命令重新打包，将新打包的jar文件替换原来的jar即可。</p>
 
