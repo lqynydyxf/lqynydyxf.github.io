@@ -317,6 +317,191 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/11/Java调用Groovy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈旸">
+      <meta itemprop="description" content="杭州">
+      <meta itemprop="image" content="/images/c.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为码">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/07/11/Java调用Groovy/" class="post-title-link" itemprop="url">Java如何调用Groovy</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-07-11 10:35:34" itemprop="dateCreated datePublished" datetime="2015-07-11T10:35:34+08:00">2015-07-11</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-20 23:53:15" itemprop="dateModified" datetime="2019-07-20T23:53:15+08:00">2019-07-20</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Document/" itemprop="url" rel="index"><span itemprop="name">Document</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>如果想在Java代码中嵌入Groovy代码，目前主要有三种方式。</p>
+<h3 id="GroovyShell"><a href="#GroovyShell" class="headerlink" title="GroovyShell"></a>GroovyShell</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> groovy.lang.Binding;</span><br><span class="line"><span class="keyword">import</span> groovy.lang.GroovyShell;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Groovy</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</span><br><span class="line">        Binding bind =  <span class="keyword">new</span> Binding();</span><br><span class="line">        bind.setVariable(<span class="string">"greeting"</span>, <span class="string">"Hello Groovy!"</span>);</span><br><span class="line">        GroovyShell shell = <span class="keyword">new</span> GroovyShell(bind);</span><br><span class="line">        Object object = shell.evaluate(<span class="string">"greeting"</span>);</span><br><span class="line">        System.out.println(object);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果输出为：</p>
+<pre><code>Hello Groovy!</code></pre>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/07/11/Java调用Groovy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/28/Lua学习笔记（4）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -881,200 +1066,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/26/Lua学习笔记（1）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈旸">
-      <meta itemprop="description" content="杭州">
-      <meta itemprop="image" content="/images/c.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为码">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/05/26/Lua学习笔记（1）/" class="post-title-link" itemprop="url">Lua学习笔记(1)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-05-26 11:30:36" itemprop="dateCreated datePublished" datetime="2015-05-26T11:30:36+08:00">2015-05-26</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-20 23:53:51" itemprop="dateModified" datetime="2019-07-20T23:53:51+08:00">2019-07-20</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Lua语法规范"><a href="#Lua语法规范" class="headerlink" title="Lua语法规范"></a>Lua语法规范</h2><ul>
-<li>Lua中的标识符可以是由任意字母，数字和下划线构成的字符串，但不能以数字开头。</li>
-<li>Lua是有大小写之分的</li>
-<li>Lua的数组下标是从1开始计算的</li>
-<li>Lua将0和空字符串也视为真</li>
-</ul>
-<h2 id="解释器的几个主要选项参数"><a href="#解释器的几个主要选项参数" class="headerlink" title="解释器的几个主要选项参数"></a>解释器的几个主要选项参数</h2><p>1.”-e” 可以直接诶在命令行中输入代码</p>
-<p>2.”-l” 用来加载库文件</p>
-<p>3.”-i” 运行完其他命令行参数后进入交互模式</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/05/26/Lua学习笔记（1）/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1119,7 +1115,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1189,7 +1185,9 @@
         
           
         
-        <span class="site-state-item-count">9</span>
+          
+        
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
