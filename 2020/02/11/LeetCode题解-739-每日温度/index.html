@@ -93,18 +93,18 @@
   };
 </script>
 
-  <meta name="description" content="题目描述给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。">
-<meta name="keywords" content="链表">
+  <meta name="description" content="题目描述根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。 例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。">
+<meta name="keywords" content="栈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode题解-82.删除排序链表中的重复元素II">
-<meta property="og:url" content="http://yoursite.com/2019/09/16/LeetCode题解-82-删除排序链表中的重复元素II/index.html">
+<meta property="og:title" content="LeetCode题解-739. 每日温度">
+<meta property="og:url" content="http://yoursite.com/2020/02/11/LeetCode题解-739-每日温度/index.html">
 <meta property="og:site_name" content="以梦为码">
-<meta property="og:description" content="题目描述给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。">
+<meta property="og:description" content="题目描述根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。 例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-28T15:04:04.672Z">
+<meta property="og:updated_time" content="2020-02-11T07:01:03.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode题解-82.删除排序链表中的重复元素II">
-<meta name="twitter:description" content="题目描述给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。">
+<meta name="twitter:title" content="LeetCode题解-739. 每日温度">
+<meta name="twitter:description" content="题目描述根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。 例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。">
 
 
 
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/09/16/LeetCode题解-82-删除排序链表中的重复元素II/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/11/LeetCode题解-739-每日温度/">
 
 
 
@@ -123,7 +123,7 @@
 </script>
 
   
-  <title>LeetCode题解-82.删除排序链表中的重复元素II | 以梦为码</title>
+  <title>LeetCode题解-739. 每日温度 | 以梦为码</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/LeetCode题解-82-删除排序链表中的重复元素II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/LeetCode题解-739-每日温度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈旸">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode题解-82.删除排序链表中的重复元素II
+          <h1 class="post-title" itemprop="name headline">LeetCode题解-739. 每日温度
 
               
             
@@ -361,23 +361,13 @@
                 
               
 
-              <time title="创建时间：2019-09-16 21:42:16" itemprop="dateCreated datePublished" datetime="2019-09-16T21:42:16+08:00">2019-09-16</time>
+              <time title="创建时间：2020-02-11 14:04:01 / 修改时间：15:01:03" itemprop="dateCreated datePublished" datetime="2020-02-11T14:04:01+08:00">2020-02-11</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-28 23:04:04" itemprop="dateModified" datetime="2019-09-28T23:04:04+08:00">2019-09-28</time>
-              </span>
             
           
 
@@ -430,21 +420,17 @@
       
 
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。</p>
+<p>例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。</p>
 <a id="more"></a>
 
-<p><strong>示例1</strong>:</p>
 <blockquote>
-<p>输入: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5</p>
-<p>输出: 1-&gt;2-&gt;5</p>
+<p>提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
 </blockquote>
-<p><strong>示例2</strong>:</p>
-<blockquote>
-<p>输入: 1-&gt;1-&gt;1-&gt;2-&gt;3</p>
-<p>输出: 2-&gt;3</p>
-</blockquote>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>根据题意可知，如果相连的三个数都不相等，则中间那个数就是我们要的没有重复出现的数字。使用三个指针分别指向相连的三个数，然后遍历链表，把符合条件的数放到新链表里即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode prev = <span class="keyword">null</span>;</span><br><span class="line">        ListNode current = head;</span><br><span class="line">        ListNode next = current.next;</span><br><span class="line">        ListNode pointer = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        ListNode newHead = pointer;</span><br><span class="line">        <span class="keyword">while</span> (next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 第一个节点特殊处理，如果第一个节点和他的下一个节点不相等，则第一个节点也是满足条件的</span></span><br><span class="line">            <span class="keyword">if</span> (prev == <span class="keyword">null</span> &amp;&amp; current.val != next.val || prev != <span class="keyword">null</span> &amp;&amp; prev.val != current.val &amp;&amp; current.val != next.val) &#123;</span><br><span class="line">                pointer.next = <span class="keyword">new</span> ListNode(current.val);</span><br><span class="line">                pointer = pointer.next;</span><br><span class="line">            &#125;</span><br><span class="line">            prev = current;</span><br><span class="line">            current = next;</span><br><span class="line">            next = current.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (prev.val != current.val) &#123;</span><br><span class="line">            pointer.next = <span class="keyword">new</span> ListNode(current.val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newHead.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始看到这道题，第一想法就是两层for循环遍历数组，向右查找第一个比自己大的数，然后记录下二者间隔的距离（代码1）。但是本题归类为栈，前一种解法并没有用到。本题也可以用单调递减栈来处理，但是一开始我用栈来存储温度值，HashMap保存温度值和位置的关系。提交后发现有一个case没有通过，在那个case中不同日期温度可以是相同的，所以无法用HashMap。后来看了题解，发现只要栈来保存位置信息即可（代码2）。</p>
+<h2 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] dailyTemperatures(<span class="keyword">int</span>[] T) &#123;</span><br><span class="line">        <span class="keyword">int</span> length = T.length;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br><span class="line">        <span class="keyword">if</span> (length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temperature = T[i];</span><br><span class="line">            <span class="keyword">int</span> dis = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (T[j] &gt; temperature) &#123;</span><br><span class="line">                    dis = j - i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = dis;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] dailyTemperatures(<span class="keyword">int</span>[] T) &#123;</span><br><span class="line">        <span class="keyword">int</span> length = T.length;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; T[stack.peek()] &lt; T[i]) &#123;</span><br><span class="line">                <span class="keyword">int</span> index = stack.pop();</span><br><span class="line">                ans[index] = i - index;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -474,7 +460,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/链表/" rel="tag"># 链表</a>
+            <a href="/tags/栈/" rel="tag"># 栈</a>
           
         </div>
       
@@ -487,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/15/LeetCode题解-61-旋转链表/" rel="next" title="LeetCode题解-61.旋转链表">
-                <i class="fa fa-chevron-left"></i> LeetCode题解-61.旋转链表
+              <a href="/2019/11/08/LeetCode题解-1021-删除最外层的括号/" rel="next" title="LeetCode题解-1021-删除最外层的括号">
+                <i class="fa fa-chevron-left"></i> LeetCode题解-1021-删除最外层的括号
               </a>
             
           </div>
@@ -496,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/18/LeetCode题解-83-删除排序链表中的重复元I/" rel="prev" title="LeetCode题解-83.删除排序链表中的重复元I">
-                LeetCode题解-83.删除排序链表中的重复元I <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -678,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码1"><span class="nav-number">3.</span> <span class="nav-text">代码1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码2"><span class="nav-number">4.</span> <span class="nav-text">代码2</span></a></li></ol></div>
             
 
           </div>
